@@ -3,35 +3,1119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ - Tech4Life</title>
+    <title>Tech4life Expo & Summit 2026 - Công nghệ cho cuộc sống thông minh</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB', // Xanh hoàng gia (Royal Blue)
+                            dark: '#1E3A8A',    // Xanh dương đậm (Deep Blue)
+                        },
+                        secondary: {
+                            DEFAULT: '#60A5FA', // Xanh lam sáng
+                            gradientStart: '#E0E7FF', // Tím nhạt
+                            gradientEnd: '#DBEAFE',   // Xanh nhạt
+                        },
+                        background: {
+                            DEFAULT: '#FFFFFF', // Trắng
+                            alt: '#F8FAFC',     // Xám nhạt
+                            footer: '#0F172A',  // Xanh đen đậm
+                        },
+                        text: {
+                            main: '#334155',    // Xám đậm
+                            muted: '#64748B',   // Xám nhạt hơn
+                            heading: '#1E3A8A', // Xanh dương đậm
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        html, body { min-height: 100vh; }
+        html, body {
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .logo-filter {
+            filter: grayscale(100%);
+            opacity: 0.65;
+            transition: all 0.3s ease;
+        }
+        .logo-filter:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
     </style>
 </head>
-<body class="bg-slate-50 flex flex-col font-sans text-gray-800">
+<body class="bg-white flex flex-col font-sans text-text-main antialiased">
+    <!-- HEADER CONTAINER (Loaded via JS) -->
     <header id="app-header"></header>
     
-    <main class="flex-grow container mx-auto px-4 py-12">
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 md:p-12">
-            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">Tech4Life 2026</div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Trang chủ</h1>
-            <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
-                Chào mừng bạn đến với trang <span class="font-semibold text-slate-800">Trang chủ</span>. 
-                Nội dung chi tiết của phần này đang được cập nhật và sẽ sớm ra mắt.
-            </p>
-            
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Skeleton loader / Placeholder blocks -->
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-75"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-150"></div>
+    <main class="flex-grow">
+        
+        <!-- SECTION 1: CÔNG NGHỆ NÂNG TẦM CUỘC SỐNG (HERO SECTION) -->
+        <section class="relative bg-gradient-to-br from-secondary-gradientStart to-secondary-gradientEnd py-16 md:py-24 overflow-hidden">
+            <!-- Watermark Background Logo -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden">
+                <img src="assets/images/logos/tech4life2.png" alt="Tech4life Watermark" class="w-[600px] md:w-[1100px] h-auto opacity-[0.15] max-w-full">
             </div>
-        </div>
+
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 left-0 w-64 h-64 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse delay-1000"></div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <div class="text-center max-w-4xl mx-auto mb-16 relative z-10">
+                    <!-- Host / Organizer Tag -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/80 backdrop-blur border border-blue-100 text-primary-dark rounded-full text-xs md:text-sm font-semibold mb-6 shadow-sm">
+                        <img src="assets/images/logos/logo-VINASA-1024x1005.png" alt="VINASA Logo" class="h-4 w-auto">
+                        <span>Hiệp hội Phần mềm và Dịch vụ CNTT Việt Nam (VINASA)</span>
+                    </div>
+
+                    <!-- Main Event Title -->
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-primary-dark tracking-tight leading-tight mb-6 relative z-10">
+                        TECH4LIFE <span class="text-primary">EXPO & SUMMIT 2026</span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="text-lg md:text-2xl text-text-main font-medium leading-relaxed mb-8 max-w-3xl mx-auto">
+                        Công nghệ cho cuộc sống thông minh <br class="hidden md:inline">
+                        <span class="text-text-muted font-normal text-base md:text-xl">(Smart Tech for Smart Life)</span>
+                    </p>
+
+                    <!-- Event Core Info Badge -->
+                    <div class="inline-grid grid-cols-1 md:grid-cols-2 gap-4 bg-white/95 backdrop-blur p-6 rounded-2xl shadow-xl border border-blue-50/50 mb-10 max-w-xl mx-auto text-left">
+                        <div class="flex items-center gap-3">
+                            <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 text-blue-600">
+                                <!-- Calendar Minimalist SVG Icon -->
+                                <svg class="w-5.5 h-5.5 stroke-current text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                    <line x1="16" y1="2" x2="16" y2="6" />
+                                    <line x1="8" y1="2" x2="8" y2="6" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
+                                </svg>
+                            </span>
+                            <div>
+                                <p class="text-xs text-text-muted uppercase font-bold tracking-wider">Thời gian</p>
+                                <p class="text-sm md:text-base font-bold text-primary-dark">Ngày 17 - 18/09/2026</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 border-t md:border-t-0 md:border-l border-gray-100 pt-3 md:pt-0 md:pl-4">
+                            <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 text-blue-600">
+                                <!-- Location Pin Minimalist SVG Icon -->
+                                <svg class="w-5.5 h-5.5 stroke-current text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25a7.5 7.5 0 1115 0z" />
+                                </svg>
+                            </span>
+                            <div>
+                                <p class="text-xs text-text-muted uppercase font-bold tracking-wider">Địa điểm</p>
+                                <p class="text-sm md:text-base font-bold text-primary-dark">Q.1, TP. Hồ Chí Minh</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <a href="tham-du.html" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 text-center">
+                            Đăng ký Tham dự
+                        </a>
+                        <a href="tai-tro.html" class="w-full sm:w-auto bg-white text-primary border border-primary hover:bg-background-alt font-semibold py-3.5 px-8 rounded-full shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                            Đăng ký Gian hàng
+                        </a>
+                    </div>
+
+                    <!-- Countdown Timer UI -->
+                    <div class="mt-12 max-w-lg mx-auto">
+                        <p class="text-xs text-text-muted uppercase font-bold tracking-wider mb-3">Sự kiện sẽ diễn ra sau</p>
+                        <div class="grid grid-cols-4 gap-4">
+                            <!-- Days -->
+                            <div class="bg-white/60 backdrop-blur-md border border-white/80 rounded-2xl p-3 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-center">
+                                <span id="countdown-days" class="block text-2xl md:text-3xl font-extrabold text-primary-dark">00</span>
+                                <span class="text-[10px] text-text-muted uppercase font-semibold">Ngày</span>
+                            </div>
+                            <!-- Hours -->
+                            <div class="bg-white/60 backdrop-blur-md border border-white/80 rounded-2xl p-3 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-center">
+                                <span id="countdown-hours" class="block text-2xl md:text-3xl font-extrabold text-primary-dark">00</span>
+                                <span class="text-[10px] text-text-muted uppercase font-semibold">Giờ</span>
+                            </div>
+                            <!-- Minutes -->
+                            <div class="bg-white/60 backdrop-blur-md border border-white/80 rounded-2xl p-3 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-center">
+                                <span id="countdown-minutes" class="block text-2xl md:text-3xl font-extrabold text-primary-dark">00</span>
+                                <span class="text-[10px] text-text-muted uppercase font-semibold">Phút</span>
+                            </div>
+                            <!-- Seconds -->
+                            <div class="bg-white/60 backdrop-blur-md border border-white/80 rounded-2xl p-3 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] text-center">
+                                <span id="countdown-seconds" class="block text-2xl md:text-3xl font-extrabold text-primary-dark text-red-500 animate-pulse">00</span>
+                                <span class="text-[10px] text-text-muted uppercase font-semibold">Giây</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics 6 Blocks -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mt-8">
+                    <!-- Stat 1 -->
+                    <div class="bg-white rounded-2xl border border-blue-50/50 p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 text-center group">
+                        <p class="text-3xl md:text-4xl font-extrabold text-primary mb-1 group-hover:scale-105 transition-transform duration-300">100+</p>
+                        <p class="text-xs md:text-sm font-semibold text-text-main">Gian hàng Triển lãm</p>
+                        <p class="text-[10px] text-text-muted mt-1 uppercase tracking-wider">Exhibitors</p>
+                    </div>
+                    <!-- Stat 2 -->
+                    <div class="bg-white rounded-2xl border border-blue-50/50 p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 text-center group">
+                        <p class="text-3xl md:text-4xl font-extrabold text-primary mb-1 group-hover:scale-105 transition-transform duration-300">5000+</p>
+                        <p class="text-xs md:text-sm font-semibold text-text-main">Khách tham quan</p>
+                        <p class="text-[10px] text-text-muted mt-1 uppercase tracking-wider">Visitors</p>
+                    </div>
+                    <!-- Stat 3 -->
+                    <div class="bg-white rounded-2xl border border-blue-50/50 p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 text-center group">
+                        <p class="text-3xl md:text-4xl font-extrabold text-primary mb-1 group-hover:scale-105 transition-transform duration-300">15+</p>
+                        <p class="text-xs md:text-sm font-semibold text-text-main">Chuyên đề Hội thảo</p>
+                        <p class="text-[10px] text-text-muted mt-1 uppercase tracking-wider">Sessions</p>
+                    </div>
+                    <!-- Stat 4 -->
+                    <div class="bg-white rounded-2xl border border-blue-50/50 p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 text-center group">
+                        <p class="text-3xl md:text-4xl font-extrabold text-primary mb-1 group-hover:scale-105 transition-transform duration-300">50+</p>
+                        <p class="text-xs md:text-sm font-semibold text-text-main">Diễn giả hàng đầu</p>
+                        <p class="text-[10px] text-text-muted mt-1 uppercase tracking-wider">Speakers</p>
+                    </div>
+                    <!-- Stat 5 -->
+                    <div class="bg-white rounded-2xl border border-blue-50/50 p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 text-center group">
+                        <p class="text-3xl md:text-4xl font-extrabold text-primary mb-1 group-hover:scale-105 transition-transform duration-300">80+</p>
+                        <p class="text-xs md:text-sm font-semibold text-text-main">Doanh nghiệp Kết nối</p>
+                        <p class="text-[10px] text-text-muted mt-1 uppercase tracking-wider">B2B Matchings</p>
+                    </div>
+                    <!-- Stat 6 -->
+                    <div class="bg-white rounded-2xl border border-blue-50/50 p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 text-center group">
+                        <p class="text-3xl md:text-4xl font-extrabold text-primary mb-1 group-hover:scale-105 transition-transform duration-300">30+</p>
+                        <p class="text-xs md:text-sm font-semibold text-text-main">Đơn vị truyền thông</p>
+                        <p class="text-[10px] text-text-muted mt-1 uppercase tracking-wider">Media Partners</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: GIỚI THIỆU TECH4LIFE -->
+        <section class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left Column -->
+                    <div class="lg:col-span-7">
+                        <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">Về sự kiện</div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary-dark mb-6">GIỚI THIỆU TECH4LIFE 2026</h2>
+                        <p class="text-base text-text-main leading-relaxed mb-6">
+                            <strong>Tech4life Expo & Summit 2026</strong> là sự kiện công nghệ thường niên uy tín nhằm giới thiệu các giải pháp công nghệ tiên tiến ứng dụng trực tiếp vào đời sống xã hội và quản trị doanh nghiệp. Sự kiện tạo môi trường trải nghiệm thực tế sinh động, giúp kết nối cung - cầu công nghệ giữa các nhà cung cấp giải pháp và người ứng dụng.
+                        </p>
+                        <p class="text-base text-text-main leading-relaxed mb-6">
+                            Với thông điệp "Công nghệ cho cuộc sống thông minh", Tech4Life 2026 tập trung thúc đẩy chuyển đổi số cá nhân, nâng cao chất lượng cuộc sống thường nhật, tối ưu hóa hiệu quả công việc tại văn phòng và xây dựng môi trường quản trị số thông minh cho doanh nghiệp thời đại mới.
+                        </p>
+                    </div>
+                    <!-- Right Column -->
+                    <div class="lg:col-span-5 bg-gradient-to-br from-primary-dark to-blue-900 text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                        <h3 class="text-xl font-bold mb-6">Mục Tiêu Trọng Tâm</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-blue-600/50 flex items-center justify-center text-sm">🏠</span>
+                                <span class="font-medium">Smart Life: Công nghệ đời sống thông minh</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-blue-600/50 flex items-center justify-center text-sm">🏢</span>
+                                <span class="font-medium">Smart Work: Giải pháp làm việc thông minh</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-6 h-6 rounded-full bg-blue-600/50 flex items-center justify-center text-sm">🌆</span>
+                                <span class="font-medium">Smart City: Hạ tầng đô thị thông minh</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: BẢO TRỢ & TỔ CHỨC -->
+        <section class="py-16 md:py-20 bg-background-alt border-t border-gray-100">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-primary-dark uppercase">BẢO TRỢ & TỔ CHỨC</h2>
+                    <p class="text-text-muted mt-2">Sự kiện được chỉ đạo và phối hợp thực hiện bởi các cơ quan quản lý nhà nước và hiệp hội chuyên ngành hàng đầu.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Block 1 -->
+                    <div class="bg-white rounded-2xl border border-gray-100 p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-20 flex items-center justify-center mb-6">
+                            <img src="assets/images/logos/Bo_Khoa_Hoc_va_Cong_Nghe.png" alt="Bộ Khoa học và Công nghệ" class="max-h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold text-primary-dark mb-2">ĐƠN VỊ BẢO TRỢ</h3>
+                        <p class="text-sm text-text-muted">Bộ Khoa học và Công nghệ chỉ đạo hướng đi chiến lược phát triển công nghệ phục vụ đời sống.</p>
+                    </div>
+                    <!-- Block 2 -->
+                    <div class="bg-white rounded-2xl border border-gray-100 p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-20 flex items-center justify-center mb-6">
+                            <img src="assets/images/logos/logo-VINASA-1024x1005.png" alt="VINASA" class="max-h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold text-primary-dark mb-2">ĐƠN VỊ TỔ CHỨC</h3>
+                        <p class="text-sm text-text-muted">Hiệp hội Phần mềm và Dịch vụ CNTT Việt Nam (VINASA) chủ trì xây dựng nội dung sự kiện.</p>
+                    </div>
+                    <!-- Block 3 -->
+                    <div class="bg-white rounded-2xl border border-gray-100 p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-20 flex items-center justify-center mb-6">
+                            <img src="assets/images/logos/So_Khoa_Hoc_va_Cong_Nghe.png" alt="Sở Khoa học và Công nghệ TP.HCM" class="max-h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-bold text-primary-dark mb-2">ĐƠN VỊ PHỐI HỢP</h3>
+                        <p class="text-sm text-text-muted">Sở Khoa học & Công nghệ TP. Hồ Chí Minh đồng tổ chức và hỗ trợ kết nối doanh nghiệp địa phương.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: THỜI GIAN & ĐỊA ĐIỂM -->
+        <section class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Content left -->
+                    <div>
+                        <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">Thông tin sự kiện</div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary-dark mb-6 font-sans">THỜI GIAN & ĐỊA ĐIỂM</h2>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <span class="text-2xl mt-1">📅</span>
+                                <div>
+                                    <h4 class="font-bold text-primary-dark">Thời gian tổ chức</h4>
+                                    <p class="text-text-main text-sm">Ngày 17 và 18 tháng 09 năm 2026</p>
+                                    <p class="text-text-muted text-xs">Mở cửa tự do từ 08:00 - 17:30 hằng ngày.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="text-2xl mt-1">📍</span>
+                                <div>
+                                    <h4 class="font-bold text-primary-dark">Địa điểm tổ chức</h4>
+                                    <p class="text-text-main text-sm">Trung tâm Hội nghị và Triển lãm TP. Hồ Chí Minh</p>
+                                    <p class="text-text-muted text-xs">Khu vực trung tâm Quận 1, thuận lợi di chuyển và kết nối giao thương.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Visual right -->
+                    <div class="bg-slate-100 rounded-3xl p-6 border border-slate-200 shadow-inner flex flex-col justify-center items-center text-center aspect-[4/3] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-slate-200/50 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-4xl mb-3">📍</span>
+                            <h3 class="text-lg font-bold text-primary-dark mb-1">TRUNG TÂM TRIỂN LÃM QUẬN 1</h3>
+                            <p class="text-xs text-text-muted max-w-sm mb-4">Địa điểm sang trọng, sức chứa lớn phù hợp cho sự kiện công nghệ quy mô hàng đầu khu vực phía Nam.</p>
+                            <span class="text-[10px] bg-slate-300 text-slate-700 px-2 py-0.5 rounded font-mono uppercase">MAP PLACEHOLDER</span>
+                        </div>
+                        <!-- Thay ảnh bản đồ tại đây -->
+                        <!-- <img src="assets/images/map/location-map.png" alt="Bản đồ địa điểm" class="w-full h-full object-cover"> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: QUY MÔ & HOẠT ĐỘNG CHÍNH -->
+        <section class="py-16 md:py-20 bg-background-alt">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-primary-dark uppercase">QUY MÔ & HOẠT ĐỘNG CHÍNH</h2>
+                    <p class="text-text-muted mt-2">Hội tụ đầy đủ các chương trình triển lãm công nghệ, hội thảo chuyên đề quốc tế và không gian giao thương trực tiếp.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-sm">
+                        <span class="text-3xl block mb-3">🎪</span>
+                        <h4 class="font-bold text-primary-dark mb-1">100+ Gian Hàng</h4>
+                        <p class="text-xs text-text-muted">Các tập đoàn, thương hiệu lớn giới thiệu sản phẩm và công nghệ hàng đầu.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-sm">
+                        <span class="text-3xl block mb-3">💬</span>
+                        <h4 class="font-bold text-primary-dark mb-1">3 Hội Thảo Chuyên Sâu</h4>
+                        <p class="text-xs text-text-muted">Nơi thảo luận về các chủ đề Trí tuệ nhân tạo, Thiết bị thông minh, và Bảo mật.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-sm">
+                        <span class="text-3xl block mb-3">👥</span>
+                        <h4 class="font-bold text-primary-dark mb-1">50+ Diễn Giả Cấp Cao</h4>
+                        <p class="text-xs text-text-muted">Chia sẻ thông tin, định hướng phát triển từ các doanh nghiệp đầu ngành.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-sm">
+                        <span class="text-3xl block mb-3">🤝</span>
+                        <h4 class="font-bold text-primary-dark mb-1">Kết Nối Doanh Nghiệp</h4>
+                        <p class="text-xs text-text-muted">Tổ chức các buổi B2B Matching kết nối cung cầu và ký kết trực tiếp.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: ĐỐI TƯỢNG THAM GIA -->
+        <section class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-primary-dark uppercase">ĐỐI TƯỢNG THAM GIA</h2>
+                    <p class="text-text-muted mt-2">Cơ hội tiếp cận, giao thương và học hỏi dành cho nhiều nhóm khách hàng khác nhau.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-background-alt border border-slate-100 rounded-2xl p-6">
+                        <h3 class="font-bold text-primary-dark mb-3 text-lg">Doanh nghiệp CNTT</h3>
+                        <p class="text-sm text-text-main leading-relaxed">Giới thiệu sản phẩm công nghệ mới, mở rộng thị phần và tìm kiếm nhà phân phối tiềm năng.</p>
+                    </div>
+                    <div class="bg-background-alt border border-slate-100 rounded-2xl p-6">
+                        <h3 class="font-bold text-primary-dark mb-3 text-lg">Doanh nghiệp Ứng dụng</h3>
+                        <p class="text-sm text-text-main leading-relaxed">Tìm kiếm các đối tác công nghệ và chuyển đổi số để tối ưu hóa quản lý và vận hành kinh doanh.</p>
+                    </div>
+                    <div class="bg-background-alt border border-slate-100 rounded-2xl p-6">
+                        <h3 class="font-bold text-primary-dark mb-3 text-lg">Cơ quan Nhà nước</h3>
+                        <p class="text-sm text-text-main leading-relaxed">Đại biểu các Bộ, ngành, tỉnh thành phố đến tham quan, trao đổi định hướng chính sách phát triển số.</p>
+                    </div>
+                    <div class="bg-background-alt border border-slate-100 rounded-2xl p-6">
+                        <h3 class="font-bold text-primary-dark mb-3 text-lg">Người tiêu dùng & Tech-savvy</h3>
+                        <p class="text-sm text-text-main leading-relaxed">Trải nghiệm và mua sắm các thiết bị Smarthome, IoT gia dụng, thiết bị giải trí và đồ chơi công nghệ.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: SƠ ĐỒ TRIỂN LÃM -->
+        <section class="py-16 md:py-20 bg-background-alt border-t border-gray-100">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-primary-dark uppercase">SƠ ĐỒ TRIỂN LÃM</h2>
+                    <p class="text-text-muted mt-2">Bản đồ phân chia các khu vực trưng bày sản phẩm để tối ưu hành trình trải nghiệm của khách tham quan.</p>
+                </div>
+                <div class="max-w-4xl mx-auto bg-white border border-gray-200 p-4 md:p-6 rounded-3xl shadow-lg">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[16/9] bg-slate-100 flex items-center justify-center border border-slate-200">
+                        <div class="absolute inset-0 bg-slate-200 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-5xl mb-4">🗺️</span>
+                            <h3 class="text-lg md:text-xl font-bold text-primary-dark mb-1">SƠ ĐỒ KHÔNG GIAN TRIỂN LÃM 2026</h3>
+                            <p class="text-sm text-text-muted max-w-md mb-4">Khu vực được bố trí khoa học giữa các gian hàng Smart Home, Tech Toys, AI Zone, B2B Meeting Lounge và 3 hội trường Hội thảo.</p>
+                            <span class="text-xs bg-slate-300 text-slate-700 px-3 py-1 rounded font-mono uppercase">IMAGE PLACEHOLDER</span>
+                        </div>
+                        <!-- Thay ảnh sơ đồ tại đây -->
+                        <!-- <img src="assets/images/map/floorplan-2026.png" alt="Sơ đồ triển lãm" class="w-full h-full object-cover"> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: DANH MỤC TRIỂN LÃM -->
+        <section class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-primary-dark uppercase">DANH MỤC SẢN PHẨM TRƯNG BÀY</h2>
+                    <p class="text-text-muted mt-2">Khám phá các nhóm sản phẩm công nghệ trọng tâm sẽ xuất hiện tại hội chợ năm nay.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Item 1 -->
+                    <div class="bg-background-alt border border-slate-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
+                        <span class="text-3xl mb-4 block">🏠</span>
+                        <h4 class="font-bold text-primary-dark mb-2 text-lg">Smart Home & IoT Devices</h4>
+                        <p class="text-sm text-text-main">Hệ thống chiếu sáng tự động, cảm biến an ninh, thiết bị gia dụng kết nối thông minh thế hệ mới.</p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="bg-background-alt border border-slate-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
+                        <span class="text-3xl mb-4 block">💻</span>
+                        <h4 class="font-bold text-primary-dark mb-2 text-lg">Digital Workspace Solutions</h4>
+                        <p class="text-sm text-text-main">Phần mềm quản trị văn phòng thông minh, công cụ làm việc cộng tác từ xa và giải pháp lưu trữ đám mây.</p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="bg-background-alt border border-slate-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
+                        <span class="text-3xl mb-4 block">🤖</span>
+                        <h4 class="font-bold text-primary-dark mb-2 text-lg">AI & Robotics Zone</h4>
+                        <p class="text-sm text-text-main">Ứng dụng trí tuệ nhân tạo đàm thoại tự động, robot dịch vụ gia đình và robot phục vụ sản xuất.</p>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="bg-background-alt border border-slate-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
+                        <span class="text-3xl mb-4 block">🏥</span>
+                        <h4 class="font-bold text-primary-dark mb-2 text-lg">HealthTech & Wearables</h4>
+                        <p class="text-sm text-text-main">Đồng hồ thông minh theo dõi sức khỏe, thiết bị hỗ trợ chăm sóc sức khỏe gia đình và ứng dụng tư vấn y tế.</p>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="bg-background-alt border border-slate-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
+                        <span class="text-3xl mb-4 block">🛡️</span>
+                        <h4 class="font-bold text-primary-dark mb-2 text-lg">Cybersecurity & Privacy</h4>
+                        <p class="text-sm text-text-main">Giải pháp bảo mật mạng gia đình, phòng chống mã độc, bảo mật danh tính và mã hóa dữ liệu cá nhân.</p>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="bg-background-alt border border-slate-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
+                        <span class="text-3xl mb-4 block">🚗</span>
+                        <h4 class="font-bold text-primary-dark mb-2 text-lg">Smart Mobility</h4>
+                        <p class="text-sm text-text-main">Trải nghiệm xe điện thông minh, hệ sinh thái trạm sạc và các thiết bị định vị GPS tiên tiến.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: CÁC HOẠT ĐỘNG CHÍNH -->
+        <section class="py-16 md:py-20 bg-background-alt border-t border-gray-100">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-primary-dark uppercase">CÁC CHƯƠNG TRÌNH HOẠT ĐỘNG CHÍNH</h2>
+                    <p class="text-text-muted mt-2">Chuỗi hoạt động điểm nhấn mang lại giá trị trải nghiệm đỉnh cao cho khách tham dự.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Activity 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col group hover:shadow-md transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden bg-gray-200">
+                            <img src="assets/images/banners/trienlam.jpg" alt="Triển lãm Công nghệ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-primary-dark mb-2">Triển lãm Công nghệ</h3>
+                                <p class="text-xs text-text-muted leading-relaxed">Trưng bày và trải nghiệm các thiết bị công nghệ gia đình thông minh, giải pháp công nghệ văn phòng hiện đại.</p>
+                            </div>
+                            <a href="trien-lam.html" class="inline-flex items-center text-xs font-semibold text-primary mt-4 hover:text-primary-dark">Xem chi tiết &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Activity 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col group hover:shadow-md transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden bg-gray-200">
+                            <img src="assets/images/banners/hoithao.jpg" alt="Hội thảo Chuyên đề" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-primary-dark mb-2">Hội thảo Chuyên đề</h3>
+                                <p class="text-xs text-text-muted leading-relaxed">Chuỗi hội thảo xu hướng với sự tham gia của các chuyên gia hàng đầu thảo luận về bảo mật và AI ứng dụng.</p>
+                            </div>
+                            <a href="chuong-trinh.html" class="inline-flex items-center text-xs font-semibold text-primary mt-4 hover:text-primary-dark">Xem chi tiết &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Activity 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col group hover:shadow-md transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden bg-gray-200">
+                            <img src="assets/images/banners/matching1.jpg" alt="Kết nối Giao thương B2B" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-primary-dark mb-2">Kết nối Giao thương</h3>
+                                <p class="text-xs text-text-muted leading-relaxed">Chương trình kết nối doanh nghiệp - doanh nghiệp (B2B) giúp mở rộng quan hệ hợp tác và phát triển thị trường.</p>
+                            </div>
+                            <a href="chuong-trinh.html" class="inline-flex items-center text-xs font-semibold text-primary mt-4 hover:text-primary-dark">Xem chi tiết &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Activity 4 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col group hover:shadow-md transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden bg-gray-200">
+                            <img src="assets/images/banners/taitro.jpg" alt="Vinh danh Đối tác & Tài trợ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-primary-dark mb-2">Chương trình Đồng hành</h3>
+                                <p class="text-xs text-text-muted leading-relaxed">Lễ ký kết biên bản ghi nhớ và vinh danh các đơn vị tài trợ đã đồng hành cùng sự thành công của Tech4Life.</p>
+                            </div>
+                            <a href="tai-tro.html" class="inline-flex items-center text-xs font-semibold text-primary mt-4 hover:text-primary-dark">Xem chi tiết &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10: TRUYỀN THÔNG, QUẢNG BÁ -->
+        <section class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">Thông cáo chung</div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary-dark mb-6">TRUYỀN THÔNG, QUẢNG BÁ</h2>
+                        <p class="text-base text-text-main leading-relaxed mb-6">
+                            Sự kiện Tech4Life 2026 nhận được sự hỗ trợ truyền thông mạnh mẽ từ hơn 30 đơn vị báo chí và các kênh truyền hình lớn trong nước. Mọi thông tin cập nhật về triển lãm, diễn giả và các phiên hội thảo sẽ liên tục được phủ sóng rộng rãi tới cộng đồng doanh nghiệp và người dùng yêu công nghệ.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-l-4 border-primary pl-3 py-1">
+                                <h4 class="font-bold text-primary-dark text-sm">30+ Báo chí & Đài truyền hình</h4>
+                                <p class="text-xs text-text-muted">Đăng tin rộng rãi về các sản phẩm đột phá tại triển lãm.</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-3 py-1">
+                                <h4 class="font-bold text-primary-dark text-sm">Quảng bá Đa kênh</h4>
+                                <p class="text-xs text-text-muted">Phủ sóng qua mạng xã hội, email marketing và báo chí số.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 flex flex-col justify-center items-center text-center aspect-[4/3] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-slate-200/50 flex flex-col items-center justify-center p-6 text-center">
+                            <span class="text-4xl mb-3">📰</span>
+                            <h3 class="text-lg font-bold text-primary-dark mb-1">KHÔNG GIAN HỌP BÁO SỰ KIỆN</h3>
+                            <p class="text-xs text-text-muted max-w-sm mb-4">Các hoạt động đăng tin quảng bá, phỏng vấn truyền hình và họp báo ra mắt các dự án tiêu biểu sẽ diễn ra liên tục tại khu vực Media Center.</p>
+                            <span class="text-[10px] bg-slate-300 text-slate-700 px-2 py-0.5 rounded font-mono uppercase">IMAGE PLACEHOLDER</span>
+                        </div>
+                        <!-- Thay ảnh truyền thông tại đây -->
+                        <!-- <img src="assets/images/banners/media.jpg" alt="Truyền thông" class="w-full h-full object-cover"> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 11: NHỮNG CON SỐ VÀ HÌNH ẢNH NỔI BẬT 2025 -->
+        <section class="py-16 md:py-20 bg-background-alt border-t border-gray-100">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-primary-dark uppercase">NHỮNG CON SỐ VÀ HÌNH ẢNH NỔI BẬT 2025</h2>
+                    <p class="text-text-muted mt-2">Nhìn lại kết quả và những khoảnh khắc ấn tượng từ sự kiện Tech4Life 2025 vừa qua.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-sm">
+                        <p class="text-3xl font-extrabold text-primary mb-1">80+</p>
+                        <p class="text-xs font-semibold text-text-main">Doanh nghiệp Triển lãm</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-sm">
+                        <p class="text-3xl font-extrabold text-primary mb-1">4000+</p>
+                        <p class="text-xs font-semibold text-text-main">Lượt Khách tham quan</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-sm">
+                        <p class="text-3xl font-extrabold text-primary mb-1">10+</p>
+                        <p class="text-xs font-semibold text-text-main">Chuyên đề Hội thảo</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-gray-100 text-center shadow-sm">
+                        <p class="text-3xl font-extrabold text-primary mb-1">95%</p>
+                        <p class="text-xs font-semibold text-text-main">Doanh nghiệp Hài lòng</p>
+                    </div>
+                </div>
+                <!-- 3 photo placeholder slots -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white border border-gray-200 p-2 rounded-2xl shadow-sm aspect-[4/3] relative overflow-hidden flex items-center justify-center group">
+                        <div class="absolute inset-0 bg-slate-200 flex flex-col items-center justify-center p-4 text-center group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-3xl mb-2">📸</span>
+                            <span class="text-xs text-text-muted">Khai mạc triển lãm 2025</span>
+                            <span class="text-[9px] bg-slate-300 text-slate-700 px-2 py-0.5 rounded mt-2 font-mono uppercase">IMAGE</span>
+                        </div>
+                        <!-- <img src="assets/images/banners/highlight-1.jpg" alt="Highlight 1" class="w-full h-full object-cover rounded-xl"> -->
+                    </div>
+                    <div class="bg-white border border-gray-200 p-2 rounded-2xl shadow-sm aspect-[4/3] relative overflow-hidden flex items-center justify-center group">
+                        <div class="absolute inset-0 bg-slate-200 flex flex-col items-center justify-center p-4 text-center group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-3xl mb-2">🎙️</span>
+                            <span class="text-xs text-text-muted">Không gian Hội thảo chuyên sâu</span>
+                            <span class="text-[9px] bg-slate-300 text-slate-700 px-2 py-0.5 rounded mt-2 font-mono uppercase">IMAGE</span>
+                        </div>
+                        <!-- <img src="assets/images/banners/highlight-2.jpg" alt="Highlight 2" class="w-full h-full object-cover rounded-xl"> -->
+                    </div>
+                    <div class="bg-white border border-gray-200 p-2 rounded-2xl shadow-sm aspect-[4/3] relative overflow-hidden flex items-center justify-center group">
+                        <div class="absolute inset-0 bg-slate-200 flex flex-col items-center justify-center p-4 text-center group-hover:scale-105 transition-transform duration-300">
+                            <span class="text-3xl mb-2">🤝</span>
+                            <span class="text-xs text-text-muted">Kết nối giao thương B2B</span>
+                            <span class="text-[9px] bg-slate-300 text-slate-700 px-2 py-0.5 rounded mt-2 font-mono uppercase">IMAGE</span>
+                        </div>
+                        <!-- <img src="assets/images/banners/highlight-3.jpg" alt="Highlight 3" class="w-full h-full object-cover rounded-xl"> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 12: ĐƠN VỊ BẢO TRỢ, TỔ CHỨC & TRUYỀN THÔNG 2026 -->
+        <section class="py-16 md:py-20 bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-primary-dark uppercase">ĐƠN VỊ BẢO TRỢ, TỔ CHỨC & TRUYỀN THÔNG 2026</h2>
+                    <p class="text-text-muted mt-2">Hệ sinh thái đối tác công nghệ và tổ chức bảo trợ đồng hành phát triển sự kiện.</p>
+                </div>
+
+                <!-- 1. ĐƠN VỊ TỔ CHỨC & CƠ QUAN BẢO TRỢ (Two Columns) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                    <!-- Left: Đơn vị tổ chức -->
+                    <div class="flex flex-col items-center">
+                        <h3 class="text-sm font-bold text-primary uppercase tracking-widest my-8 text-center">ĐƠN VỊ TỔ CHỨC</h3>
+                        <div class="flex justify-center items-center gap-6">
+                            <div class="h-20 w-40 flex items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-xl shadow-sm">
+                                <img src="assets/images/logos/logo-VINASA-1024x1005.png" alt="VINASA" class="max-h-full max-w-full object-contain logo-filter">
+                            </div>
+                            <div class="h-20 w-40 flex items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-xl shadow-sm">
+                                <img src="assets/images/logos/tech4life-logo.png" alt="Tech4Life" class="max-h-full max-w-full object-contain logo-filter">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Cơ quan bảo trợ -->
+                    <div class="flex flex-col items-center">
+                        <h3 class="text-sm font-bold text-primary uppercase tracking-widest my-8 text-center">CƠ QUAN BẢO TRỢ</h3>
+                        <div class="flex justify-center items-center">
+                            <div class="h-20 w-40 flex items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-xl shadow-sm">
+                                <img src="assets/images/logos/Bo_Khoa_Hoc_va_Cong_Nghe.png" alt="Bộ Khoa học và Công nghệ" class="max-h-full max-w-full object-contain logo-filter">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. ĐƠN VỊ PHỐI HỢP -->
+                <div class="mb-12 border-t border-gray-100 pt-8">
+                    <h3 class="text-center text-sm font-bold text-primary uppercase tracking-widest my-8">ĐƠN VỊ PHỐI HỢP</h3>
+                    <div class="flex flex-wrap justify-center items-center gap-8">
+                        <div class="h-16 w-36 flex items-center justify-center bg-slate-50 border border-slate-100 p-2.5 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/kait.png" alt="KAIT" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-16 w-36 flex items-center justify-center bg-slate-50 border border-slate-100 p-2.5 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/nipa.png" alt="NIPA" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-16 w-44 flex items-center justify-center bg-slate-50 border border-slate-100 p-2.5 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/Korea_IT.png" alt="Korea IT Cooperation Center" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. TÀI TRỢ VÀNG, BẠC, ĐỒNG (Row of 3) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 border-t border-gray-100 pt-8">
+                    <!-- Tài trợ Vàng -->
+                    <div class="flex flex-col items-center">
+                        <h3 class="text-xs font-bold text-primary uppercase tracking-widest my-8 text-center">TÀI TRỢ VÀNG</h3>
+                        <div class="h-20 w-44 flex items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/Sacombank.png" alt="Sacombank" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                    </div>
+                    <!-- Tài trợ Bạc -->
+                    <div class="flex flex-col items-center">
+                        <h3 class="text-xs font-bold text-primary uppercase tracking-widest my-8 text-center">TÀI TRỢ BẠC</h3>
+                        <div class="h-20 w-44 flex items-center justify-center bg-slate-50 border border-slate-100 p-3 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/fpt.png" alt="FPT" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                    </div>
+                    <!-- Tài trợ Đồng -->
+                    <div class="flex flex-col items-center">
+                        <h3 class="text-xs font-bold text-primary uppercase tracking-widest my-8 text-center">TÀI TRỢ ĐỒNG</h3>
+                        <!-- Placeholder dash border -->
+                        <div class="h-20 w-44 flex items-center justify-center bg-white border border-dashed border-gray-300 p-3 rounded-xl">
+                            <span class="text-xs text-gray-400 font-semibold">Đang cập nhật...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. ĐỒNG HÀNH TRUYỀN THÔNG & ĐỐI TÁC TÀI TRỢ GIẢI PHÁP CÔNG NGHỆ -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 border-t border-gray-100 pt-8">
+                    <!-- Đồng hành truyền thông -->
+                    <div class="flex flex-col items-center">
+                        <h3 class="text-xs font-bold text-primary uppercase tracking-widest my-8 text-center">ĐỒNG HÀNH TRUYỀN THÔNG</h3>
+                        <div class="flex justify-center items-center gap-6">
+                            <div class="h-16 w-36 flex items-center justify-center bg-slate-50 border border-slate-100 p-2.5 rounded-xl shadow-sm">
+                                <img src="assets/images/logos/zalo_business.png" alt="Zalo" class="max-h-full max-w-full object-contain logo-filter">
+                            </div>
+                            <div class="h-16 w-36 flex items-center justify-center bg-slate-50 border border-slate-100 p-2.5 rounded-xl shadow-sm">
+                                <img src="assets/images/logos/focusmedia.png" alt="Focus Media" class="max-h-full max-w-full object-contain logo-filter">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Đối tác tài trợ giải pháp công nghệ -->
+                    <div class="flex flex-col items-center">
+                        <h3 class="text-xs font-bold text-primary uppercase tracking-widest my-8 text-center">ĐỐI TÁC TÀI TRỢ GIẢI PHÁP CÔNG NGHỆ</h3>
+                        <div class="h-16 w-36 flex items-center justify-center bg-slate-50 border border-slate-100 p-2.5 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/ticketX.png" alt="TicketX" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. ĐƠN VỊ ĐỒNG HÀNH -->
+                <div class="mb-12 border-t border-gray-100 pt-8">
+                    <h3 class="text-center text-sm font-bold text-primary uppercase tracking-widest my-8">ĐƠN VỊ ĐỒNG HÀNH</h3>
+                    <div class="flex justify-center items-center gap-6">
+                        <div class="h-16 w-36 flex items-center justify-center bg-slate-50 border border-slate-100 p-2.5 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/lovinbot.png" alt="Lovinbot" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-16 w-36 flex items-center justify-center bg-slate-50 border border-slate-100 p-2.5 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/bear.png" alt="Bear" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. ĐỐI TÁC TRUYỀN THÔNG -->
+                <div class="mb-12 border-t border-gray-100 pt-8">
+                    <h3 class="text-center text-sm font-bold text-primary uppercase tracking-widest my-8">ĐỐI TÁC TRUYỀN THÔNG</h3>
+                    <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-items-center">
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-slate-50 border border-slate-100 p-2 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/kita.png" alt="KITA" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-white border border-dashed border-gray-200 p-2 rounded-xl">
+                            <span class="text-[10px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-white border border-dashed border-gray-200 p-2 rounded-xl">
+                            <span class="text-[10px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-slate-50 border border-slate-100 p-2 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/AI_leaders.png" alt="AI Leaders" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-white border border-dashed border-gray-200 p-2 rounded-xl">
+                            <span class="text-[10px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-slate-50 border border-slate-100 p-2 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/cio.png" alt="CIO" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-slate-50 border border-slate-100 p-2 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/permate.png" alt="Permate" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-slate-50 border border-slate-100 p-2 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/JDI.png" alt="JDI" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-slate-50 border border-slate-100 p-2 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/bizfly.png" alt="Bizfly" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-white border border-dashed border-gray-200 p-2 rounded-xl">
+                            <span class="text-[10px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-slate-50 border border-slate-100 p-2 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/agest.png" alt="Agest" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-slate-50 border border-slate-100 p-2 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/innoex.png" alt="InnoEx" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-white border border-dashed border-gray-200 p-2 rounded-xl">
+                            <span class="text-[10px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-white border border-dashed border-gray-200 p-2 rounded-xl">
+                            <span class="text-[10px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-slate-50 border border-slate-100 p-2 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/Impact.png" alt="Impact" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-12 w-full max-w-[140px] flex items-center justify-center bg-slate-50 border border-slate-100 p-2 rounded-xl shadow-sm">
+                            <img src="assets/images/logos/bsso.png" alt="BSSO" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. DANH SÁCH ĐƠN VỊ TRIỂN LÃM (EXHIBITORS) -->
+                <div class="border-t border-gray-100 pt-8">
+                    <h3 class="text-center text-sm font-bold text-primary uppercase tracking-widest my-8">DANH SÁCH ĐƠN VỊ TRIỂN LÃM (EXHIBITORS)</h3>
+                    <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 items-center justify-items-center">
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/bear.png" alt="Bear" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/HID.png" alt="HID" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/tps.png" alt="TPS" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/focusmedia.png" alt="Focus Media" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/panasonic.png" alt="Panasonic" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/tilda.png" alt="Tilda" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/pencil.png" alt="Pencil" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/zalo_business.png" alt="Zalo" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/golden_planet.png" alt="Golden Planet" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/intflow.png" alt="Intflow" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/logi_chain.png" alt="Logichain" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/be_group.png" alt="Be" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/UOB.png" alt="UOB" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/lovinbot.png" alt="Lovinbot" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/ways1.png" alt="Ways" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/pnpsecure.png" alt="PNPSecure" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/emct.png" alt="EMCT" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/camon.png" alt="Camon" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/sgu.png" alt="SGU" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/duy_tan.png" alt="Duy Tân" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/van_hien.png" alt="Vạn Hiến" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/fpt_arena.png" alt="FPT Arena" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/umt.png" alt="UMT" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/VKU.png" alt="VKU" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/BTEC.png" alt="BTEC" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/TDT.png" alt="TDT" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/UEH.png" alt="UEH" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/UEH_vinh_long.png" alt="UEH Vĩnh Long" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/FPT_Polytechnic.png" alt="FPT Polytechnic" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/HCMUTE.png" alt="HCMUTE" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/skillking.png" alt="Skillking" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/skillking.png" alt="Skillking" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/luna.png" alt="Luna" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/UEL.png" alt="UEL" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/INDA.png" alt="INDA" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/sunwah.png" alt="Sunwah" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/gmo-z.png" alt="GMO-Z" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/Sacombank.png" alt="Sacombank" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/back_khoa.png" alt="Bách Khoa" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/gloex.png" alt="Gloex" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/agest.png" alt="Agest" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/excel.png" alt="Excel" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-white border border-dashed border-gray-200 p-1 rounded-lg">
+                            <span class="text-[8px] text-gray-300">Placeholder</span>
+                        </div>
+                        <div class="h-11 w-full flex items-center justify-center bg-slate-50 border border-slate-100 p-1.5 rounded-lg shadow-sm">
+                            <img src="assets/images/logos/sky.png" alt="Sky" class="max-h-full max-w-full object-contain logo-filter">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 13: ĐĂNG KÝ THAM GIA NGAY HÔM NAY (CTA CUỐI TRANG) -->
+        <section class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="max-w-4xl mx-auto bg-gradient-to-br from-blue-700 to-indigo-900 text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-blue-500 rounded-full filter blur-3xl opacity-20"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+                        <!-- Left Details -->
+                        <div class="md:col-span-8">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-4">Đăng Ký Tham Gia Ngay Hôm Nay</h2>
+                            <p class="text-sm md:text-base text-blue-100 leading-relaxed mb-6">
+                                Hãy quét mã QR code chính thức bên cạnh để đăng ký vé tham quan triển lãm và giữ chỗ tại các phòng hội thảo chuyên đề chất lượng cao. Đăng ký sớm để nhận các tài liệu độc quyền từ sự kiện.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="tham-du.html" class="bg-yellow-400 hover:bg-yellow-500 text-primary-dark font-bold py-3 px-6 rounded-full transition duration-300">
+                                    Đăng ký Online
+                                </a>
+                                <a href="lien-he.html" class="border border-white/40 hover:bg-white/10 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+                                    Liên hệ Ban Tổ Chức
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Right QR Code (Strict Rules) -->
+                        <div class="md:col-span-4 flex flex-col items-center justify-center bg-white p-6 rounded-2xl text-gray-800 shadow-lg border border-white/20">
+                            <img src="assets/images/qr/qr.png" alt="Mã QR Đăng ký Tech4Life" class="w-36 h-36 md:w-40 md:h-40 object-contain mb-3">
+                            <span class="text-xs font-bold text-primary-dark uppercase tracking-wider">Quét QR đăng ký</span>
+                            <span class="text-[10px] text-text-muted mt-0.5">Trỏ về website tech4life.vn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- FOOTER CONTAINER (Loaded via JS) -->
     <footer id="app-footer"></footer>
-    
+
+    <!-- Main JS script loader -->
     <script src="assets/js/main.js"></script>
+    
+    <!-- Countdown Timer Script -->
+    <script>
+        (function() {
+            // Target date: September 17, 2026 at 08:00 AM (Vietnam GMT+7)
+            const targetDate = new Date("2026-09-17T08:00:00+07:00").getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                const daysVal = document.getElementById("countdown-days");
+                const hoursVal = document.getElementById("countdown-hours");
+                const minutesVal = document.getElementById("countdown-minutes");
+                const secondsVal = document.getElementById("countdown-seconds");
+
+                if (!daysVal || !hoursVal || !minutesVal || !secondsVal) return;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    daysVal.innerText = "00";
+                    hoursVal.innerText = "00";
+                    minutesVal.innerText = "00";
+                    secondsVal.innerText = "00";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                daysVal.innerText = String(days).padStart(2, '0');
+                hoursVal.innerText = String(hours).padStart(2, '0');
+                minutesVal.innerText = String(minutes).padStart(2, '0');
+                secondsVal.innerText = String(seconds).padStart(2, '0');
+            }
+
+            const interval = setInterval(updateCountdown, 1000);
+            updateCountdown(); // Run immediately on load
+        })();
+    </script>
 </body>
 </html>
