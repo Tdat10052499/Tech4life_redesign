@@ -233,40 +233,86 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- SECTION 2: GIỚI THIỆU TECH4LIFE -->
-        <section class="py-16 md:py-20 bg-white">
+        <section class="py-20 md:py-28 bg-white overflow-hidden">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <!-- Left Column -->
-                    <div class="lg:col-span-7">
-                        <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">Về sự kiện</div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-primary-dark mb-6">GIỚI THIỆU TECH4LIFE 2026</h2>
-                        <p class="text-base text-text-main leading-relaxed mb-6">
-                            <strong>Tech4life Expo & Summit 2026</strong> là sự kiện công nghệ thường niên uy tín nhằm giới thiệu các giải pháp công nghệ tiên tiến ứng dụng trực tiếp vào đời sống xã hội và quản trị doanh nghiệp. Sự kiện tạo môi trường trải nghiệm thực tế sinh động, giúp kết nối cung - cầu công nghệ giữa các nhà cung cấp giải pháp và người ứng dụng.
+                <!-- 1. Phần Dẫn dắt (Centered Introduction) -->
+                <div class="text-center max-w-4xl mx-auto mb-16">
+                    <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 no-reveal">Về sự kiện</div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary-dark mb-4 tracking-tight uppercase">GIỚI THIỆU TECH4LIFE</h2>
+                    <div class="w-16 h-1 bg-primary mx-auto mb-8 rounded no-reveal"></div>
+                    
+                    <div class="text-base md:text-lg text-text-muted leading-relaxed max-w-3xl mx-auto space-y-6">
+                        <p>
+                            <strong>Tech4life Expo & Summit 2026</strong> là sự kiện công nghệ thường niên uy tín nhằm giới thiệu các giải pháp công nghệ tiên tiến ứng dụng trực tiếp vào đời sống xã hội và quản trị doanh nghiệp. Sự kiện tạo môi trường trải nghiệm thực tế sinh động, giúp kết nối cung - cầu công nghệ giữa các nhà cung cấp giải pháp và người ứng dụng (phương thức kết nối <strong>B2B</strong> và <strong>B2C</strong>).
                         </p>
-                        <p class="text-base text-text-main leading-relaxed mb-6">
-                            Với thông điệp "Công nghệ cho cuộc sống thông minh", Tech4Life 2026 tập trung thúc đẩy chuyển đổi số cá nhân, nâng cao chất lượng cuộc sống thường nhật, tối ưu hóa hiệu quả công việc tại văn phòng và xây dựng môi trường quản trị số thông minh cho doanh nghiệp thời đại mới.
+                        <p>
+                            Với thông điệp "Công nghệ cho cuộc sống thông minh", <strong>Tech4Life 2026</strong> tập trung thúc đẩy chuyển đổi số cá nhân (<strong>Tech4life</strong>), nâng cao chất lượng cuộc sống thường nhật, tối ưu hóa hiệu quả công việc tại văn phòng (<strong>Tech4Work</strong>), xây dựng môi trường quản trị số thông minh cho doanh nghiệp thời đại mới và mang đến các xu hướng công nghệ giải trí tiên tiến (<strong>Tech4Entertainment</strong>).
                         </p>
                     </div>
-                    <!-- Right Column -->
-                    <div class="lg:col-span-5 bg-gradient-to-br from-primary-dark to-blue-900 text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                        <h3 class="text-xl font-bold mb-6">Mục Tiêu Trọng Tâm</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-blue-600/50 flex items-center justify-center text-sm">🏠</span>
-                                <span class="font-medium">Smart Life: Công nghệ đời sống thông minh</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-blue-600/50 flex items-center justify-center text-sm">🏢</span>
-                                <span class="font-medium">Smart Work: Giải pháp làm việc thông minh</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <span class="w-6 h-6 rounded-full bg-blue-600/50 flex items-center justify-center text-sm">🌆</span>
-                                <span class="font-medium">Smart City: Hạ tầng đô thị thông minh</span>
-                            </li>
-                        </ul>
+                </div>
+
+                <!-- 2. Phần Triển khai (4 Core Values Row) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+                    <!-- Card 1: Trình diễn -->
+                    <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-primary-dark text-lg mb-2">Trình diễn</h4>
+                        <p class="text-sm text-text-muted leading-relaxed">Sản phẩm, thiết bị thông minh ứng dụng trực tiếp đời sống.</p>
+                    </div>
+                    <!-- Card 2: Nắm bắt -->
+                    <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-12 h-12 rounded-full bg-secondary/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2 2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-primary-dark text-lg mb-2">Nắm bắt</h4>
+                        <p class="text-sm text-text-muted leading-relaxed">Đón đầu các giải pháp số, sản phẩm AI và IoT mới nhất.</p>
+                    </div>
+                    <!-- Card 3: Kết nối -->
+                    <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-12 h-12 rounded-full bg-blue-600/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-primary-dark text-lg mb-2">Kết nối</h4>
+                        <p class="text-sm text-text-muted leading-relaxed">Xúc tiến thương mại trực tiếp B2B và tiếp cận B2C hiệu quả.</p>
+                    </div>
+                    <!-- Card 4: Quảng bá -->
+                    <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 text-center flex flex-col items-center group">
+                        <div class="w-12 h-12 rounded-full bg-indigo-900/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-6 h-6 text-indigo-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-primary-dark text-lg mb-2">Quảng bá</h4>
+                        <p class="text-sm text-text-muted leading-relaxed">Đồng hành truyền thông giúp lan tỏa giá trị thương hiệu rộng rãi.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Phần Hình ảnh (Masonry Gallery) -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-16">
+                    <!-- Cột Trái (Chiếm 2 phần) - Ảnh lớn chính -->
+                    <div class="lg:col-span-2 relative rounded-2xl overflow-hidden shadow-md group lg:h-[456px]">
+                        <img src="assets/images/banners/GioithieuTech4life/GioithieuTech4life1.png" alt="Giới thiệu Tech4Life 1" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
+                    </div>
+                    <!-- Cột Phải (Chiếm 1 phần) - Sub-grid xếp dọc -->
+                    <div class="flex flex-col gap-4 justify-between lg:h-[456px]">
+                        <!-- Ảnh trên -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-md group lg:h-[220px] h-48">
+                            <img src="assets/images/banners/GioithieuTech4life/GioithieuTech4life2.png" alt="Giới thiệu Tech4Life 2" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
+                        </div>
+                        <!-- Ảnh dưới -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-md group lg:h-[220px] h-48">
+                            <img src="assets/images/banners/GioithieuTech4life/GioithieuTech4life3.png" alt="Giới thiệu Tech4Life 3" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
+                        </div>
                     </div>
                 </div>
             </div>
