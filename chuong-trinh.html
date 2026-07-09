@@ -217,7 +217,7 @@
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0"
                 aria-hidden="true">
                 <img src="assets/images/logos/tech4life2.png" alt=""
-                    class="w-[500px] md:w-[950px] h-auto opacity-[0.07] max-w-full">
+                    class="w-[500px] md:w-[950px] h-auto max-w-full" style="opacity: 0.15;">
             </div>
 
             <!-- Decorative blobs -->
@@ -249,7 +249,7 @@
                     <h1
                         class="hero-enter hero-d3 text-4xl md:text-5xl font-bold text-primary-dark tracking-tight leading-tight mb-4"
                         style="text-shadow: 0px 2px 10px rgba(255, 255, 255, 0.9), 0px 0px 4px rgba(255, 255, 255, 1);">
-                        Chương trình Hội nghị
+                        Chương trình <br class="block md:hidden"> Hội nghị
                     </h1>
 
                     <!-- Theme subtitle -->
@@ -324,10 +324,10 @@
         ============================================================ -->
         <section class="bg-white border-y border-gray-100 py-5">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
-                <div class="flex overflow-x-auto md:grid md:grid-cols-4 divide-x divide-gray-100 scrollbar-hide">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 gap-y-8 lg:gap-0 lg:divide-x lg:divide-gray-100">
 
                     <!-- Stat 1: Diễn giả -->
-                    <div class="flex flex-col items-center gap-1.5 px-6 md:px-8 py-3 min-w-[140px] flex-shrink-0">
+                    <div class="flex flex-col items-center gap-1.5 px-2 lg:px-8 py-3">
                         <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-0.5"
                             aria-hidden="true">
                             <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -341,7 +341,7 @@
                     </div>
 
                     <!-- Stat 2: Phiên hội thảo -->
-                    <div class="flex flex-col items-center gap-1.5 px-6 md:px-8 py-3 min-w-[140px] flex-shrink-0">
+                    <div class="flex flex-col items-center gap-1.5 px-2 lg:px-8 py-3">
                         <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-0.5"
                             aria-hidden="true">
                             <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -355,7 +355,7 @@
                     </div>
 
                     <!-- Stat 3: Chủ đề -->
-                    <div class="flex flex-col items-center gap-1.5 px-6 md:px-8 py-3 min-w-[140px] flex-shrink-0">
+                    <div class="flex flex-col items-center gap-1.5 px-2 lg:px-8 py-3">
                         <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-0.5"
                             aria-hidden="true">
                             <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -369,7 +369,7 @@
                     </div>
 
                     <!-- Stat 4: Ngày hội nghị -->
-                    <div class="flex flex-col items-center gap-1.5 px-6 md:px-8 py-3 min-w-[140px] flex-shrink-0">
+                    <div class="flex flex-col items-center gap-1.5 px-2 lg:px-8 py-3">
                         <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-0.5"
                             aria-hidden="true">
                             <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -475,7 +475,7 @@
                 <!-- Section header -->
                 <div class="text-center mb-12">
                     <p class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Cái nhìn tổng thể</p>
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark mb-4">Tổng quan chương trình</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark mb-4">Tổng quan <span class="whitespace-nowrap">chương trình</span></h2>
                     <p class="text-sm text-text-muted max-w-xl mx-auto">
                         Sơ đồ phân bổ hoạt động theo ngày và khu vực tổ chức tại GEM Center, TP. Hồ Chí Minh.
                     </p>
@@ -510,11 +510,11 @@
                 </div>
 
                 <!-- Grid overview table -->
-                <div class="bg-white rounded-2xl border border-gray-100 shadow-[0_8px_40px_-8px_rgba(0,0,0,0.10)] overflow-x-auto">
-                    <div class="min-w-[760px]">
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-[0_8px_40px_-8px_rgba(0,0,0,0.10)] overflow-hidden lg:overflow-x-auto">
+                    <div class="w-full">
 
                         <!-- ─── Header row ─── -->
-                        <div class="grid border-b border-gray-100" style="grid-template-columns: 100px 1fr 2fr 1fr">
+                        <div class="hidden lg:grid border-b border-gray-100" style="grid-template-columns: 100px 1fr 2fr 1fr">
                             <div class="px-4 py-3 bg-gray-50 border-r border-gray-100 flex items-center justify-center">
                                 <span class="text-[10px] font-bold uppercase tracking-widest text-text-muted">Ngày</span>
                             </div>
@@ -533,19 +533,20 @@
                         </div>
 
                         <!-- ─── NGÀY 1 ─── -->
-                        <div class="grid border-b border-gray-100" style="grid-template-columns: 100px 1fr 2fr 1fr">
+                        <div class="flex flex-col lg:grid border-b border-gray-100" style="grid-template-columns: 100px 1fr 2fr 1fr">
                             <!-- Day label -->
-                            <div class="px-3 py-5 bg-gray-50/70 border-r border-gray-100 flex flex-col items-center justify-center text-center gap-0.5">
-                                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center mb-1.5">
+                            <div class="px-3 py-4 lg:py-5 bg-gray-100 lg:bg-gray-50/70 border-b lg:border-b-0 lg:border-r border-gray-100 flex flex-row lg:flex-col items-center justify-center text-center gap-2 lg:gap-0.5">
+                                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center lg:mb-1.5">
                                     <span class="text-white text-xs font-bold">1</span>
                                 </div>
                                 <span class="text-[11px] font-bold text-primary-dark">Ngày 1</span>
                                 <span class="text-[10px] text-text-muted">19/09/2026</span>
-                                <span class="text-[10px] text-text-muted">Thứ Sáu</span>
+                                <span class="hidden lg:inline text-[10px] text-text-muted">Thứ Sáu</span>
                             </div>
 
                             <!-- Exhibition — spans visually across both rows -->
-                            <div class="border-r border-gray-100 p-3 flex">
+                            <div class="lg:border-r border-b lg:border-b-0 border-gray-100 p-3 flex flex-col gap-2">
+                                <span class="lg:hidden text-[10px] font-bold text-indigo-700 block text-center uppercase tracking-widest bg-indigo-50 py-1.5 rounded-lg w-full">Khu vực Triển Lãm</span>
                                 <div class="flex-1 bg-gradient-to-b from-indigo-500 to-indigo-700 rounded-xl flex flex-col items-center justify-center text-center text-white p-3 shadow-sm min-h-[200px]">
                                     <div class="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center mb-2">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm12 0a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
@@ -558,9 +559,9 @@
                             </div>
 
                             <!-- Conference zone — Day 1 -->
-                            <div class="border-r border-gray-100 p-3 flex flex-col gap-2">
+                            <div class="lg:border-r border-b lg:border-b-0 border-gray-100 p-3 flex flex-col gap-2">
+                                <span class="lg:hidden text-[10px] font-bold text-primary mb-1 block text-center uppercase tracking-widest bg-blue-50 py-1.5 rounded-lg w-full">Khu vực Hội nghị</span>
                                 <div class="flex items-center gap-2 bg-primary-dark text-white rounded-xl px-3 py-2.5">
-                                    <span class="text-xl flex-shrink-0" aria-hidden="true">🎤</span>
                                     <div class="min-w-0">
                                         <p class="text-[10px] font-bold opacity-60 uppercase tracking-widest">08:30 – 09:00</p>
                                         <p class="text-xs font-semibold truncate">Lễ khai mạc Tech4Life 2026</p>
@@ -577,7 +578,6 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2 bg-amber-50 border border-amber-100 rounded-lg px-3 py-1.5">
-                                    <span class="text-base" aria-hidden="true">☕</span>
                                     <p class="text-[10px] text-amber-600 font-semibold">10:00 – 10:30 · Giải lao &amp; Tham quan</p>
                                 </div>
                                 <div class="grid grid-cols-2 gap-2">
@@ -591,11 +591,9 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2 bg-amber-50 border border-amber-100 rounded-lg px-3 py-1.5">
-                                    <span class="text-base" aria-hidden="true">🍽️</span>
                                     <p class="text-[10px] text-amber-600 font-semibold">12:00 – 13:30 · Nghỉ trưa &amp; Giao lưu</p>
                                 </div>
                                 <div class="flex items-center gap-2 bg-indigo-600 text-white rounded-xl px-3 py-2.5">
-                                    <span class="text-xl flex-shrink-0" aria-hidden="true">💬</span>
                                     <div class="min-w-0">
                                         <p class="text-[10px] font-bold opacity-60 uppercase tracking-widest">15:30 – 17:00</p>
                                         <p class="text-xs font-semibold truncate">Panel: Tương lai số Việt Nam 2030</p>
@@ -605,6 +603,7 @@
 
                             <!-- Event zone — Day 1 -->
                             <div class="p-3 flex flex-col gap-2">
+                                <span class="lg:hidden text-[10px] font-bold text-teal-600 mb-1 block text-center uppercase tracking-widest bg-teal-50 py-1.5 rounded-lg w-full">Khu vực Sự kiện</span>
                                 <div class="flex-1 bg-teal-600 text-white rounded-xl p-3 flex flex-col justify-center">
                                     <p class="text-[10px] font-bold opacity-60 uppercase mb-1">Cả ngày</p>
                                     <p class="text-[11px] font-semibold">Business Matching</p>
@@ -617,19 +616,20 @@
                         </div>
 
                         <!-- ─── NGÀY 2 ─── -->
-                        <div class="grid rounded-b-2xl overflow-hidden" style="grid-template-columns: 100px 1fr 2fr 1fr">
+                        <div class="flex flex-col lg:grid rounded-b-2xl overflow-hidden" style="grid-template-columns: 100px 1fr 2fr 1fr">
                             <!-- Day label -->
-                            <div class="px-3 py-5 bg-gray-50/70 border-r border-gray-100 flex flex-col items-center justify-center text-center gap-0.5">
-                                <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center mb-1.5">
+                            <div class="px-3 py-4 lg:py-5 bg-gray-100 lg:bg-gray-50/70 border-y lg:border-y-0 lg:border-r border-gray-100 flex flex-row lg:flex-col items-center justify-center text-center gap-2 lg:gap-0.5">
+                                <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center lg:mb-1.5">
                                     <span class="text-white text-xs font-bold">2</span>
                                 </div>
                                 <span class="text-[11px] font-bold text-primary-dark">Ngày 2</span>
                                 <span class="text-[10px] text-text-muted">20/09/2026</span>
-                                <span class="text-[10px] text-text-muted">Thứ Bảy</span>
+                                <span class="hidden lg:inline text-[10px] text-text-muted">Thứ Bảy</span>
                             </div>
 
                             <!-- Exhibition — Day 2 continuation -->
-                            <div class="border-r border-gray-100 p-3 flex bg-indigo-50/30">
+                            <div class="lg:border-r border-b lg:border-b-0 border-gray-100 p-3 flex flex-col gap-2 bg-indigo-50/30">
+                                <span class="lg:hidden text-[10px] font-bold text-indigo-700 block text-center uppercase tracking-widest bg-indigo-100/50 py-1.5 rounded-lg w-full">Khu vực Triển Lãm</span>
                                 <div class="flex-1 bg-gradient-to-b from-indigo-300/70 to-indigo-500/70 rounded-xl flex flex-col items-center justify-center text-center text-white p-3 min-h-[180px]">
                                     <svg class="w-5 h-5 mb-1.5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                     <p class="text-[11px] font-semibold opacity-90 uppercase tracking-wide">Ngày cuối<br>Triển lãm</p>
@@ -637,7 +637,8 @@
                             </div>
 
                             <!-- Conference zone — Day 2 -->
-                            <div class="border-r border-gray-100 p-3 flex flex-col gap-2">
+                            <div class="lg:border-r border-b lg:border-b-0 border-gray-100 p-3 flex flex-col gap-2">
+                                <span class="lg:hidden text-[10px] font-bold text-primary mb-1 block text-center uppercase tracking-widest bg-blue-50 py-1.5 rounded-lg w-full">Khu vực Hội nghị</span>
                                 <div class="grid grid-cols-2 gap-2">
                                     <div class="bg-primary rounded-xl px-3 py-2 text-white">
                                         <p class="text-[10px] font-bold opacity-60 mb-0.5">09:00 – 09:30</p>
@@ -649,7 +650,6 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2 bg-amber-50 border border-amber-100 rounded-lg px-3 py-1.5">
-                                    <span class="text-base" aria-hidden="true">☕</span>
                                     <p class="text-[10px] text-amber-600 font-semibold">10:00 – 10:30 · Giải lao &amp; Tham quan</p>
                                 </div>
                                 <div class="grid grid-cols-2 gap-2">
@@ -663,18 +663,15 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2 bg-amber-50 border border-amber-100 rounded-lg px-3 py-1.5">
-                                    <span class="text-base" aria-hidden="true">🍽️</span>
                                     <p class="text-[10px] text-amber-600 font-semibold">12:00 – 13:30 · Nghỉ trưa &amp; Giao lưu</p>
                                 </div>
                                 <div class="flex items-center gap-2 bg-indigo-600 text-white rounded-xl px-3 py-2.5">
-                                    <span class="text-xl flex-shrink-0" aria-hidden="true">🌐</span>
                                     <div class="min-w-0">
                                         <p class="text-[10px] font-bold opacity-60 uppercase tracking-widest">15:30 – 16:30</p>
                                         <p class="text-xs font-semibold truncate">Panel: Startup &amp; Đổi mới sáng tạo</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2 bg-primary-dark text-white rounded-xl px-3 py-2.5">
-                                    <span class="text-xl flex-shrink-0" aria-hidden="true">🏆</span>
                                     <div class="min-w-0">
                                         <p class="text-[10px] font-bold opacity-60 uppercase tracking-widest">16:30 – 17:30</p>
                                         <p class="text-xs font-semibold truncate">Lễ bế mạc &amp; Vinh danh VietFuture</p>
@@ -684,6 +681,7 @@
 
                             <!-- Event zone — Day 2 -->
                             <div class="p-3 flex flex-col gap-2">
+                                <span class="lg:hidden text-[10px] font-bold text-teal-600 mb-1 block text-center uppercase tracking-widest bg-teal-50 py-1.5 rounded-lg w-full">Khu vực Sự kiện</span>
                                 <div class="flex-1 bg-teal-600 text-white rounded-xl p-3 flex flex-col justify-center">
                                     <p class="text-[10px] font-bold opacity-60 uppercase mb-1">Cả ngày</p>
                                     <p class="text-[11px] font-semibold">Business Matching</p>
@@ -711,7 +709,7 @@
              SECTION 4: DAY TABS + SCHEDULE TIMELINE
         ============================================================ -->
 
-        <section id="schedule" class="bg-white py-16 md:py-20">
+        <section id="schedule" class="bg-slate-50 py-16 md:py-20">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
 
                 <!-- Section heading -->
@@ -724,7 +722,7 @@
                 </div>
 
                 <!-- Sticky tab bar -->
-                <div id="tab-bar" class="tab-bar-sticky sticky top-20 z-40 bg-white pb-4 pt-2">
+                <div id="tab-bar" class="tab-bar-sticky sticky top-20 z-40 bg-slate-50 pb-4 pt-2">
                     <div class="flex justify-center">
                         <div class="inline-flex bg-gray-100 rounded-full p-1 gap-1" role="tablist"
                             aria-label="Chọn ngày hội nghị">
@@ -749,6 +747,7 @@
 
                     <!-- ====== DAY 1 PANEL ====== -->
                     <div id="panel-day1" role="tabpanel" aria-labelledby="tab-day1" class="day-panel active">
+                        <div class="bg-white border border-gray-200 shadow-sm rounded-3xl p-6 md:p-10 mb-8">
 
                         <!-- Date header -->
                         <div class="flex items-center gap-3 mb-8 pb-5 border-b border-gray-100">
@@ -787,7 +786,6 @@
                                     <div class="flex-1 md:pl-10">
                                         <div
                                             class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
-                                            <span class="text-lg" aria-hidden="true">📋</span>
                                             <div class="flex-1 min-w-0">
                                                 <span
                                                     class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Đăng
@@ -828,9 +826,7 @@
                                                 Lễ khai mạc Tech4Life 2026
                                             </h3>
                                             <div class="flex items-center gap-3">
-                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                                                    data-speaker-name="Ban Tổ Chức VINASA" title="Ban Tổ Chức VINASA">B
-                                                </div>
+                                                <img src="assets/images/speakers/ban-to-chuc-vinasa.jpg" alt="Ban Tổ Chức VINASA" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100" title="Ban Tổ Chức VINASA">
                                                 <div>
                                                     <p class="text-sm font-semibold text-text-main leading-tight">Ban Tổ
                                                         Chức VINASA</p>
@@ -872,9 +868,7 @@
                                                 ứng dụng thực tiễn mang lại giá trị cho doanh nghiệp và người dân.
                                             </p>
                                             <div class="flex items-center gap-3">
-                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                                                    data-speaker-name="Nguyễn Thanh Hùng"
-                                                    title="GS. TS. Nguyễn Thanh Hùng">N</div>
+                                                <img src="assets/images/speakers/nguyen-thanh-hung.jpg" alt="GS. TS. Nguyễn Thanh Hùng" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100" title="GS. TS. Nguyễn Thanh Hùng">
                                                 <div>
                                                     <p class="text-sm font-semibold text-text-main leading-tight">GS.
                                                         TS. Nguyễn Thanh Hùng</p>
@@ -916,8 +910,7 @@
                                                 và lộ trình phát triển hạ tầng số cho giai đoạn 2026–2030.
                                             </p>
                                             <div class="flex items-center gap-3">
-                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                                                    data-speaker-name="Lê Minh Tuấn" title="TS. Lê Minh Tuấn">L</div>
+                                                <img src="assets/images/speakers/le-minh-tuan.jpg" alt="TS. Lê Minh Tuấn" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100" title="TS. Lê Minh Tuấn">
                                                 <div>
                                                     <p class="text-sm font-semibold text-text-main leading-tight">TS. Lê
                                                         Minh Tuấn</p>
@@ -943,7 +936,6 @@
                                     <div class="flex-1 md:pl-10">
                                         <div
                                             class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
-                                            <span class="text-lg" aria-hidden="true">☕</span>
                                             <div class="flex-1 min-w-0">
                                                 <span
                                                     class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Giải
@@ -992,8 +984,7 @@
                                                 tập. Các diễn giả chia sẻ case study thực tế và bài học kinh nghiệm.
                                             </p>
                                             <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
-                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                                                    data-speaker-name="Phạm Thị Lan" title="TS. Phạm Thị Lan">P</div>
+                                                <img src="assets/images/speakers/pham-thi-lan.jpg" alt="TS. Phạm Thị Lan" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100" title="TS. Phạm Thị Lan">
                                                 <div>
                                                     <p class="text-xs text-text-muted mb-0.5">Chủ toạ</p>
                                                     <p class="text-sm font-semibold text-text-main leading-tight">TS.
@@ -1020,7 +1011,6 @@
                                     <div class="flex-1 md:pl-10">
                                         <div
                                             class="border border-dashed border-amber-200 rounded-xl bg-amber-50 px-5 py-3 flex items-center gap-3 flex-wrap">
-                                            <span class="text-lg" aria-hidden="true">🍽️</span>
                                             <div class="flex-1 min-w-0">
                                                 <span
                                                     class="text-xs font-bold uppercase tracking-widest text-amber-600 mr-2">Ăn
@@ -1068,8 +1058,7 @@
                                                 lược bảo vệ hạ tầng số và xây dựng văn hoá bảo mật trong tổ chức.
                                             </p>
                                             <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
-                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                                                    data-speaker-name="Vũ Đình Khoa" title="ThS. Vũ Đình Khoa">V</div>
+                                                <img src="assets/images/speakers/vu-dinh-khoa.jpg" alt="ThS. Vũ Đình Khoa" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100" title="ThS. Vũ Đình Khoa">
                                                 <div>
                                                     <p class="text-xs text-text-muted mb-0.5">Chủ toạ</p>
                                                     <p class="text-sm font-semibold text-text-main leading-tight">ThS.
@@ -1096,7 +1085,6 @@
                                     <div class="flex-1 md:pl-10">
                                         <div
                                             class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
-                                            <span class="text-lg" aria-hidden="true">☕</span>
                                             <div class="flex-1 min-w-0">
                                                 <span
                                                     class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Giải
@@ -1145,8 +1133,7 @@
                                                 Nam và Đông Nam Á.
                                             </p>
                                             <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
-                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                                                    data-speaker-name="Trần Anh Tuấn" title="TS. Trần Anh Tuấn">T</div>
+                                                <img src="assets/images/speakers/tran-anh-tuan.jpg" alt="TS. Trần Anh Tuấn" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100" title="TS. Trần Anh Tuấn">
                                                 <div>
                                                     <p class="text-xs text-text-muted mb-0.5">Chủ toạ</p>
                                                     <p class="text-sm font-semibold text-text-main leading-tight">TS.
@@ -1173,7 +1160,6 @@
                                     <div class="flex-1 md:pl-10">
                                         <div
                                             class="border border-emerald-200 rounded-xl bg-emerald-50 px-5 py-4 flex items-center gap-3 flex-wrap">
-                                            <span class="text-lg" aria-hidden="true">🤝</span>
                                             <div class="flex-1 min-w-0">
                                                 <span
                                                     class="inline-block text-xs font-bold uppercase tracking-widest text-emerald-700 mb-0.5">Kết
@@ -1192,11 +1178,13 @@
 
                             </div><!-- /.flex.flex-col (Day 1 sessions) -->
                         </div><!-- /.relative (timeline) -->
+                        </div><!-- /.bg-white container -->
                     </div><!-- /#panel-day1 -->
 
 
                     <!-- ====== DAY 2 PANEL ====== -->
                     <div id="panel-day2" role="tabpanel" aria-labelledby="tab-day2" class="day-panel">
+                        <div class="bg-white border border-gray-200 shadow-sm rounded-3xl p-6 md:p-10 mb-8">
 
                         <!-- Date header -->
                         <div class="flex items-center gap-3 mb-8 pb-5 border-b border-gray-100">
@@ -1234,7 +1222,6 @@
                                     <div class="flex-1 md:pl-10">
                                         <div
                                             class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
-                                            <span class="text-lg" aria-hidden="true">📋</span>
                                             <div class="flex-1 min-w-0">
                                                 <span
                                                     class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Đăng
@@ -1280,9 +1267,7 @@
                                                 giới.
                                             </p>
                                             <div class="flex items-center gap-3">
-                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                                                    data-speaker-name="Nguyễn Hoàng Long"
-                                                    title="KTS. Nguyễn Hoàng Long">N</div>
+                                                <img src="assets/images/speakers/nguyen-hoang-long.jpg" alt="KTS. Nguyễn Hoàng Long" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100" title="KTS. Nguyễn Hoàng Long">
                                                 <div>
                                                     <p class="text-sm font-semibold text-text-main leading-tight">KTS.
                                                         Nguyễn Hoàng Long</p>
@@ -1325,8 +1310,7 @@
                                                 nối thiết bị thông minh.
                                             </p>
                                             <div class="flex items-center gap-3">
-                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                                                    data-speaker-name="Trần Văn Minh" title="GS. Trần Văn Minh">T</div>
+                                                <img src="assets/images/speakers/tran-van-minh.jpg" alt="GS. Trần Văn Minh" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100" title="GS. Trần Văn Minh">
                                                 <div>
                                                     <p class="text-sm font-semibold text-text-main leading-tight">GS.
                                                         Trần Văn Minh</p>
@@ -1352,7 +1336,6 @@
                                     <div class="flex-1 md:pl-10">
                                         <div
                                             class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
-                                            <span class="text-lg" aria-hidden="true">☕</span>
                                             <div class="flex-1 min-w-0">
                                                 <span
                                                     class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Giải
@@ -1401,8 +1384,7 @@
                                                 thị trường lao động số.
                                             </p>
                                             <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
-                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                                                    data-speaker-name="Lê Thị Mai" title="PGS. TS. Lê Thị Mai">L</div>
+                                                <img src="assets/images/speakers/le-thi-mai.jpg" alt="PGS. TS. Lê Thị Mai" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100" title="PGS. TS. Lê Thị Mai">
                                                 <div>
                                                     <p class="text-xs text-text-muted mb-0.5">Chủ toạ</p>
                                                     <p class="text-sm font-semibold text-text-main leading-tight">PGS.
@@ -1429,7 +1411,6 @@
                                     <div class="flex-1 md:pl-10">
                                         <div
                                             class="border border-dashed border-amber-200 rounded-xl bg-amber-50 px-5 py-3 flex items-center gap-3 flex-wrap">
-                                            <span class="text-lg" aria-hidden="true">🍽️</span>
                                             <div class="flex-1 min-w-0">
                                                 <span
                                                     class="text-xs font-bold uppercase tracking-widest text-amber-600 mr-2">Ăn
@@ -1478,8 +1459,7 @@
                                                 quản trị dữ liệu tại thị trường Việt Nam.
                                             </p>
                                             <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
-                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                                                    data-speaker-name="Đỗ Quang Huy" title="TS. Đỗ Quang Huy">Đ</div>
+                                                <img src="assets/images/speakers/do-quang-huy.jpg" alt="TS. Đỗ Quang Huy" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100" title="TS. Đỗ Quang Huy">
                                                 <div>
                                                     <p class="text-xs text-text-muted mb-0.5">Chủ toạ</p>
                                                     <p class="text-sm font-semibold text-text-main leading-tight">TS. Đỗ
@@ -1506,7 +1486,6 @@
                                     <div class="flex-1 md:pl-10">
                                         <div
                                             class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
-                                            <span class="text-lg" aria-hidden="true">☕</span>
                                             <div class="flex-1 min-w-0">
                                                 <span
                                                     class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Giải
@@ -1553,12 +1532,9 @@
                                             </p>
                                             <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
                                                 <div class="flex -space-x-2">
-                                                    <div class="w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold flex-shrink-0 z-10"
-                                                        data-speaker-name="Nguyễn Văn An" title="Chuyên gia 1">N</div>
-                                                    <div class="w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold flex-shrink-0 z-20"
-                                                        data-speaker-name="Trần Thị Bình" title="Chuyên gia 2">T</div>
-                                                    <div class="w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold flex-shrink-0 z-30"
-                                                        data-speaker-name="Lê Quốc Cường" title="Chuyên gia 3">L</div>
+                                                    <img src="assets/images/speakers/nguyen-van-an.jpg" alt="Chuyên gia 1" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100 z-10" title="Chuyên gia 1">
+                                                    <img src="assets/images/speakers/tran-thi-binh.jpg" alt="Chuyên gia 2" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100 z-20" title="Chuyên gia 2">
+                                                    <img src="assets/images/speakers/le-quoc-cuong.jpg" alt="Chuyên gia 3" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100 z-30" title="Chuyên gia 3">
                                                     <div
                                                         class="w-9 h-9 rounded-full bg-primary/20 border-2 border-white flex items-center justify-center text-primary text-xs font-bold flex-shrink-0 z-40">
                                                         +2</div>
@@ -1596,9 +1572,7 @@
                                                 Lễ bế mạc &amp; Trao giải Tech4Life Awards 2026
                                             </h3>
                                             <div class="flex items-center gap-3">
-                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                                                    data-speaker-name="Ban Tổ Chức VINASA" title="Ban Tổ Chức VINASA">B
-                                                </div>
+                                                <img src="assets/images/speakers/ban-to-chuc-vinasa.jpg" alt="Ban Tổ Chức VINASA" class="w-9 h-9 rounded-full object-cover object-top flex-shrink-0 border border-gray-100" title="Ban Tổ Chức VINASA">
                                                 <div>
                                                     <p class="text-sm font-semibold text-text-main leading-tight">Ban Tổ
                                                         Chức VINASA</p>
@@ -1612,6 +1586,7 @@
 
                             </div><!-- /.flex.flex-col (Day 2 sessions) -->
                         </div><!-- /.relative (timeline) -->
+                        </div><!-- /.bg-white container -->
                     </div><!-- /#panel-day2 -->
 
                 </div><!-- /.relative (panels wrapper) -->
