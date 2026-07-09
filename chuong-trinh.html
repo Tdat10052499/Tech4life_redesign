@@ -1,37 +1,1768 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chương trình - Tech4Life</title>
+    <title>Chương trình Hội nghị — Tech4Life 2026</title>
+    <meta name="description"
+        content="Xem lịch trình chi tiết của Tech4Life Expo & Summit 2026. Hơn 20 phiên hội thảo, 30+ diễn giả, 2 ngày sự kiện tại GEM Center TP. Hồ Chí Minh.">
+    <meta property="og:title" content="Chương trình Hội nghị — Tech4Life 2026">
+    <meta property="og:description"
+        content="Lịch trình 2 ngày hội nghị với 20+ phiên hội thảo, 30+ diễn giả và 5 chủ đề trọng tâm về AI, Dữ liệu & Chuyển đổi số.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts (preconnect for performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            dark: '#1E3A8A',
+                        },
+                        secondary: {
+                            DEFAULT: '#60A5FA',
+                            gradientStart: '#E0E7FF',
+                            gradientEnd: '#DBEAFE',
+                        },
+                        background: {
+                            DEFAULT: '#FFFFFF',
+                            alt: '#F8FAFC',
+                            footer: '#0F172A',
+                        },
+                        text: {
+                            main: '#334155',
+                            muted: '#64748B',
+                            heading: '#1E3A8A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        html, body { min-height: 100vh; }
+        html,
+        body {
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ===== SCROLL REVEAL (mirror of index.html) ===== */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .scroll-reveal.reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== HERO ENTRY ANIMATION ===== */
+        .hero-enter {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Stagger delays: applied via data-delay class for reliability */
+        .hero-d1 {
+            animation-delay: 50ms;
+        }
+
+        .hero-d2 {
+            animation-delay: 150ms;
+        }
+
+        .hero-d3 {
+            animation-delay: 250ms;
+        }
+
+        .hero-d4 {
+            animation-delay: 350ms;
+        }
+
+        .hero-d5 {
+            animation-delay: 450ms;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== DAY PANEL TAB SWITCHING ===== */
+        .day-panel {
+            display: none;
+            opacity: 0;
+        }
+
+        .day-panel.active {
+            display: block;
+            animation: dayPanelEnter 0.35s ease-out forwards;
+        }
+
+        @keyframes dayPanelEnter {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== TIMELINE DOT HOVER ===== */
+        .session-group:hover .timeline-dot {
+            background-color: #2563EB;
+            transform: translate(-50%, -50%) scale(1.35);
+        }
+
+        .timeline-dot {
+            transition: background-color 0.25s ease, transform 0.25s ease;
+        }
+
+        /* ===== TAB BUTTON: hover only on INACTIVE tabs ===== */
+        /* Prevents blue-on-blue text when hovering the active (bg-primary) tab */
+        .tab-btn[aria-selected="false"]:hover {
+            color: #2563EB;
+            /* primary */
+        }
+
+        /* ===== DAY PANEL: scroll offset for sticky tab bar ===== */
+        /* Ensures the date header is not hidden under the sticky bar when scrolling */
+        .day-panel {
+            scroll-margin-top: 160px;
+        }
+
+
+        /* ===== BACK TO TOP BUTTON ===== */
+        #back-to-top {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(10px);
+        }
+
+        #back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        /* ===== STICKY TAB SHADOW ON SCROLL ===== */
+        .tab-bar-sticky {
+            transition: box-shadow 0.3s ease;
+        }
+
+        .tab-bar-sticky.scrolled {
+            box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.10);
+        }
+
+        /* ===== EXPAND SESSION DETAIL ===== */
+        .session-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out;
+        }
+
+        .session-detail.expanded {
+            max-height: 500px;
+        }
     </style>
 </head>
-<body class="bg-slate-50 flex flex-col font-sans text-gray-800">
+
+<body class="bg-white flex flex-col font-sans text-text-main antialiased">
+
+    <!-- HEADER (loaded via main.js) -->
     <header id="app-header"></header>
-    
-    <main class="flex-grow container mx-auto px-4 py-12">
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 md:p-12">
-            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">Tech4Life 2026</div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Chương trình</h1>
-            <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
-                Chào mừng bạn đến với trang <span class="font-semibold text-slate-800">Chương trình</span>. 
-                Nội dung chi tiết của phần này đang được cập nhật và sẽ sớm ra mắt.
-            </p>
-            
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Skeleton loader / Placeholder blocks -->
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-75"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-150"></div>
+
+    <main class="flex-grow">
+
+        <!-- ============================================================
+             SECTION 1: HERO BANNER
+        ============================================================ -->
+        <section
+            class="relative bg-gradient-to-br from-secondary-gradientStart to-secondary-gradientEnd py-16 md:py-24 overflow-hidden">
+
+            <!-- Watermark background logo -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0"
+                aria-hidden="true">
+                <img src="assets/images/logos/tech4life2.png" alt=""
+                    class="w-[500px] md:w-[950px] h-auto opacity-[0.07] max-w-full">
             </div>
-        </div>
+
+            <!-- Decorative blobs -->
+            <div class="absolute top-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse"
+                aria-hidden="true"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse"
+                style="animation-delay: 1s;" aria-hidden="true"></div>
+
+            <!-- Content -->
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <div class="text-center max-w-3xl mx-auto">
+
+                    <!-- VINASA organiser badge -->
+                    <div
+                        class="hero-enter hero-d1 inline-flex items-center gap-2 px-4 py-1.5 bg-white/80 backdrop-blur border border-blue-100 text-primary-dark rounded-full text-xs md:text-sm font-semibold mb-5 shadow-sm">
+                        <img src="assets/images/logos/logo-VINASA-1024x1005.png" alt="VINASA Logo" class="h-4 w-auto">
+                        <span>Hiệp hội Phần mềm và Dịch vụ CNTT Việt Nam (VINASA)</span>
+                    </div>
+
+                    <!-- Event tag -->
+                    <div class="hero-enter hero-d2 mb-3">
+                        <span
+                            class="inline-block px-4 py-1.5 bg-white/90 backdrop-blur border border-blue-100 shadow-sm text-primary rounded-full text-xs font-bold uppercase tracking-widest">
+                            Tech4Life 2026
+                        </span>
+                    </div>
+
+                    <!-- H1 -->
+                    <h1
+                        class="hero-enter hero-d3 text-4xl md:text-5xl font-bold text-primary-dark tracking-tight leading-tight mb-4"
+                        style="text-shadow: 0px 2px 10px rgba(255, 255, 255, 0.9), 0px 0px 4px rgba(255, 255, 255, 1);">
+                        Chương trình Hội nghị
+                    </h1>
+
+                    <!-- Theme subtitle -->
+                    <div class="hero-enter hero-d4 mb-8">
+                        <p class="text-base md:text-lg text-text-main font-medium italic max-w-2xl mx-auto leading-relaxed inline-block px-6 py-2 bg-white/70 backdrop-blur border border-gray-100 rounded-full shadow-sm">
+                            "Công nghệ nâng tầm cuộc sống — AI, Dữ liệu &amp; Chuyển đổi số"
+                        </p>
+                    </div>
+
+                    <!-- Event meta -->
+                    <div class="hero-enter hero-d4 mb-10">
+                        <div class="inline-flex flex-wrap items-center justify-center gap-3 md:gap-6 text-sm font-medium text-text-main px-6 py-2.5 bg-white/80 backdrop-blur border border-blue-50 rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span>19–20 tháng 9, 2026</span>
+                            </span>
+                            <span class="w-px h-4 bg-gray-300 hidden md:block" aria-hidden="true"></span>
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                <span>GEM Center, TP. Hồ Chí Minh</span>
+                            </span>
+                            <span class="w-px h-4 bg-gray-300 hidden md:block" aria-hidden="true"></span>
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>2 Ngày hội nghị</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- CTA buttons -->
+                    <div class="hero-enter hero-d5 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="tham-du.html"
+                            class="bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 w-full sm:w-auto text-center">
+                            Đăng ký tham dự
+                        </a>
+                        <a href="#schedule"
+                            class="bg-white text-primary border border-primary hover:bg-background-alt font-semibold py-3 px-8 rounded-full shadow-sm transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                            Xem lịch trình
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Scroll indicator -->
+                <div class="flex justify-center mt-10 animate-bounce" aria-hidden="true">
+                    <svg class="w-5 h-5 text-primary/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             SECTION 2: STATS BAR
+        ============================================================ -->
+        <section class="bg-white border-y border-gray-100 py-5">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="flex overflow-x-auto md:grid md:grid-cols-4 divide-x divide-gray-100 scrollbar-hide">
+
+                    <!-- Stat 1: Diễn giả -->
+                    <div class="flex flex-col items-center gap-1.5 px-6 md:px-8 py-3 min-w-[140px] flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-0.5"
+                            aria-hidden="true">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-bold text-primary-dark counter no-reveal" data-target="30"
+                            data-suffix="+">30+</span>
+                        <span class="text-xs text-text-muted font-medium text-center">Diễn giả</span>
+                    </div>
+
+                    <!-- Stat 2: Phiên hội thảo -->
+                    <div class="flex flex-col items-center gap-1.5 px-6 md:px-8 py-3 min-w-[140px] flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-0.5"
+                            aria-hidden="true">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-bold text-primary-dark counter no-reveal" data-target="20"
+                            data-suffix="+">20+</span>
+                        <span class="text-xs text-text-muted font-medium text-center">Phiên hội thảo</span>
+                    </div>
+
+                    <!-- Stat 3: Chủ đề -->
+                    <div class="flex flex-col items-center gap-1.5 px-6 md:px-8 py-3 min-w-[140px] flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-0.5"
+                            aria-hidden="true">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-bold text-primary-dark counter no-reveal" data-target="5"
+                            data-suffix="">5</span>
+                        <span class="text-xs text-text-muted font-medium text-center">Chủ đề trọng tâm</span>
+                    </div>
+
+                    <!-- Stat 4: Ngày hội nghị -->
+                    <div class="flex flex-col items-center gap-1.5 px-6 md:px-8 py-3 min-w-[140px] flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-0.5"
+                            aria-hidden="true">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-bold text-primary-dark counter no-reveal" data-target="2"
+                            data-suffix="">2</span>
+                        <span class="text-xs text-text-muted font-medium text-center">Ngày hội nghị</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             SECTION 3: THEME INTRODUCTION
+        ============================================================ -->
+        <section class="bg-background-alt py-16 md:py-20">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+
+                <!-- Section heading -->
+                <div class="text-center mb-12">
+                    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Về Hội Nghị</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark mb-6">Chủ đề &amp; Nội dung</h2>
+                    <p class="text-base text-text-main leading-relaxed max-w-3xl mx-auto">
+                        Tech4Life 2026 quy tụ hơn <strong class="text-primary-dark font-semibold">1.000 chuyên gia công
+                            nghệ</strong>, lãnh đạo doanh nghiệp và nhà hoạch định chính sách để cùng khám phá những xu
+                        hướng công nghệ định hình tương lai Việt Nam. Với chủ đề trung tâm là <strong
+                            class="text-primary-dark font-semibold">AI, Dữ liệu và Chuyển đổi số</strong>, hội nghị tập
+                        trung vào những giải pháp thiết thực, kết nối hệ sinh thái và thúc đẩy đổi mới sáng tạo trong kỷ
+                        nguyên số.
+                    </p>
+                </div>
+
+                <!-- 3-pillar grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+                    <!-- Pillar 1 -->
+                    <div
+                        class="bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] border border-gray-100 p-6 md:p-8 transition-shadow duration-300 text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5"
+                            aria-hidden="true">
+                            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3">AI &amp; Dữ liệu</h3>
+                        <p class="text-sm text-text-muted leading-relaxed">
+                            Ứng dụng trí tuệ nhân tạo và phân tích dữ liệu lớn trong chuyển đổi mô hình kinh doanh và
+                            nâng cao chất lượng dịch vụ.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div
+                        class="bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] border border-gray-100 p-6 md:p-8 transition-shadow duration-300 text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5"
+                            aria-hidden="true">
+                            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3">An ninh &amp; Hạ tầng số</h3>
+                        <p class="text-sm text-text-muted leading-relaxed">
+                            Bảo mật thông tin, an ninh mạng và xây dựng cơ sở hạ tầng kỹ thuật số vững chắc, đáng tin
+                            cậy cho tổ chức và quốc gia.
+                        </p>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div
+                        class="bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] border border-gray-100 p-6 md:p-8 transition-shadow duration-300 text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5"
+                            aria-hidden="true">
+                            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-3">Chuyển đổi số Doanh nghiệp</h3>
+                        <p class="text-sm text-text-muted leading-relaxed">
+                            Chiến lược và giải pháp chuyển đổi số toàn diện, giúp tổ chức bứt phá và duy trì lợi thế
+                            cạnh tranh bền vững.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             SECTION 3.5: VISUAL SCHEDULE OVERVIEW (tổng quan chương trình)
+        ============================================================ -->
+        <section class="py-16 md:py-20 bg-background-alt">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+
+                <!-- Section header -->
+                <div class="text-center mb-12">
+                    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Cái nhìn tổng thể</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark mb-4">Tổng quan chương trình</h2>
+                    <p class="text-sm text-text-muted max-w-xl mx-auto">
+                        Sơ đồ phân bổ hoạt động theo ngày và khu vực tổ chức tại GEM Center, TP. Hồ Chí Minh.
+                    </p>
+                </div>
+
+                <!-- Legend -->
+                <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-8">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-primary-dark inline-block flex-shrink-0"></span>
+                        <span class="text-xs text-text-muted font-medium">Khai mạc / Bế mạc</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-primary inline-block flex-shrink-0"></span>
+                        <span class="text-xs text-text-muted font-medium">Phiên chính</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-secondary inline-block flex-shrink-0"></span>
+                        <span class="text-xs text-text-muted font-medium">Hội thảo chuyên đề</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-indigo-500 inline-block flex-shrink-0"></span>
+                        <span class="text-xs text-text-muted font-medium">Triển lãm</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-teal-500 inline-block flex-shrink-0"></span>
+                        <span class="text-xs text-text-muted font-medium">Sự kiện / Kết nối</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-amber-400 inline-block flex-shrink-0"></span>
+                        <span class="text-xs text-text-muted font-medium">Giải lao / Ăn trưa</span>
+                    </div>
+                </div>
+
+                <!-- Grid overview table -->
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-[0_8px_40px_-8px_rgba(0,0,0,0.10)] overflow-x-auto">
+                    <div class="min-w-[760px]">
+
+                        <!-- ─── Header row ─── -->
+                        <div class="grid border-b border-gray-100" style="grid-template-columns: 100px 1fr 2fr 1fr">
+                            <div class="px-4 py-3 bg-gray-50 border-r border-gray-100 flex items-center justify-center">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-text-muted">Ngày</span>
+                            </div>
+                            <div class="px-4 py-3 bg-indigo-50 border-r border-gray-100 flex items-center justify-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm12 0a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-600">Triển Lãm</span>
+                            </div>
+                            <div class="px-4 py-3 bg-blue-50 border-r border-gray-100 flex items-center justify-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-primary">Khu vực Hội nghị</span>
+                            </div>
+                            <div class="px-4 py-3 bg-teal-50 flex items-center justify-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-teal-600">Khu vực Sự kiện</span>
+                            </div>
+                        </div>
+
+                        <!-- ─── NGÀY 1 ─── -->
+                        <div class="grid border-b border-gray-100" style="grid-template-columns: 100px 1fr 2fr 1fr">
+                            <!-- Day label -->
+                            <div class="px-3 py-5 bg-gray-50/70 border-r border-gray-100 flex flex-col items-center justify-center text-center gap-0.5">
+                                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center mb-1.5">
+                                    <span class="text-white text-xs font-bold">1</span>
+                                </div>
+                                <span class="text-[11px] font-bold text-primary-dark">Ngày 1</span>
+                                <span class="text-[10px] text-text-muted">19/09/2026</span>
+                                <span class="text-[10px] text-text-muted">Thứ Sáu</span>
+                            </div>
+
+                            <!-- Exhibition — spans visually across both rows -->
+                            <div class="border-r border-gray-100 p-3 flex">
+                                <div class="flex-1 bg-gradient-to-b from-indigo-500 to-indigo-700 rounded-xl flex flex-col items-center justify-center text-center text-white p-3 shadow-sm min-h-[200px]">
+                                    <div class="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center mb-2">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm12 0a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                                    </div>
+                                    <p class="text-xs font-bold uppercase tracking-wide leading-tight">Triển Lãm<br>Công Nghệ</p>
+                                    <div class="mt-2 px-2 py-0.5 bg-white/20 rounded-full">
+                                        <p class="text-[10px] font-semibold">2 ngày liên tục</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Conference zone — Day 1 -->
+                            <div class="border-r border-gray-100 p-3 flex flex-col gap-2">
+                                <div class="flex items-center gap-2 bg-primary-dark text-white rounded-xl px-3 py-2.5">
+                                    <span class="text-xl flex-shrink-0" aria-hidden="true">🎤</span>
+                                    <div class="min-w-0">
+                                        <p class="text-[10px] font-bold opacity-60 uppercase tracking-widest">08:30 – 09:00</p>
+                                        <p class="text-xs font-semibold truncate">Lễ khai mạc Tech4Life 2026</p>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="bg-primary rounded-xl px-3 py-2 text-white">
+                                        <p class="text-[10px] font-bold opacity-60 mb-0.5">09:00 – 09:30</p>
+                                        <p class="text-[11px] font-semibold leading-snug">AI trong kỷ nguyên dữ liệu</p>
+                                    </div>
+                                    <div class="bg-primary rounded-xl px-3 py-2 text-white">
+                                        <p class="text-[10px] font-bold opacity-60 mb-0.5">09:30 – 10:00</p>
+                                        <p class="text-[11px] font-semibold leading-snug">Chuyển đổi số QG 2030</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-amber-50 border border-amber-100 rounded-lg px-3 py-1.5">
+                                    <span class="text-base" aria-hidden="true">☕</span>
+                                    <p class="text-[10px] text-amber-600 font-semibold">10:00 – 10:30 · Giải lao &amp; Tham quan</p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="bg-secondary/90 rounded-xl px-3 py-2 text-white">
+                                        <p class="text-[10px] font-bold opacity-70 mb-0.5">10:30 – 12:00</p>
+                                        <p class="text-[11px] font-semibold leading-snug">AI &amp; ML trong Y tế, Giáo dục</p>
+                                    </div>
+                                    <div class="bg-secondary/90 rounded-xl px-3 py-2 text-white">
+                                        <p class="text-[10px] font-bold opacity-70 mb-0.5">13:30 – 15:00</p>
+                                        <p class="text-[11px] font-semibold leading-snug">Bảo mật &amp; An ninh mạng</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-amber-50 border border-amber-100 rounded-lg px-3 py-1.5">
+                                    <span class="text-base" aria-hidden="true">🍽️</span>
+                                    <p class="text-[10px] text-amber-600 font-semibold">12:00 – 13:30 · Nghỉ trưa &amp; Giao lưu</p>
+                                </div>
+                                <div class="flex items-center gap-2 bg-indigo-600 text-white rounded-xl px-3 py-2.5">
+                                    <span class="text-xl flex-shrink-0" aria-hidden="true">💬</span>
+                                    <div class="min-w-0">
+                                        <p class="text-[10px] font-bold opacity-60 uppercase tracking-widest">15:30 – 17:00</p>
+                                        <p class="text-xs font-semibold truncate">Panel: Tương lai số Việt Nam 2030</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Event zone — Day 1 -->
+                            <div class="p-3 flex flex-col gap-2">
+                                <div class="flex-1 bg-teal-600 text-white rounded-xl p-3 flex flex-col justify-center">
+                                    <p class="text-[10px] font-bold opacity-60 uppercase mb-1">Cả ngày</p>
+                                    <p class="text-[11px] font-semibold">Business Matching</p>
+                                </div>
+                                <div class="flex-1 bg-teal-400 text-white rounded-xl p-3 flex flex-col justify-center">
+                                    <p class="text-[10px] font-bold opacity-70 uppercase mb-1">Cả ngày</p>
+                                    <p class="text-[11px] font-semibold">Tham quan Triển lãm</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ─── NGÀY 2 ─── -->
+                        <div class="grid rounded-b-2xl overflow-hidden" style="grid-template-columns: 100px 1fr 2fr 1fr">
+                            <!-- Day label -->
+                            <div class="px-3 py-5 bg-gray-50/70 border-r border-gray-100 flex flex-col items-center justify-center text-center gap-0.5">
+                                <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center mb-1.5">
+                                    <span class="text-white text-xs font-bold">2</span>
+                                </div>
+                                <span class="text-[11px] font-bold text-primary-dark">Ngày 2</span>
+                                <span class="text-[10px] text-text-muted">20/09/2026</span>
+                                <span class="text-[10px] text-text-muted">Thứ Bảy</span>
+                            </div>
+
+                            <!-- Exhibition — Day 2 continuation -->
+                            <div class="border-r border-gray-100 p-3 flex bg-indigo-50/30">
+                                <div class="flex-1 bg-gradient-to-b from-indigo-300/70 to-indigo-500/70 rounded-xl flex flex-col items-center justify-center text-center text-white p-3 min-h-[180px]">
+                                    <svg class="w-5 h-5 mb-1.5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    <p class="text-[11px] font-semibold opacity-90 uppercase tracking-wide">Ngày cuối<br>Triển lãm</p>
+                                </div>
+                            </div>
+
+                            <!-- Conference zone — Day 2 -->
+                            <div class="border-r border-gray-100 p-3 flex flex-col gap-2">
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="bg-primary rounded-xl px-3 py-2 text-white">
+                                        <p class="text-[10px] font-bold opacity-60 mb-0.5">09:00 – 09:30</p>
+                                        <p class="text-[11px] font-semibold leading-snug">Smart City 2030</p>
+                                    </div>
+                                    <div class="bg-primary rounded-xl px-3 py-2 text-white">
+                                        <p class="text-[10px] font-bold opacity-60 mb-0.5">09:30 – 10:00</p>
+                                        <p class="text-[11px] font-semibold leading-snug">IoT &amp; Công nghiệp 4.0</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-amber-50 border border-amber-100 rounded-lg px-3 py-1.5">
+                                    <span class="text-base" aria-hidden="true">☕</span>
+                                    <p class="text-[10px] text-amber-600 font-semibold">10:00 – 10:30 · Giải lao &amp; Tham quan</p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="bg-secondary/90 rounded-xl px-3 py-2 text-white">
+                                        <p class="text-[10px] font-bold opacity-70 mb-0.5">10:30 – 12:00</p>
+                                        <p class="text-[11px] font-semibold leading-snug">EdTech &amp; Đổi mới GD</p>
+                                    </div>
+                                    <div class="bg-secondary/90 rounded-xl px-3 py-2 text-white">
+                                        <p class="text-[10px] font-bold opacity-70 mb-0.5">13:30 – 15:00</p>
+                                        <p class="text-[11px] font-semibold leading-snug">Blockchain &amp; Web3</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-amber-50 border border-amber-100 rounded-lg px-3 py-1.5">
+                                    <span class="text-base" aria-hidden="true">🍽️</span>
+                                    <p class="text-[10px] text-amber-600 font-semibold">12:00 – 13:30 · Nghỉ trưa &amp; Giao lưu</p>
+                                </div>
+                                <div class="flex items-center gap-2 bg-indigo-600 text-white rounded-xl px-3 py-2.5">
+                                    <span class="text-xl flex-shrink-0" aria-hidden="true">🌐</span>
+                                    <div class="min-w-0">
+                                        <p class="text-[10px] font-bold opacity-60 uppercase tracking-widest">15:30 – 16:30</p>
+                                        <p class="text-xs font-semibold truncate">Panel: Startup &amp; Đổi mới sáng tạo</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-primary-dark text-white rounded-xl px-3 py-2.5">
+                                    <span class="text-xl flex-shrink-0" aria-hidden="true">🏆</span>
+                                    <div class="min-w-0">
+                                        <p class="text-[10px] font-bold opacity-60 uppercase tracking-widest">16:30 – 17:30</p>
+                                        <p class="text-xs font-semibold truncate">Lễ bế mạc &amp; Vinh danh VietFuture</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Event zone — Day 2 -->
+                            <div class="p-3 flex flex-col gap-2">
+                                <div class="flex-1 bg-teal-600 text-white rounded-xl p-3 flex flex-col justify-center">
+                                    <p class="text-[10px] font-bold opacity-60 uppercase mb-1">Cả ngày</p>
+                                    <p class="text-[11px] font-semibold">Business Matching</p>
+                                </div>
+                                <div class="flex-1 bg-teal-400 text-white rounded-xl p-3 flex flex-col justify-center">
+                                    <p class="text-[10px] font-bold opacity-70 uppercase mb-1">Cả ngày</p>
+                                    <p class="text-[11px] font-semibold">Tham quan Triển lãm</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Mobile swipe hint -->
+                <p class="text-center text-[11px] text-text-muted mt-3 md:hidden" aria-hidden="true">
+                    ← Vuốt ngang để xem toàn bộ lịch trình
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             SECTION 4: DAY TABS + SCHEDULE TIMELINE
+        ============================================================ -->
+
+        <section id="schedule" class="bg-white py-16 md:py-20">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+
+                <!-- Section heading -->
+                <div class="text-center mb-8">
+                    <p class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Lịch Trình</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark mb-4">Chương trình chi tiết</h2>
+                    <p class="text-sm text-text-muted max-w-xl mx-auto">
+                        Chọn ngày để xem lịch trình đầy đủ. Tất cả giờ theo múi giờ GMT+7 (TP. Hồ Chí Minh).
+                    </p>
+                </div>
+
+                <!-- Sticky tab bar -->
+                <div id="tab-bar" class="tab-bar-sticky sticky top-20 z-40 bg-white pb-4 pt-2">
+                    <div class="flex justify-center">
+                        <div class="inline-flex bg-gray-100 rounded-full p-1 gap-1" role="tablist"
+                            aria-label="Chọn ngày hội nghị">
+                            <button id="tab-day1" role="tab" aria-selected="true" aria-controls="panel-day1"
+                                onclick="switchDay(1)"
+                                class="tab-btn px-5 md:px-8 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-primary text-white shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                                <span class="hidden sm:inline">Ngày 1 · </span>19/09/2026
+                                <span class="ml-1.5 text-xs opacity-80 font-normal hidden sm:inline">(11 phiên)</span>
+                            </button>
+                            <button id="tab-day2" role="tab" aria-selected="false" aria-controls="panel-day2"
+                                onclick="switchDay(2)"
+                                class="tab-btn px-5 md:px-8 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 text-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                                <span class="hidden sm:inline">Ngày 2 · </span>20/09/2026
+                                <span class="ml-1.5 text-xs opacity-70 font-normal hidden sm:inline">(10 phiên)</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day panels -->
+                <div class="relative pt-6">
+
+                    <!-- ====== DAY 1 PANEL ====== -->
+                    <div id="panel-day1" role="tabpanel" aria-labelledby="tab-day1" class="day-panel active">
+
+                        <!-- Date header -->
+                        <div class="flex items-center gap-3 mb-8 pb-5 border-b border-gray-100">
+                            <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0"
+                                aria-hidden="true">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-widest text-primary">Ngày 1</p>
+                                <h3 class="text-lg font-semibold text-primary-dark">Thứ Sáu, 19 tháng 9 năm 2026</h3>
+                            </div>
+                        </div>
+
+                        <!-- Timeline -->
+                        <div class="relative">
+                            <!-- Vertical connector line (desktop) -->
+                            <div class="absolute left-[7.5rem] top-2 bottom-2 w-0.5 bg-blue-100 hidden md:block"
+                                aria-hidden="true"></div>
+
+                            <div class="flex flex-col gap-4">
+
+                                <!-- SESSION: Đăng ký (Break-style) -->
+                                <div
+                                    class="group session-group relative flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-1">
+                                        <span class="text-xs font-semibold text-text-muted">08:00</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">08:30</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-gray-200 z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
+                                            <span class="text-lg" aria-hidden="true">📋</span>
+                                            <div class="flex-1 min-w-0">
+                                                <span
+                                                    class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Đăng
+                                                    ký</span>
+                                                <span class="text-sm text-text-muted">Đăng ký &amp; đón tiếp đại
+                                                    biểu</span>
+                                            </div>
+                                            <span
+                                                class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                phút</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Khai mạc -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">08:30</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">09:00</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-primary-dark z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-primary-dark text-white px-3 py-1 rounded-full text-xs font-bold">Khai
+                                                    mạc</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                    phút</span>
+                                            </div>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-3">
+                                                Lễ khai mạc Tech4Life 2026
+                                            </h3>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                                                    data-speaker-name="Ban Tổ Chức VINASA" title="Ban Tổ Chức VINASA">B
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm font-semibold text-text-main leading-tight">Ban Tổ
+                                                        Chức VINASA</p>
+                                                    <p class="text-xs text-text-muted">Đại diện Hiệp hội Phần mềm &amp;
+                                                        Dịch vụ CNTT Việt Nam</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Keynote 1 -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">09:00</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">09:30</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-primary z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">Phiên
+                                                    chính</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                    phút</span>
+                                            </div>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-2">
+                                                Công nghệ AI trong kỷ nguyên dữ liệu: Cơ hội và thách thức
+                                            </h3>
+                                            <p class="text-sm text-text-muted leading-relaxed mb-4">
+                                                Phân tích bức tranh toàn cảnh về AI tại Việt Nam và khu vực, các mô hình
+                                                ứng dụng thực tiễn mang lại giá trị cho doanh nghiệp và người dân.
+                                            </p>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                                                    data-speaker-name="Nguyễn Thanh Hùng"
+                                                    title="GS. TS. Nguyễn Thanh Hùng">N</div>
+                                                <div>
+                                                    <p class="text-sm font-semibold text-text-main leading-tight">GS.
+                                                        TS. Nguyễn Thanh Hùng</p>
+                                                    <p class="text-xs text-text-muted">Thứ trưởng — Bộ Khoa học &amp;
+                                                        Công nghệ</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Keynote 2 -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">09:30</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">10:00</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-primary z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">Phiên
+                                                    chính</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                    phút</span>
+                                            </div>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-2">
+                                                Chuyển đổi số quốc gia: Hành trình và tầm nhìn 2030
+                                            </h3>
+                                            <p class="text-sm text-text-muted leading-relaxed mb-4">
+                                                Tổng quan chiến lược chuyển đổi số quốc gia, những bước tiến đã đạt được
+                                                và lộ trình phát triển hạ tầng số cho giai đoạn 2026–2030.
+                                            </p>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                                                    data-speaker-name="Lê Minh Tuấn" title="TS. Lê Minh Tuấn">L</div>
+                                                <div>
+                                                    <p class="text-sm font-semibold text-text-main leading-tight">TS. Lê
+                                                        Minh Tuấn</p>
+                                                    <p class="text-xs text-text-muted">Cục trưởng — Cục Chuyển đổi số
+                                                        Quốc gia</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- BREAK -->
+                                <div
+                                    class="group session-group relative flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-1">
+                                        <span class="text-xs font-semibold text-text-muted">10:00</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">10:30</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-gray-200 z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
+                                            <span class="text-lg" aria-hidden="true">☕</span>
+                                            <div class="flex-1 min-w-0">
+                                                <span
+                                                    class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Giải
+                                                    lao</span>
+                                                <span class="text-sm text-text-muted">Giải lao &amp; tham quan triển
+                                                    lãm</span>
+                                            </div>
+                                            <span
+                                                class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                phút</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Workshop 1 -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">10:30</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">12:00</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-secondary z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold">Hội
+                                                    thảo chuyên đề</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">90
+                                                    phút</span>
+                                            </div>
+                                            <p
+                                                class="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
+                                                Chuyên đề 1</p>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-2">
+                                                AI &amp; Machine Learning ứng dụng trong Y tế và Giáo dục
+                                            </h3>
+                                            <p class="text-sm text-text-muted leading-relaxed mb-4">
+                                                Hội thảo chuyên sâu về các mô hình AI đang được triển khai trong hệ
+                                                thống y tế và giáo dục Việt Nam, từ chẩn đoán hỗ trợ đến cá nhân hoá học
+                                                tập. Các diễn giả chia sẻ case study thực tế và bài học kinh nghiệm.
+                                            </p>
+                                            <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
+                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                                                    data-speaker-name="Phạm Thị Lan" title="TS. Phạm Thị Lan">P</div>
+                                                <div>
+                                                    <p class="text-xs text-text-muted mb-0.5">Chủ toạ</p>
+                                                    <p class="text-sm font-semibold text-text-main leading-tight">TS.
+                                                        Phạm Thị Lan</p>
+                                                    <p class="text-xs text-text-muted">Giám đốc Trung tâm AI — ĐH Quốc
+                                                        gia Hà Nội</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- LUNCH -->
+                                <div
+                                    class="group session-group relative flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-1">
+                                        <span class="text-xs font-semibold text-text-muted">12:00</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">13:30</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-amber-300 z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="border border-dashed border-amber-200 rounded-xl bg-amber-50 px-5 py-3 flex items-center gap-3 flex-wrap">
+                                            <span class="text-lg" aria-hidden="true">🍽️</span>
+                                            <div class="flex-1 min-w-0">
+                                                <span
+                                                    class="text-xs font-bold uppercase tracking-widest text-amber-600 mr-2">Ăn
+                                                    trưa</span>
+                                                <span class="text-sm text-text-muted">Nghỉ trưa &amp; giao lưu kết
+                                                    nối</span>
+                                            </div>
+                                            <span
+                                                class="text-xs text-amber-600 bg-amber-100 px-2.5 py-1 rounded-full flex-shrink-0">90
+                                                phút</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Workshop 2 -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">13:30</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">15:00</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-secondary z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold">Hội
+                                                    thảo chuyên đề</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">90
+                                                    phút</span>
+                                            </div>
+                                            <p
+                                                class="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
+                                                Chuyên đề 2</p>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-2">
+                                                Bảo mật dữ liệu &amp; An ninh mạng trong thời đại số
+                                            </h3>
+                                            <p class="text-sm text-text-muted leading-relaxed mb-4">
+                                                Các chuyên gia hàng đầu thảo luận về xu hướng tấn công mạng mới, chiến
+                                                lược bảo vệ hạ tầng số và xây dựng văn hoá bảo mật trong tổ chức.
+                                            </p>
+                                            <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
+                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                                                    data-speaker-name="Vũ Đình Khoa" title="ThS. Vũ Đình Khoa">V</div>
+                                                <div>
+                                                    <p class="text-xs text-text-muted mb-0.5">Chủ toạ</p>
+                                                    <p class="text-sm font-semibold text-text-main leading-tight">ThS.
+                                                        Vũ Đình Khoa</p>
+                                                    <p class="text-xs text-text-muted">Giám đốc An ninh mạng — Tập đoàn
+                                                        FPT</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- BREAK 2 -->
+                                <div
+                                    class="group session-group relative flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-1">
+                                        <span class="text-xs font-semibold text-text-muted">15:00</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">15:30</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-gray-200 z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
+                                            <span class="text-lg" aria-hidden="true">☕</span>
+                                            <div class="flex-1 min-w-0">
+                                                <span
+                                                    class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Giải
+                                                    lao</span>
+                                                <span class="text-sm text-text-muted">Giải lao &amp; tham quan triển
+                                                    lãm</span>
+                                            </div>
+                                            <span
+                                                class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                phút</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Workshop 3 -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">15:30</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">17:00</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-secondary z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold">Hội
+                                                    thảo chuyên đề</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">90
+                                                    phút</span>
+                                            </div>
+                                            <p
+                                                class="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
+                                                Chuyên đề 3</p>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-2">
+                                                Fintech &amp; Thanh toán số: Xu hướng và giải pháp toàn diện
+                                            </h3>
+                                            <p class="text-sm text-text-muted leading-relaxed mb-4">
+                                                Từ Open Banking đến CBDC, từ ví điện tử đến thanh toán xuyên biên giới —
+                                                phiên hội thảo phân tích sâu hệ sinh thái Fintech đang hình thành ở Việt
+                                                Nam và Đông Nam Á.
+                                            </p>
+                                            <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
+                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                                                    data-speaker-name="Trần Anh Tuấn" title="TS. Trần Anh Tuấn">T</div>
+                                                <div>
+                                                    <p class="text-xs text-text-muted mb-0.5">Chủ toạ</p>
+                                                    <p class="text-sm font-semibold text-text-main leading-tight">TS.
+                                                        Trần Anh Tuấn</p>
+                                                    <p class="text-xs text-text-muted">Phó Giám đốc — Trung tâm Fintech
+                                                        NHNN</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- NETWORKING -->
+                                <div
+                                    class="group session-group relative flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-1">
+                                        <span class="text-xs font-semibold text-text-muted">17:00</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">18:00</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-emerald-400 z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="border border-emerald-200 rounded-xl bg-emerald-50 px-5 py-4 flex items-center gap-3 flex-wrap">
+                                            <span class="text-lg" aria-hidden="true">🤝</span>
+                                            <div class="flex-1 min-w-0">
+                                                <span
+                                                    class="inline-block text-xs font-bold uppercase tracking-widest text-emerald-700 mb-0.5">Kết
+                                                    nối</span>
+                                                <p class="text-sm font-semibold text-text-main">Tiệc kết nối chiều —
+                                                    Welcome Reception</p>
+                                                <p class="text-xs text-text-muted">Giao lưu, kết nối và mở rộng mạng
+                                                    lưới đối tác</p>
+                                            </div>
+                                            <span
+                                                class="text-xs text-emerald-600 bg-emerald-100 px-2.5 py-1 rounded-full flex-shrink-0">60
+                                                phút</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.flex.flex-col (Day 1 sessions) -->
+                        </div><!-- /.relative (timeline) -->
+                    </div><!-- /#panel-day1 -->
+
+
+                    <!-- ====== DAY 2 PANEL ====== -->
+                    <div id="panel-day2" role="tabpanel" aria-labelledby="tab-day2" class="day-panel">
+
+                        <!-- Date header -->
+                        <div class="flex items-center gap-3 mb-8 pb-5 border-b border-gray-100">
+                            <div class="w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center flex-shrink-0"
+                                aria-hidden="true">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold uppercase tracking-widest text-primary">Ngày 2</p>
+                                <h3 class="text-lg font-semibold text-primary-dark">Thứ Bảy, 20 tháng 9 năm 2026</h3>
+                            </div>
+                        </div>
+
+                        <!-- Timeline -->
+                        <div class="relative">
+                            <div class="absolute left-[7.5rem] top-2 bottom-2 w-0.5 bg-blue-100 hidden md:block"
+                                aria-hidden="true"></div>
+
+                            <div class="flex flex-col gap-4">
+
+                                <!-- SESSION: Đăng ký ngày 2 -->
+                                <div
+                                    class="group session-group relative flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-1">
+                                        <span class="text-xs font-semibold text-text-muted">08:30</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">09:00</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-gray-200 z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
+                                            <span class="text-lg" aria-hidden="true">📋</span>
+                                            <div class="flex-1 min-w-0">
+                                                <span
+                                                    class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Đăng
+                                                    ký</span>
+                                                <span class="text-sm text-text-muted">Đăng ký &amp; đón tiếp đại biểu
+                                                    ngày 2</span>
+                                            </div>
+                                            <span
+                                                class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                phút</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Keynote 3 -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">09:00</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">09:30</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-primary z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">Phiên
+                                                    chính</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                    phút</span>
+                                            </div>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-2">
+                                                Smart City 2030: Đô thị thông minh cho cuộc sống bền vững
+                                            </h3>
+                                            <p class="text-sm text-text-muted leading-relaxed mb-4">
+                                                Tầm nhìn về đô thị thông minh Việt Nam, vai trò của dữ liệu và IoT trong
+                                                quản trị đô thị, và những bài học từ các mô hình thành công trên thế
+                                                giới.
+                                            </p>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                                                    data-speaker-name="Nguyễn Hoàng Long"
+                                                    title="KTS. Nguyễn Hoàng Long">N</div>
+                                                <div>
+                                                    <p class="text-sm font-semibold text-text-main leading-tight">KTS.
+                                                        Nguyễn Hoàng Long</p>
+                                                    <p class="text-xs text-text-muted">Cục trưởng Cục Phát triển đô thị
+                                                        — Bộ Xây Dựng</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Keynote 4 -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">09:30</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">10:00</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-primary z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">Phiên
+                                                    chính</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                    phút</span>
+                                            </div>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-2">
+                                                IoT &amp; Công nghiệp 4.0: Kết nối và tự động hoá sản xuất
+                                            </h3>
+                                            <p class="text-sm text-text-muted leading-relaxed mb-4">
+                                                Hành trình của Công nghiệp 4.0 tại các khu công nghiệp Việt Nam — từ lý
+                                                thuyết đến triển khai thực tế, giải quyết bài toán tự động hoá và kết
+                                                nối thiết bị thông minh.
+                                            </p>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                                                    data-speaker-name="Trần Văn Minh" title="GS. Trần Văn Minh">T</div>
+                                                <div>
+                                                    <p class="text-sm font-semibold text-text-main leading-tight">GS.
+                                                        Trần Văn Minh</p>
+                                                    <p class="text-xs text-text-muted">Trưởng Khoa CNTT — ĐH Bách Khoa
+                                                        Hà Nội</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- BREAK -->
+                                <div
+                                    class="group session-group relative flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-1">
+                                        <span class="text-xs font-semibold text-text-muted">10:00</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">10:30</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-gray-200 z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
+                                            <span class="text-lg" aria-hidden="true">☕</span>
+                                            <div class="flex-1 min-w-0">
+                                                <span
+                                                    class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Giải
+                                                    lao</span>
+                                                <span class="text-sm text-text-muted">Giải lao &amp; tham quan triển
+                                                    lãm</span>
+                                            </div>
+                                            <span
+                                                class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                phút</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Workshop 4 -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">10:30</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">12:00</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-secondary z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold">Hội
+                                                    thảo chuyên đề</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">90
+                                                    phút</span>
+                                            </div>
+                                            <p
+                                                class="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
+                                                Chuyên đề 4</p>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-2">
+                                                EdTech &amp; Đổi mới sáng tạo trong Giáo dục đại học
+                                            </h3>
+                                            <p class="text-sm text-text-muted leading-relaxed mb-4">
+                                                Cách các trường đại học Việt Nam đang ứng dụng công nghệ để cá nhân hoá
+                                                hành trình học tập, nâng cao chất lượng đào tạo và kết nối sinh viên với
+                                                thị trường lao động số.
+                                            </p>
+                                            <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
+                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                                                    data-speaker-name="Lê Thị Mai" title="PGS. TS. Lê Thị Mai">L</div>
+                                                <div>
+                                                    <p class="text-xs text-text-muted mb-0.5">Chủ toạ</p>
+                                                    <p class="text-sm font-semibold text-text-main leading-tight">PGS.
+                                                        TS. Lê Thị Mai</p>
+                                                    <p class="text-xs text-text-muted">Phó Hiệu trưởng — ĐH Sư phạm Kỹ
+                                                        thuật TP.HCM</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- LUNCH -->
+                                <div
+                                    class="group session-group relative flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-1">
+                                        <span class="text-xs font-semibold text-text-muted">12:00</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">13:30</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-amber-300 z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="border border-dashed border-amber-200 rounded-xl bg-amber-50 px-5 py-3 flex items-center gap-3 flex-wrap">
+                                            <span class="text-lg" aria-hidden="true">🍽️</span>
+                                            <div class="flex-1 min-w-0">
+                                                <span
+                                                    class="text-xs font-bold uppercase tracking-widest text-amber-600 mr-2">Ăn
+                                                    trưa</span>
+                                                <span class="text-sm text-text-muted">Nghỉ trưa &amp; giao lưu kết
+                                                    nối</span>
+                                            </div>
+                                            <span
+                                                class="text-xs text-amber-600 bg-amber-100 px-2.5 py-1 rounded-full flex-shrink-0">90
+                                                phút</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Workshop 5 -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">13:30</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">15:00</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-secondary z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold">Hội
+                                                    thảo chuyên đề</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">90
+                                                    phút</span>
+                                            </div>
+                                            <p
+                                                class="text-xs font-semibold text-primary uppercase tracking-widest mb-1">
+                                                Chuyên đề 5</p>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-2">
+                                                Blockchain &amp; Web3: Ứng dụng thực tiễn tại Việt Nam
+                                            </h3>
+                                            <p class="text-sm text-text-muted leading-relaxed mb-4">
+                                                Vượt qua những hype ban đầu — phiên hội thảo tập trung vào các trường
+                                                hợp sử dụng thực tế của Blockchain trong chuỗi cung ứng, tài chính và
+                                                quản trị dữ liệu tại thị trường Việt Nam.
+                                            </p>
+                                            <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
+                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                                                    data-speaker-name="Đỗ Quang Huy" title="TS. Đỗ Quang Huy">Đ</div>
+                                                <div>
+                                                    <p class="text-xs text-text-muted mb-0.5">Chủ toạ</p>
+                                                    <p class="text-sm font-semibold text-text-main leading-tight">TS. Đỗ
+                                                        Quang Huy</p>
+                                                    <p class="text-xs text-text-muted">Trưởng Bộ môn Blockchain — ĐH
+                                                        Công nghệ TP.HCM</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- BREAK 2 -->
+                                <div
+                                    class="group session-group relative flex flex-col md:flex-row md:items-center gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-1">
+                                        <span class="text-xs font-semibold text-text-muted">15:00</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">15:30</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-gray-200 z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="border border-dashed border-gray-200 rounded-xl bg-gray-50 px-5 py-3 flex items-center gap-3 flex-wrap">
+                                            <span class="text-lg" aria-hidden="true">☕</span>
+                                            <div class="flex-1 min-w-0">
+                                                <span
+                                                    class="text-xs font-bold uppercase tracking-widest text-text-muted mr-2">Giải
+                                                    lao</span>
+                                                <span class="text-sm text-text-muted">Giải lao &amp; tham quan triển
+                                                    lãm</span>
+                                            </div>
+                                            <span
+                                                class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                phút</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Panel Discussion -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">15:30</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">16:30</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-indigo-400 z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-bold">Tọa
+                                                    đàm</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">60
+                                                    phút</span>
+                                            </div>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-2">
+                                                Tương lai công nghệ Việt Nam: Thách thức và cơ hội toàn cầu
+                                            </h3>
+                                            <p class="text-sm text-text-muted leading-relaxed mb-4">
+                                                Tọa đàm cấp cao với sự tham gia của 5 chuyên gia đầu ngành, thảo luận về
+                                                định vị của Việt Nam trong bản đồ công nghệ toàn cầu và chiến lược để
+                                                doanh nghiệp Việt vươn ra thế giới.
+                                            </p>
+                                            <div class="flex items-center gap-3 pt-3 border-t border-gray-100">
+                                                <div class="flex -space-x-2">
+                                                    <div class="w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold flex-shrink-0 z-10"
+                                                        data-speaker-name="Nguyễn Văn An" title="Chuyên gia 1">N</div>
+                                                    <div class="w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold flex-shrink-0 z-20"
+                                                        data-speaker-name="Trần Thị Bình" title="Chuyên gia 2">T</div>
+                                                    <div class="w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold flex-shrink-0 z-30"
+                                                        data-speaker-name="Lê Quốc Cường" title="Chuyên gia 3">L</div>
+                                                    <div
+                                                        class="w-9 h-9 rounded-full bg-primary/20 border-2 border-white flex items-center justify-center text-primary text-xs font-bold flex-shrink-0 z-40">
+                                                        +2</div>
+                                                </div>
+                                                <p class="text-sm text-text-muted">5 chuyên gia đầu ngành tham gia tọa
+                                                    đàm</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SESSION: Bế mạc -->
+                                <div class="group session-group relative flex flex-col md:flex-row gap-2 md:gap-0">
+                                    <div
+                                        class="md:w-32 md:flex-shrink-0 flex md:flex-col md:items-end md:pr-6 items-center gap-1.5 md:gap-0 md:pt-5">
+                                        <span class="text-xs font-semibold text-text-muted">16:30</span>
+                                        <span class="text-xs text-text-muted md:hidden">–</span>
+                                        <span class="text-xs font-semibold text-text-muted">17:00</span>
+                                    </div>
+                                    <div class="timeline-dot absolute left-[7rem] top-[1.625rem] -translate-x-1/2 hidden md:flex w-3.5 h-3.5 rounded-full bg-white border-2 border-primary-dark z-10"
+                                        aria-hidden="true"></div>
+                                    <div class="flex-1 md:pl-10">
+                                        <div
+                                            class="bg-white rounded-xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] transition-shadow duration-300 p-5 md:p-6">
+                                            <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
+                                                <span
+                                                    class="bg-primary-dark text-white px-3 py-1 rounded-full text-xs font-bold">Bế
+                                                    mạc</span>
+                                                <span
+                                                    class="text-xs text-text-muted bg-gray-100 px-2.5 py-1 rounded-full flex-shrink-0">30
+                                                    phút</span>
+                                            </div>
+                                            <h3
+                                                class="text-base md:text-lg font-semibold text-primary-dark leading-snug mb-3">
+                                                Lễ bế mạc &amp; Trao giải Tech4Life Awards 2026
+                                            </h3>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+                                                    data-speaker-name="Ban Tổ Chức VINASA" title="Ban Tổ Chức VINASA">B
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm font-semibold text-text-main leading-tight">Ban Tổ
+                                                        Chức VINASA</p>
+                                                    <p class="text-xs text-text-muted">Đại diện Hiệp hội Phần mềm &amp;
+                                                        Dịch vụ CNTT Việt Nam</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.flex.flex-col (Day 2 sessions) -->
+                        </div><!-- /.relative (timeline) -->
+                    </div><!-- /#panel-day2 -->
+
+                </div><!-- /.relative (panels wrapper) -->
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             SECTION 5: DOWNLOAD / CTA BANNER
+        ============================================================ -->
+        <section class="bg-primary-dark py-14 md:py-16">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+
+                    <!-- Left content -->
+                    <div class="text-center md:text-left">
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">
+                            Quan tâm đến Tech4Life 2026?
+                        </h2>
+                        <p class="text-secondary text-base max-w-md">
+                            Tham gia cùng hơn 1.000 chuyên gia công nghệ hàng đầu Việt Nam. Cơ hội kết nối, học hỏi và
+                            hợp tác không giới hạn.
+                        </p>
+                    </div>
+
+                    <!-- Right buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+                        <a href="tham-du.html"
+                            class="bg-white text-primary-dark font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition-all duration-300 text-center shadow-md">
+                            Đăng ký tham dự
+                        </a>
+                        <a href="#"
+                            class="border border-white/40 text-white font-semibold py-3 px-8 rounded-full hover:bg-white/10 transition-all duration-300 text-center flex items-center justify-center gap-2"
+                            title="Chức năng đang cập nhật">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            Tải chương trình PDF
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- FOOTER (loaded via main.js) -->
     <footer id="app-footer"></footer>
-    
+
+    <!-- Back to top button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="fixed bottom-6 right-6 z-50 w-11 h-11 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        aria-label="Quay lên đầu trang">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <!-- Shared JS: loads navbar/footer + scroll-reveal + counter animations -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Page-specific JavaScript -->
+    <script>
+        // ===== LETTER AVATAR COLOUR GENERATOR =====
+        const AVATAR_COLORS = [
+            '#2563EB', '#1E3A8A', '#0891B2', '#7C3AED',
+            '#DB2777', '#D97706', '#059669', '#DC2626'
+        ];
+        function getAvatarColor(name) {
+            let hash = 0;
+            for (let i = 0; i < name.length; i++) {
+                hash = name.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length];
+        }
+
+        // ===== DAY TAB SWITCHING =====
+        function switchDay(day) {
+            // Hide all panels
+            document.querySelectorAll('.day-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            // Show selected panel
+            const activePanel = document.getElementById('panel-day' + day);
+            if (activePanel) activePanel.classList.add('active');
+
+            // Update tab button styles
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white', 'shadow-md');
+                btn.classList.add('text-text-muted');
+                btn.setAttribute('aria-selected', 'false');
+            });
+            const activeTab = document.getElementById('tab-day' + day);
+            if (activeTab) {
+                activeTab.classList.add('bg-primary', 'text-white', 'shadow-md');
+                activeTab.classList.remove('text-text-muted');
+                activeTab.setAttribute('aria-selected', 'true');
+            }
+        }
+
+        // ===== STICKY TAB BAR SHADOW =====
+        function initTabBarShadow() {
+            const tabBar = document.getElementById('tab-bar');
+            if (!tabBar) return;
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    tabBar.classList.toggle('scrolled', !entry.isIntersecting);
+                },
+                { threshold: 1.0, rootMargin: '-80px 0px 0px 0px' }
+            );
+            const sentinel = document.querySelector('#schedule');
+            if (sentinel) observer.observe(sentinel);
+        }
+
+        // ===== BACK TO TOP BUTTON =====
+        function initBackToTop() {
+            const btn = document.getElementById('back-to-top');
+            if (!btn) return;
+            window.addEventListener('scroll', () => {
+                btn.classList.toggle('visible', window.scrollY > 300);
+            }, { passive: true });
+        }
+
+        // ===== APPLY AVATAR COLOURS =====
+        function applyAvatarColors() {
+            document.querySelectorAll('[data-speaker-name]').forEach(el => {
+                el.style.backgroundColor = getAvatarColor(el.dataset.speakerName);
+            });
+        }
+
+        // ===== INITIALIZE =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ensure Day 1 shows by default (no animation on initial load)
+            const day1Panel = document.getElementById('panel-day1');
+            if (day1Panel) {
+                day1Panel.style.animation = 'none';
+                day1Panel.classList.add('active');
+                // Re-enable animation after initial render
+                requestAnimationFrame(() => {
+                    day1Panel.style.animation = '';
+                });
+            }
+            applyAvatarColors();
+            initBackToTop();
+            initTabBarShadow();
+        });
+    </script>
+
 </body>
+
 </html>
