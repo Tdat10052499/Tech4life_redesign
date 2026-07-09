@@ -5,33 +5,508 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triển lãm - Tech4Life</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         html, body { min-height: 100vh; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .hero-enter {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-d2 {
+            animation-delay: 150ms;
+        }
+
+        .hero-d3 {
+            animation-delay: 250ms;
+        }
+
+        .hero-d4 {
+            animation-delay: 350ms;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
-<body class="bg-slate-50 flex flex-col font-sans text-gray-800">
+<body class="flex flex-col bg-[#F8FAFC] text-slate-700">
     <header id="app-header"></header>
-    
-    <main class="flex-grow container mx-auto px-4 py-12">
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 md:p-12">
-            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">Tech4Life 2026</div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Triển lãm</h1>
-            <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
-                Chào mừng bạn đến với trang <span class="font-semibold text-slate-800">Triển lãm</span>. 
-                Nội dung chi tiết của phần này đang được cập nhật và sẽ sớm ra mắt.
-            </p>
-            
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Skeleton loader / Placeholder blocks -->
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-75"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-150"></div>
+
+    <main class="flex-grow">
+        <section class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.14),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(96,165,250,0.18),_transparent_28%),linear-gradient(180deg,_#EFF6FF_0%,_#F8FAFC_52%,_#F8FAFC_100%)]"></div>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0" aria-hidden="true">
+                <img src="assets/images/logos/tech4life2.png" alt="" class="w-[500px] md:w-[950px] h-auto opacity-[0.07] max-w-full">
             </div>
-        </div>
+            <div class="absolute top-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" aria-hidden="true"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 1s;" aria-hidden="true"></div>
+
+            <div class="relative container mx-auto px-4 md:px-8 lg:px-12 py-16 md:py-24">
+                <div class="text-center max-w-4xl mx-auto">
+                    <div class="hero-enter hero-d1 inline-flex items-center gap-2 px-4 py-1.5 bg-white/80 backdrop-blur border border-blue-100 text-primary-dark rounded-full text-xs md:text-sm font-semibold mb-5 shadow-sm mx-auto">
+                        <img src="assets/images/logos/logo-VINASA-1024x1005.png" alt="VINASA Logo" class="h-4 w-auto">
+                        <span>Hiệp hội Phần mềm và Dịch vụ CNTT Việt Nam (VINASA)</span>
+                    </div>
+
+                    <div class="hero-enter hero-d2 mb-3">
+                        <span class="inline-block px-4 py-1.5 bg-white/90 backdrop-blur border border-blue-100 shadow-sm text-primary rounded-full text-xs font-bold uppercase tracking-widest">
+                            Tech4Life 2026
+                        </span>
+                    </div>
+
+                    <h1 class="hero-enter hero-d3 text-4xl md:text-5xl font-bold text-primary-dark tracking-tight leading-tight mb-4" style="text-shadow: 0px 2px 10px rgba(255, 255, 255, 0.9), 0px 0px 4px rgba(255, 255, 255, 1);">
+                        Thông Tin Triển Lãm
+                    </h1>
+
+                    <div class="hero-enter hero-d4 mb-8">
+                        <p class="text-base md:text-lg text-text-main font-medium italic max-w-2xl mx-auto leading-relaxed inline-block px-6 py-2 bg-white/70 backdrop-blur border border-gray-100 rounded-full shadow-sm">
+                            "Gian hàng chuyên nghiệp - Kết nối doanh nghiệp - Gia tăng nhận diện thương hiệu"
+                        </p>
+                    </div>
+
+                    <div class="hero-enter hero-d4 mb-10">
+                        <div class="inline-flex flex-wrap items-center justify-center gap-3 md:gap-6 text-sm font-medium text-text-main px-6 py-2.5 bg-white/80 backdrop-blur border border-blue-50 rounded-full shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span>17–18 tháng 9, 2026</span>
+                            </span>
+                            <span class="w-px h-4 bg-gray-300 hidden md:block" aria-hidden="true"></span>
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                <span>TP. Hồ Chí Minh</span>
+                            </span>
+                            <span class="w-px h-4 bg-gray-300 hidden md:block" aria-hidden="true"></span>
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>Triển lãm công nghệ</span>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex justify-center mt-10 animate-bounce" aria-hidden="true">
+                    <svg class="w-5 h-5 text-primary/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mx-auto px-4 md:px-8 lg:px-12 py-16 md:py-20">
+            <div class="mb-10 max-w-3xl">
+                <p class="text-sm font-semibold uppercase tracking-[0.28em] text-primary">I. Thông tin chung</p>
+                <h2 class="mt-3 text-3xl font-bold tracking-tight text-primary-dark md:text-4xl">Quy mô, gói tham gia và quyền lợi nổi bật</h2>
+                <p class="mt-4 text-base leading-8 text-text-main">Trang này được tổ chức lại theo cấu trúc nội dung mạch lạc để người xem dễ nắm bắt nhanh thông tin tổng quan, từng gói tham gia và các chính sách áp dụng.</p>
+            </div>
+
+            <div class="space-y-8">
+                <div class="rounded-[2rem] border border-gray-100 bg-white p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] md:p-8">
+                    <div class="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                        <div class="max-w-2xl">
+                            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary">1. Thông tin chung</p>
+                            <h3 class="mt-3 text-2xl font-bold text-primary-dark md:text-3xl">Thời gian và địa điểm</h3>
+                            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                                <div class="rounded-2xl bg-slate-50 p-5">
+                                    <p class="text-sm font-medium text-text-muted">Thời gian</p>
+                                    <p class="mt-2 text-lg font-semibold text-slate-900">17 - 18/9/2026</p>
+                                </div>
+                                <div class="rounded-2xl bg-slate-50 p-5">
+                                    <p class="text-sm font-medium text-text-muted">Địa điểm</p>
+                                    <p class="mt-2 text-lg font-semibold text-slate-900">Thành phố Hồ Chí Minh</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 p-6 lg:flex-1 lg:max-w-[34rem] lg:shrink-0">
+                            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-primary-dark md:text-sm">Ghi chú</p>
+                            <p class="mt-3 text-sm leading-7 text-text-main md:text-base md:leading-8">Các thông tin dưới đây được trình bày theo từng gói để doanh nghiệp dễ so sánh quyền lợi và lựa chọn phương án phù hợp.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="gian-hang" class="grid gap-6 xl:grid-cols-3">
+                    <article class="overflow-hidden rounded-[2rem] border border-gray-100 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] transition-shadow duration-300 hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] xl:col-span-1">
+                        <div class="border-b border-gray-100 bg-gradient-to-br from-blue-100 to-blue-50 p-6 md:p-8">
+                            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Đồng hành gian hàng</p>
+                            <h3 class="mt-3 text-2xl font-bold text-primary-dark">60.000.000 VNĐ</h3>
+                            <p class="mt-2 text-sm font-medium text-text-muted">Doanh nghiệp CNTT</p>
+                        </div>
+                        <div class="space-y-5 p-6 md:p-8">
+                            <div>
+                                <p class="text-sm font-semibold text-primary-dark">Quyền lợi trước sự kiện</p>
+                                <ul class="mt-3 space-y-3 text-sm leading-7 text-text-main">
+                                    <li>• Có 50 vé mời tham dự Hội thảo (vé tiêu chuẩn) cho Lãnh đạo, Nhân viên, Khách hàng, Đối tác.</li>
+                                    <li>• Logo kèm danh vị “Đơn vị triển lãm” tại website, backdrop của sự kiện.</li>
+                                    <li>• Có 01 bài giới thiệu Đơn vị triển lãm trên Fanpage/LinkedIn của sự kiện.</li>
+                                </ul>
+                            </div>
+                            <div class="rounded-2xl bg-slate-50 p-4 text-sm leading-7 text-text-main">
+                                <p class="font-semibold text-primary-dark">Quyền lợi tại sự kiện</p>
+                                <ul class="mt-3 space-y-3">
+                                    <li>• 01 gian hàng tiêu chuẩn diện tích 3m x 2m.</li>
+                                    <li>• 01 backdrop 3m x 2,5m, đơn vị triển lãm cung cấp file thiết kế.</li>
+                                    <li>• 01 bàn, 02 ghế, 01 TV.</li>
+                                    <li>• Chứng nhận tham gia Triển lãm từ Ban tổ chức.</li>
+                                </ul>
+                            </div>
+                            <div class="overflow-hidden rounded-2xl border border-blue-100 bg-blue-50/70">
+                                <img src="assets/images/banners/quayhang.png" alt="Không gian quầy hàng triển lãm" class="h-56 w-full object-cover">
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="overflow-hidden rounded-[2rem] border border-gray-100 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] transition-shadow duration-300 hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] xl:col-span-1">
+                        <div class="border-b border-gray-100 bg-gradient-to-br from-indigo-100 to-indigo-50 p-6 md:p-8">
+                            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Đồng hành phát biểu</p>
+                            <h3 class="mt-3 text-2xl font-bold text-primary-dark">60.000.000 VNĐ</h3>
+                            <p class="mt-2 text-sm font-medium text-text-muted">Doanh nghiệp CNTT</p>
+                        </div>
+                        <div class="space-y-5 p-6 md:p-8">
+                            <div>
+                                <p class="text-sm font-semibold text-primary-dark">Quyền lợi trước sự kiện</p>
+                                <ul class="mt-3 space-y-3 text-sm leading-7 text-text-main">
+                                    <li>• Có 50 vé mời tham dự Hội thảo (vé tiêu chuẩn) cho Lãnh đạo, Nhân viên, Khách hàng, Đối tác.</li>
+                                    <li>• Logo hiển thị trên website Tech4Life và backdrop, banner của sự kiện.</li>
+                                    <li>• Có bài giới thiệu Diễn giả trên fanpage/LinkedIn của sự kiện.</li>
+                                    <li>• Ảnh Diễn giả được đăng tải trên website của sự kiện.</li>
+                                </ul>
+                            </div>
+                            <div class="rounded-2xl bg-slate-50 p-4 text-sm leading-7 text-text-main">
+                                <p class="font-semibold text-primary-dark">Quyền lợi tại và sau sự kiện</p>
+                                <ul class="mt-3 space-y-3">
+                                    <li>• 01 bài phát thời lượng 30 phút giới thiệu sản phẩm / giải pháp trên sân khấu.</li>
+                                    <li>• BTC trao Giấy chứng nhận Diễn giả của sự kiện.</li>
+                                    <li>• 01 bài recap của BTC đăng trên Fanpage sau sự kiện.</li>
+                                    <li>• Bài trình bày của Diễn giả được chia sẻ tới khách tham dự trong thư cảm ơn.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="overflow-hidden rounded-[2rem] border border-gray-100 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] transition-shadow duration-300 hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)] xl:col-span-1">
+                        <div class="border-b border-gray-100 bg-gradient-to-br from-emerald-100 to-emerald-50 p-6 md:p-8">
+                            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Gói ưu đãi</p>
+                            <h3 class="mt-3 text-2xl font-bold text-primary-dark">Phát biểu + Triển lãm</h3>
+                            <p class="mt-2 text-sm font-medium text-text-muted">90.000.000 VNĐ - Doanh nghiệp CNTT</p>
+                        </div>
+                        <div class="space-y-5 p-6 md:p-8">
+                            <div class="rounded-2xl bg-slate-50 p-4 text-sm leading-7 text-text-main">
+                                <p class="font-semibold text-primary-dark">Toàn bộ quyền lợi từ 2 gói trên</p>
+                                <ul class="mt-3 space-y-3">
+                                    <li>• 100 vé mời tham dự (vé tiêu chuẩn).</li>
+                                    <li>• Gian hàng tiêu chuẩn 3x2m đầy đủ thiết bị.</li>
+                                    <li>• 15 phút phát biểu tại sự kiện.</li>
+                                    <li>• Đầy đủ quyền lợi truyền thông Trước - Trong - Sau sự kiện.</li>
+                                </ul>
+                            </div>
+                            <div class="rounded-2xl border border-emerald-100 bg-emerald-50/60 p-5">
+                                <p class="text-sm font-semibold text-emerald-800">Bao gồm đầy đủ</p>
+                                <p class="mt-2 text-sm leading-7 text-text-main">Kết hợp giữa hiện diện tại khu triển lãm và cơ hội trình bày trực tiếp trên sân khấu để tăng tối đa độ phủ và giá trị thương hiệu.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="grid gap-6 lg:grid-cols-2">
+                    <section class="rounded-[2rem] border border-gray-100 bg-white p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] md:p-8">
+                        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                            <div>
+                                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Đăng ký sớm - Nhận ưu đãi lớn</p>
+                                <h3 class="mt-3 text-2xl font-bold text-primary-dark">Chính sách giá ưu đãi trước 30/3/2026</h3>
+                            </div>
+                            <div class="rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-800">Ưu đãi sớm</div>
+                        </div>
+
+                        <div class="mt-6 overflow-hidden rounded-3xl border border-blue-100">
+                            <div class="grid gap-px bg-blue-100 text-sm font-semibold text-primary-dark sm:grid-cols-3">
+                                <div class="bg-blue-50 px-4 py-4">Gói</div>
+                                <div class="bg-blue-50 px-4 py-4">Giá ưu đãi</div>
+                                <div class="bg-blue-50 px-4 py-4">Hạn đăng ký</div>
+                            </div>
+                            <div class="grid gap-px bg-blue-100 text-sm text-text-main sm:grid-cols-3">
+                                <div class="bg-white px-4 py-4 font-medium">Đồng hành gian hàng</div>
+                                <div class="bg-white px-4 py-4 font-semibold text-primary-dark">50.000.000 VNĐ</div>
+                                <div class="bg-white px-4 py-4">Trước 30/3/2026</div>
+                                <div class="bg-white px-4 py-4 font-medium">Đồng hành phát biểu</div>
+                                <div class="bg-white px-4 py-4 font-semibold text-primary-dark">50.000.000 VNĐ</div>
+                                <div class="bg-white px-4 py-4">Trước 30/3/2026</div>
+                                <div class="bg-white px-4 py-4 font-medium">Gói Phát biểu + Triển lãm</div>
+                                <div class="bg-white px-4 py-4 font-semibold text-primary-dark">75.000.000 VNĐ</div>
+                                <div class="bg-white px-4 py-4">Trước 30/3/2026</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="rounded-[2rem] border border-gray-100 bg-white p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] md:p-8">
+                        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Quy định chung</p>
+                        <h3 class="mt-3 text-2xl font-bold text-primary-dark">Trách nhiệm và điều khoản tham gia</h3>
+                        <div class="mt-6 space-y-4 text-sm leading-7 text-text-main">
+                            <p>BTC chịu trách nhiệm về an ninh, an toàn chung; doanh nghiệp chịu trách nhiệm về an ninh, an toàn trong phạm vi gian hàng của đơn vị trong suốt thời gian diễn ra triển lãm.</p>
+                            <p>Doanh nghiệp tham gia triển lãm cần tuân thủ các quy định về an ninh, an toàn tại địa điểm diễn ra triển lãm.</p>
+                            <p>Doanh nghiệp chịu trách nhiệm đền bù thiệt hại đối với các trang thiết bị của gian hàng tiêu chuẩn đã được Ban tổ chức cung cấp.</p>
+                            <p>Ban tổ chức không chịu trách nhiệm những vấn đề phát sinh do việc không thực hiện các quy định nêu trên.</p>
+                        </div>
+                    </section>
+                </div>
+
+                <section id="so-do" class="rounded-[2rem] border border-gray-100 bg-white p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] md:p-8">
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-primary">Hình ảnh sự kiện nổi bật</p>
+                            <h3 class="mt-3 text-2xl font-bold text-primary-dark md:text-3xl">Thư viện ảnh triển lãm</h3>
+                        </div>
+                        <p class="max-w-xl text-sm leading-7 text-text-muted">Kéo ngang để xem thêm hình ảnh từ khu triển lãm. Trên màn hình lớn sẽ hiển thị 3 hình cùng lúc theo đúng yêu cầu.</p>
+                    </div>
+
+                    <div class="mt-6 relative">
+                        <button type="button" data-gallery-direction="prev" aria-label="Xem ảnh trước"
+                            class="absolute left-3 top-1/2 z-10 -translate-y-1/2 hidden md:flex h-11 w-11 items-center justify-center rounded-full border border-white/70 bg-white/90 text-primary shadow-lg backdrop-blur transition hover:bg-white hover:text-primary-dark">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+
+                        <div class="overflow-x-auto pb-2 scrollbar-hide drag-scroll cursor-grab select-none touch-pan-x">
+                            <div class="grid grid-flow-col auto-cols-[85%] gap-5 sm:auto-cols-[48%] lg:auto-cols-[31%] snap-x snap-mandatory">
+                            <figure class="overflow-hidden rounded-3xl border border-gray-100 bg-slate-50 shadow-sm snap-start">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_1.png" alt="Hoạt động triển lãm 1" class="h-72 w-full object-cover">
+                            </figure>
+                            <figure class="overflow-hidden rounded-3xl border border-gray-100 bg-slate-50 shadow-sm snap-start">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_2.png" alt="Hoạt động triển lãm 2" class="h-72 w-full object-cover">
+                            </figure>
+                            <figure class="overflow-hidden rounded-3xl border border-gray-100 bg-slate-50 shadow-sm snap-start">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_3.png" alt="Hoạt động triển lãm 3" class="h-72 w-full object-cover">
+                            </figure>
+                            <figure class="overflow-hidden rounded-3xl border border-gray-100 bg-slate-50 shadow-sm snap-start">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_4.png" alt="Hoạt động triển lãm 4" class="h-72 w-full object-cover">
+                            </figure>
+                            <figure class="overflow-hidden rounded-3xl border border-gray-100 bg-slate-50 shadow-sm snap-start">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_5.png" alt="Hoạt động triển lãm 5" class="h-72 w-full object-cover">
+                            </figure>
+                            <figure class="overflow-hidden rounded-3xl border border-gray-100 bg-slate-50 shadow-sm snap-start">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_6.png" alt="Hoạt động triển lãm 6" class="h-72 w-full object-cover">
+                            </figure>
+                            <figure class="overflow-hidden rounded-3xl border border-gray-100 bg-slate-50 shadow-sm snap-start">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_7.png" alt="Hoạt động triển lãm 7" class="h-72 w-full object-cover">
+                            </figure>
+                            <figure class="overflow-hidden rounded-3xl border border-gray-100 bg-slate-50 shadow-sm snap-start">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_8.png" alt="Hoạt động triển lãm 8" class="h-72 w-full object-cover">
+                            </figure>
+                            <figure class="overflow-hidden rounded-3xl border border-gray-100 bg-slate-50 shadow-sm snap-start">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_12.png" alt="Hoạt động triển lãm 12" class="h-72 w-full object-cover">
+                            </figure>
+                        </div>
+                    </div>
+
+                        <button type="button" data-gallery-direction="next" aria-label="Xem ảnh tiếp theo"
+                            class="absolute right-3 top-1/2 z-10 -translate-y-1/2 hidden md:flex h-11 w-11 items-center justify-center rounded-full border border-white/70 bg-white/90 text-primary shadow-lg backdrop-blur transition hover:bg-white hover:text-primary-dark">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section id="dang-ky" class="bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 py-16 md:py-20">
+                <div class="mb-10 max-w-3xl">
+                    <p class="text-sm font-semibold uppercase tracking-[0.28em] text-primary">II. Các bước triển khai</p>
+                    <h2 class="mt-3 text-3xl font-bold tracking-tight text-primary-dark md:text-4xl">Quy trình đăng ký, thanh toán và chuẩn bị gian hàng</h2>
+                    <p class="mt-4 text-base leading-8 text-text-main">Các bước được trình bày theo dạng khối gọn, dễ quét nhanh, đồng thời giữ đúng tinh thần trình bày của trang mẫu.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <article class="rounded-[1.75rem] border border-blue-100 bg-[#DDF1FC] p-5 md:p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-lg font-bold text-slate-700 shadow-sm">1</div>
+                            <div class="min-w-0 flex-1">
+                                <h3 class="text-lg font-bold text-primary-dark md:text-xl">Đăng ký gian hàng/quầy triển lãm</h3>
+                                <div class="mt-4 rounded-2xl bg-white/70 p-4 md:p-5">
+                                    <p class="text-sm font-semibold text-slate-900">Trực tiếp với đại diện BTC</p>
+                                    <div class="mt-3 flex flex-wrap gap-3 text-sm text-slate-700">
+                                        <span class="rounded-full bg-slate-100 px-4 py-2 font-semibold text-slate-800">Nguyễn Thị Mạnh</span>
+                                        <span class="rounded-full bg-slate-100 px-4 py-2"><a href="mailto:manhnt@vinasa.org.vn" class="font-semibold text-primary hover:text-primary-dark">manhnt@vinasa.org.vn</a></span>
+                                        <span class="rounded-full bg-slate-100 px-4 py-2 font-semibold text-slate-800">0937 688 958</span>
+                                    </div>
+                                    <p class="mt-4 text-sm text-text-main">Hoặc tại link đăng ký: <a href="https://tech4life.vn/dang-ky-tai-tro-quang-ba/" class="font-semibold text-primary hover:text-primary-dark" target="_blank" rel="noreferrer">tech4life.vn/dang-ky-tai-tro-quang-ba/</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rounded-[1.75rem] border border-blue-100 bg-[#DDF1FC] p-5 md:p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-lg font-bold text-slate-700 shadow-sm">2</div>
+                            <div class="min-w-0 flex-1">
+                                <h3 class="text-lg font-bold text-primary-dark md:text-xl">Thanh toán</h3>
+                                <div class="mt-4 grid gap-4 lg:grid-cols-2">
+                                    <div class="rounded-2xl bg-white/70 p-4 md:p-5">
+                                        <p class="text-sm font-semibold text-slate-900">Thủ tục</p>
+                                        <p class="mt-2 text-sm text-text-main">Ký Hợp đồng</p>
+                                        <p class="mt-4 text-sm font-semibold text-slate-900">Chứng từ thanh toán</p>
+                                        <p class="mt-2 text-sm text-text-main">Hợp đồng, công văn đề nghị thanh toán, phiếu thu hợp lệ</p>
+                                        <p class="mt-4 text-sm font-semibold text-slate-900">Thời hạn</p>
+                                        <p class="mt-2 text-sm text-text-main">Thanh toán phí tham gia sau 07 ngày làm việc kể từ ngày ký hợp đồng</p>
+                                    </div>
+                                    <div class="rounded-2xl bg-white/70 p-4 md:p-5">
+                                        <p class="text-sm font-semibold text-slate-900">Hình thức thanh toán</p>
+                                        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                                            <div class="rounded-xl bg-[#FFF4F2] p-4">
+                                                <p class="text-sm font-semibold text-slate-900">Tiền mặt</p>
+                                                <p class="mt-2 text-sm leading-7 text-text-main">Văn phòng VINASA: Tầng 11, tòa nhà Cung trí thức thành phố, số 1 Tôn Thất Thuyết, Cầu Giấy, Hà Nội.</p>
+                                            </div>
+                                            <div class="rounded-xl bg-[#FFF4F2] p-4">
+                                                <p class="text-sm font-semibold text-slate-900">Chuyển khoản</p>
+                                                <p class="mt-2 text-sm leading-7 text-text-main">Tên tài khoản: Hiệp hội phần mềm và dịch vụ CNTT Việt Nam</p>
+                                                <p class="mt-2 text-sm leading-7 text-text-main">Số TK: 0491000048212 – Ngân hàng Vietcombank, chi nhánh Thăng Long.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rounded-[1.75rem] border border-blue-100 bg-[#DDF1FC] p-5 md:p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-lg font-bold text-slate-700 shadow-sm">3</div>
+                            <div class="min-w-0 flex-1">
+                                <h3 class="text-lg font-bold text-primary-dark md:text-xl">Cung cấp thông tin</h3>
+                                <div class="mt-4 rounded-2xl bg-white/70 p-4 md:p-5">
+                                    <p class="text-sm font-semibold text-slate-900">Doanh nghiệp gửi lại Ban tổ chức các tài liệu sau</p>
+                                    <div class="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                                        <div class="rounded-xl bg-[#FFF4F2] p-4 text-sm text-text-main">Logo của đơn vị (file ảnh chất lượng cao)</div>
+                                        <div class="rounded-xl bg-[#FFF4F2] p-4 text-sm text-text-main">Link website đơn vị</div>
+                                        <div class="rounded-xl bg-[#FFF4F2] p-4 text-sm text-text-main">File thiết kế gian hàng kích thước 3 x 2.5m</div>
+                                        <div class="rounded-xl bg-[#FFF4F2] p-4 text-sm text-text-main">Thông tin đại diện trực gian hàng (Họ tên, chức danh, SĐT, email)</div>
+                                    </div>
+                                    <div class="mt-4 rounded-xl bg-[#FFD9D5] p-4 text-sm font-semibold text-slate-900">Thời hạn gửi lại: muộn nhất 10/9/2026</div>
+                                    <div class="mt-4 rounded-2xl bg-[#FFF4F2] p-4 text-sm leading-7 text-text-main">
+                                        <p class="font-semibold text-slate-900">Với đơn vị sử dụng gian hàng online, vui lòng gửi thêm:</p>
+                                        <ul class="mt-3 space-y-2">
+                                            <li>• Logo Doanh nghiệp (file jpg, 500kb - 2MB)</li>
+                                            <li>• Link youtube video giới thiệu DN (tối đa 05 phút)</li>
+                                            <li>• Link download profile DN để BTC add trên gian hàng online</li>
+                                            <li>• Thông tin đại diện trực gian hàng online (họ tên, số điện thoại, email account Quickom)</li>
+                                            <li>• Cài tài khoản Quickcom CONTACT Center để nhận Video conference</li>
+                                            <li>• Lưu ý: email đăng ký tài khoản Quickcom phải là email của cán bộ trực gian hàng</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rounded-[1.75rem] border border-blue-100 bg-[#DDF1FC] p-5 md:p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-lg font-bold text-slate-700 shadow-sm">4</div>
+                            <div class="min-w-0 flex-1">
+                                <h3 class="text-lg font-bold text-primary-dark md:text-xl">Nhận gian hàng và tham gia triển lãm</h3>
+                                <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                                    <div class="rounded-2xl bg-[#FFF4F2] p-5 text-center">
+                                        <p class="text-sm font-semibold text-slate-900">Dàn dựng &amp; trang trí</p>
+                                        <p class="mt-2 text-sm text-text-main">14g00 - 20g00</p>
+                                        <p class="mt-1 text-sm text-text-main">Ngày 16/9/2026</p>
+                                    </div>
+                                    <div class="rounded-2xl bg-[#FFF4F2] p-5 text-center">
+                                        <p class="text-sm font-semibold text-slate-900">Triển lãm chính thức</p>
+                                        <p class="mt-2 text-sm text-text-main">8g00 - 17g00</p>
+                                        <p class="mt-1 text-sm text-text-main">Ngày 17 - 18/9/2026</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer id="app-footer"></footer>
     
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.drag-scroll').forEach((container) => {
+                let isDown = false;
+                let startX = 0;
+                let scrollLeft = 0;
+
+                const onPointerDown = (event) => {
+                    if (event.button !== undefined && event.button !== 0) return;
+                    isDown = true;
+                    container.classList.add('cursor-grabbing');
+                    container.setPointerCapture?.(event.pointerId);
+                    startX = event.clientX;
+                    scrollLeft = container.scrollLeft;
+                };
+
+                const onPointerMove = (event) => {
+                    if (!isDown) return;
+                    const deltaX = event.clientX - startX;
+                    container.scrollLeft = scrollLeft - deltaX;
+                };
+
+                const endDrag = () => {
+                    isDown = false;
+                    container.classList.remove('cursor-grabbing');
+                };
+
+                container.addEventListener('pointerdown', onPointerDown);
+                container.addEventListener('pointermove', onPointerMove);
+                container.addEventListener('pointerup', endDrag);
+                container.addEventListener('pointercancel', endDrag);
+                container.addEventListener('pointerleave', endDrag);
+            });
+
+            const gallery = document.querySelector('.drag-scroll');
+            if (gallery) {
+                document.querySelectorAll('[data-gallery-direction]').forEach((button) => {
+                    button.addEventListener('click', () => {
+                        const direction = button.getAttribute('data-gallery-direction');
+                        const amount = Math.max(320, Math.round(gallery.clientWidth * 0.7));
+                        gallery.scrollBy({
+                            left: direction === 'next' ? amount : -amount,
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
