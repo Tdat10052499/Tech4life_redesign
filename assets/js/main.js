@@ -356,6 +356,64 @@ function initMapModal() {
     });
 }
 
+// Carousel for Section 10: Truyền thông quảng bá
+function initMediaCarousel() {
+    const slides = document.querySelectorAll('#media-carousel .media-slide');
+    const dots = document.querySelectorAll('#media-carousel .media-dot');
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+    const slideInterval = 5000; // 5 seconds
+    let timer;
+
+    function showSlide(index) {
+        // Remove active states
+        slides.forEach(slide => {
+            slide.classList.remove('opacity-100');
+            slide.classList.add('opacity-0');
+        });
+        dots.forEach(dot => {
+            dot.classList.remove('bg-white', 'w-4');
+            dot.classList.add('bg-white/40', 'w-2');
+        });
+
+        // Set active states
+        slides[index].classList.remove('opacity-0');
+        slides[index].classList.add('opacity-100');
+        if (dots[index]) {
+            dots[index].classList.remove('bg-white/40', 'w-2');
+            dots[index].classList.add('bg-white', 'w-4');
+        }
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        const next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }
+
+    function startTimer() {
+        timer = setInterval(nextSlide, slideInterval);
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        startTimer();
+    }
+
+    // Set first slide active
+    showSlide(0);
+    startTimer();
+
+    // Add click events to dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            resetTimer();
+        });
+    });
+}
+
 // DomContentLoaded main initialization
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Load components (Header / Footer)
@@ -367,4 +425,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounterObserver();
     initDiaiemSlideshow();
     initMapModal();
+    initMediaCarousel();
 });
