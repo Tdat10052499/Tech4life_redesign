@@ -138,6 +138,75 @@ function initCounterObserver() {
     });
 }
 
+// Slideshow for Section 4: Địa điểm tổ chức
+function initDiaiemSlideshow() {
+    const slides = document.querySelectorAll('#diaiem-slideshow .slide-img');
+    const dots = document.querySelectorAll('.slide-dot');
+    const progress = document.getElementById('slideshow-progress');
+    if (slides.length === 0 || !progress) return;
+
+    let currentSlide = 0;
+    const slideInterval = 5000; // 5 seconds
+    let timer;
+
+    function resetProgressBar() {
+        progress.style.transition = 'none';
+        progress.style.width = '0%';
+        progress.offsetHeight; // Force reflow
+        progress.style.transition = `width ${slideInterval}ms linear`;
+        progress.style.width = '100%';
+    }
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.remove('opacity-0');
+                slide.classList.add('opacity-100');
+            } else {
+                slide.classList.remove('opacity-100');
+                slide.classList.add('opacity-0');
+            }
+        });
+
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.add('bg-white', 'scale-125');
+                dot.classList.remove('bg-white/50');
+            } else {
+                dot.classList.remove('bg-white', 'scale-125');
+                dot.classList.add('bg-white/50');
+            }
+        });
+
+        currentSlide = index;
+        resetProgressBar();
+    }
+
+    function nextSlide() {
+        let next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }
+
+    function startTimer() {
+        resetProgressBar();
+        timer = setInterval(nextSlide, slideInterval);
+    }
+
+    function stopTimer() {
+        clearInterval(timer);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopTimer();
+            showSlide(index);
+            timer = setInterval(nextSlide, slideInterval);
+        });
+    });
+
+    startTimer();
+}
+
 // DomContentLoaded main initialization
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Load components (Header / Footer)
@@ -147,4 +216,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Initialize observer components
     initGlobalScrollReveal();
     initCounterObserver();
+    initDiaiemSlideshow();
 });
