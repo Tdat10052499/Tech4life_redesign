@@ -61,6 +61,7 @@ function initGlobalScrollReveal() {
             el.closest('#countdown-hours') ||
             el.closest('#countdown-minutes') ||
             el.closest('#countdown-seconds') ||
+            el.closest('#diaiem-slideshow') ||
             el.classList.contains('no-reveal') ||
             el.classList.contains('counter') ||
             el.alt === 'Tech4life Watermark'
