@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gian hàng Online — Tech4Life 2026</title>
+    <meta name="description" content="Khám phá gian hàng online Tech4Life 2026 với thiết kế tương tác, khối nội dung đa phương tiện và trải nghiệm thương hiệu trực tuyến.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            dark: '#1E3A8A',
+                        },
+                        secondary: {
+                            DEFAULT: '#60A5FA',
+                            gradientStart: '#E0E7FF',
+                            gradientEnd: '#DBEAFE',
+                        },
+                        background: {
+                            DEFAULT: '#FFFFFF',
+                            alt: '#F8FAFC',
+                            footer: '#0F172A',
+                        },
+                        text: {
+                            main: '#334155',
+                            muted: '#64748B',
+                            heading: '#1E3A8A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html,
+        body {
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-enter {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-d1 { animation-delay: 50ms; }
+        .hero-d2 { animation-delay: 150ms; }
+        .hero-d3 { animation-delay: 250ms; }
+        .hero-d4 { animation-delay: 350ms; }
+        .hero-d5 { animation-delay: 450ms; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .booth-shell {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .booth-shell::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            bottom: -0.35rem;
+            height: 18px;
+            background: linear-gradient(180deg, rgba(239, 68, 68, 0.22), rgba(239, 68, 68, 0.08));
+            border: 1px solid rgba(239, 68, 68, 0.22);
+            border-top: 0;
+            border-radius: 0 0 999px 999px;
+            z-index: -1;
+        }
+
+        .booth-content {
+            background:
+                radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 35%),
+                linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 55%, #FFFFFF 100%);
+        }
+    </style>
+</head>
+<body class="bg-white flex flex-col font-sans text-text-main antialiased">
+    <header id="app-header"></header>
+
+    <main class="flex-grow">
+        <section class="relative bg-gradient-to-br from-secondary-gradientStart to-secondary-gradientEnd py-16 md:py-24 overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0" aria-hidden="true">
+                <img src="assets/images/logos/tech4life2.png" alt="" class="w-[500px] md:w-[950px] h-auto opacity-[0.07] max-w-full">
+            </div>
+            <div class="absolute top-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse" aria-hidden="true"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse" style="animation-delay: 1s;" aria-hidden="true"></div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10 py-24 md:py-32">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="hero-enter hero-d3 text-4xl md:text-5xl font-bold text-primary-dark tracking-tight leading-tight" style="text-shadow: 0px 2px 10px rgba(255, 255, 255, 0.9), 0px 0px 4px rgba(255, 255, 255, 1);">
+                        Gian hàng Online
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-background-alt py-16 md:py-20">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="max-w-3xl mb-10">
+                    <p class="text-sm font-semibold uppercase tracking-[0.28em] text-primary">I. Giới thiệu gian hàng online</p>
+                    <h2 class="mt-3 text-3xl md:text-4xl font-bold text-primary-dark tracking-tight">Không gian trưng bày số cho doanh nghiệp</h2>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-2">
+                    <article class="rounded-[2rem] border border-gray-100 bg-white p-6 md:p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] h-full flex flex-col">
+                        <div class="booth-shell flex-1 overflow-hidden rounded-[1.5rem] border border-red-200 bg-white p-4 md:p-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.18)] h-full">
+                            <div class="rounded-[1.35rem] border border-gray-100 bg-white">
+                                <div class="grid grid-cols-2 gap-px rounded-t-[1.2rem] overflow-hidden bg-gray-100">
+                                    <div class="bg-white py-4 text-center">
+                                        <span class="text-lg font-bold text-primary-dark">Tech4Life</span>
+                                    </div>
+                                    <div class="bg-white py-4 text-center">
+                                        <span class="text-lg font-medium text-red-500">Gian hàng Online</span>
+                                    </div>
+                                </div>
+
+                                <div class="booth-content grid gap-3 border-t border-gray-100 p-3 md:grid-cols-[minmax(0,1fr)_110px]">
+                                    <div class="rounded-[1.15rem] border border-gray-200 bg-slate-900 p-3 text-white shadow-inner">
+                                        <div class="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">
+                                            <span>Video giới thiệu</span>
+                                            <span class="rounded-full border border-white/30 px-2 py-0.5 text-[9px]">Live</span>
+                                        </div>
+                                        <div class="mt-3 rounded-[1rem] overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.55),_transparent_40%),linear-gradient(135deg,_#0F172A,_#1E293B)] min-h-[280px] md:min-h-[340px] relative">
+                                            <iframe
+                                                class="absolute inset-0 h-full w-full"
+                                                src="https://www.youtube.com/embed/BRhNSzTQtZY?rel=0"
+                                                title="Video giới thiệu gian hàng online"
+                                                loading="lazy"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-col gap-2">
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-primary text-white px-3 py-3 shadow-sm">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white/80">About us</p>
+                                            <p class="mt-1 text-sm font-semibold">Giới thiệu ngắn</p>
+                                        </div>
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-white px-3 py-3 shadow-sm text-primary-dark">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Live chat</p>
+                                            <p class="mt-1 text-sm font-semibold">Tư vấn trực tuyến</p>
+                                        </div>
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-white px-3 py-3 shadow-sm text-primary-dark">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Email</p>
+                                            <p class="mt-1 text-sm font-semibold">Liên hệ nhanh</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-t border-red-200 bg-[#F5F5F5] px-4 py-3">
+                                    <div class="rounded-[1rem] border border-red-300 bg-white/90 px-4 py-3 text-center shadow-sm">
+                                        <p class="text-sm font-semibold text-primary-dark">Khung banner chân đế</p>
+                                        <p class="mt-1 text-xs text-text-muted">Đặt slogan, CTA hoặc nhãn chiến dịch</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rounded-[2rem] border border-gray-100 bg-white p-6 md:p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] h-full flex flex-col">
+                        <div class="booth-shell flex-1 overflow-hidden rounded-[1.5rem] border border-red-200 bg-white p-4 md:p-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.18)] h-full">
+                            <div class="rounded-[1.35rem] border border-gray-100 bg-white">
+                                <div class="grid grid-cols-2 gap-px rounded-t-[1.2rem] overflow-hidden bg-gray-100">
+                                    <div class="bg-white py-4 text-center">
+                                        <span class="text-lg font-bold text-primary-dark">Tech4Life</span>
+                                    </div>
+                                    <div class="bg-white py-4 text-center">
+                                        <span class="text-lg font-medium text-red-500">Gian hàng Online</span>
+                                    </div>
+                                </div>
+
+                                <div class="booth-content grid gap-3 border-t border-gray-100 p-3 md:grid-cols-[minmax(0,1fr)_110px]">
+                                    <div class="rounded-[1.15rem] border border-gray-200 bg-slate-900 p-3 text-white shadow-inner">
+                                        <div class="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">
+                                            <span>Video giới thiệu</span>
+                                            <span class="rounded-full border border-white/30 px-2 py-0.5 text-[9px]">Live</span>
+                                        </div>
+                                        <div class="mt-3 rounded-[1rem] overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.55),_transparent_40%),linear-gradient(135deg,_#0F172A,_#1E293B)] min-h-[280px] md:min-h-[340px] relative">
+                                            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/BRhNSzTQtZY?rel=0" title="Video giới thiệu gian hàng online" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-col gap-2">
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-primary text-white px-3 py-3 shadow-sm">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white/80">About us</p>
+                                            <p class="mt-1 text-sm font-semibold">Giới thiệu ngắn</p>
+                                        </div>
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-white px-3 py-3 shadow-sm text-primary-dark">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Live chat</p>
+                                            <p class="mt-1 text-sm font-semibold">Tư vấn trực tuyến</p>
+                                        </div>
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-white px-3 py-3 shadow-sm text-primary-dark">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Email</p>
+                                            <p class="mt-1 text-sm font-semibold">Liên hệ nhanh</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-t border-red-200 bg-[#F5F5F5] px-4 py-3">
+                                    <div class="rounded-[1rem] border border-red-300 bg-white/90 px-4 py-3 text-center shadow-sm">
+                                        <p class="text-sm font-semibold text-primary-dark">Khung banner chân đế</p>
+                                        <p class="mt-1 text-xs text-text-muted">Đặt slogan, CTA hoặc nhãn chiến dịch</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rounded-[2rem] border border-gray-100 bg-white p-6 md:p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] h-full flex flex-col">
+                        <div class="booth-shell flex-1 overflow-hidden rounded-[1.5rem] border border-red-200 bg-white p-4 md:p-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.18)] h-full">
+                            <div class="rounded-[1.35rem] border border-gray-100 bg-white">
+                                <div class="grid grid-cols-2 gap-px rounded-t-[1.2rem] overflow-hidden bg-gray-100">
+                                    <div class="bg-white py-4 text-center">
+                                        <span class="text-lg font-bold text-primary-dark">Tech4Life</span>
+                                    </div>
+                                    <div class="bg-white py-4 text-center">
+                                        <span class="text-lg font-medium text-red-500">Gian hàng Online</span>
+                                    </div>
+                                </div>
+
+                                <div class="booth-content grid gap-3 border-t border-gray-100 p-3 md:grid-cols-[minmax(0,1fr)_110px]">
+                                    <div class="rounded-[1.15rem] border border-gray-200 bg-slate-900 p-3 text-white shadow-inner">
+                                        <div class="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">
+                                            <span>Video giới thiệu</span>
+                                            <span class="rounded-full border border-white/30 px-2 py-0.5 text-[9px]">Live</span>
+                                        </div>
+                                        <div class="mt-3 rounded-[1rem] overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.55),_transparent_40%),linear-gradient(135deg,_#0F172A,_#1E293B)] min-h-[280px] md:min-h-[340px] relative">
+                                            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/BRhNSzTQtZY?rel=0" title="Video giới thiệu gian hàng online" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-col gap-2">
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-primary text-white px-3 py-3 shadow-sm">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white/80">About us</p>
+                                            <p class="mt-1 text-sm font-semibold">Giới thiệu ngắn</p>
+                                        </div>
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-white px-3 py-3 shadow-sm text-primary-dark">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Live chat</p>
+                                            <p class="mt-1 text-sm font-semibold">Tư vấn trực tuyến</p>
+                                        </div>
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-white px-3 py-3 shadow-sm text-primary-dark">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Email</p>
+                                            <p class="mt-1 text-sm font-semibold">Liên hệ nhanh</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-t border-red-200 bg-[#F5F5F5] px-4 py-3">
+                                    <div class="rounded-[1rem] border border-red-300 bg-white/90 px-4 py-3 text-center shadow-sm">
+                                        <p class="text-sm font-semibold text-primary-dark">Khung banner chân đế</p>
+                                        <p class="mt-1 text-xs text-text-muted">Đặt slogan, CTA hoặc nhãn chiến dịch</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rounded-[2rem] border border-gray-100 bg-white p-6 md:p-8 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] h-full flex flex-col">
+                        <div class="booth-shell flex-1 overflow-hidden rounded-[1.5rem] border border-red-200 bg-white p-4 md:p-5 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.18)] h-full">
+                            <div class="rounded-[1.35rem] border border-gray-100 bg-white">
+                                <div class="grid grid-cols-2 gap-px rounded-t-[1.2rem] overflow-hidden bg-gray-100">
+                                    <div class="bg-white py-4 text-center">
+                                        <span class="text-lg font-bold text-primary-dark">Tech4Life</span>
+                                    </div>
+                                    <div class="bg-white py-4 text-center">
+                                        <span class="text-lg font-medium text-red-500">Gian hàng Online</span>
+                                    </div>
+                                </div>
+
+                                <div class="booth-content grid gap-3 border-t border-gray-100 p-3 md:grid-cols-[minmax(0,1fr)_110px]">
+                                    <div class="rounded-[1.15rem] border border-gray-200 bg-slate-900 p-3 text-white shadow-inner">
+                                        <div class="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">
+                                            <span>Video giới thiệu</span>
+                                            <span class="rounded-full border border-white/30 px-2 py-0.5 text-[9px]">Live</span>
+                                        </div>
+                                        <div class="mt-3 rounded-[1rem] overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.55),_transparent_40%),linear-gradient(135deg,_#0F172A,_#1E293B)] min-h-[280px] md:min-h-[340px] relative">
+                                            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/BRhNSzTQtZY?rel=0" title="Video giới thiệu gian hàng online" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-col gap-2">
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-primary text-white px-3 py-3 shadow-sm">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-white/80">About us</p>
+                                            <p class="mt-1 text-sm font-semibold">Giới thiệu ngắn</p>
+                                        </div>
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-white px-3 py-3 shadow-sm text-primary-dark">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Live chat</p>
+                                            <p class="mt-1 text-sm font-semibold">Tư vấn trực tuyến</p>
+                                        </div>
+                                        <div class="rounded-[1.1rem] border border-blue-100 bg-white px-3 py-3 shadow-sm text-primary-dark">
+                                            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Email</p>
+                                            <p class="mt-1 text-sm font-semibold">Liên hệ nhanh</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-t border-red-200 bg-[#F5F5F5] px-4 py-3">
+                                    <div class="rounded-[1rem] border border-red-300 bg-white/90 px-4 py-3 text-center shadow-sm">
+                                        <p class="text-sm font-semibold text-primary-dark">Khung banner chân đế</p>
+                                        <p class="mt-1 text-xs text-text-muted">Đặt slogan, CTA hoặc nhãn chiến dịch</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+            </div>
+        </section>
+    </main>
+
+    <footer id="app-footer"></footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
