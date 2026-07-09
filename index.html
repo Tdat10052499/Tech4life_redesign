@@ -1339,14 +1339,14 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
                     
                     <!-- 1. Ngày 1 (Cell 1) -->
-                    <div class="lg:col-span-2 lg:row-span-2 flex flex-col justify-center items-center p-6 bg-gradient-to-br from-purple-50 to-indigo-50/30 border border-purple-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-purple-500 reveal-element scroll-reveal" data-delay="50">
+                    <div class="lg:col-start-1 lg:col-span-2 lg:row-start-1 lg:row-span-2 flex flex-col justify-center items-center p-6 bg-gradient-to-br from-purple-50 to-indigo-50/30 border border-purple-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-purple-500 reveal-element scroll-reveal" data-delay="50">
                         <span class="text-[10px] font-black text-purple-600 tracking-widest uppercase mb-1">NGÀY 1</span>
                         <h3 class="text-3xl font-extrabold text-primary-dark tracking-tight">17/09</h3>
                         <span class="text-xs font-bold text-gray-400 mt-1 uppercase tracking-wide">Thứ Năm, 2026</span>
                     </div>
 
                     <!-- 2. Triển lãm Công nghệ (Cell 2) -->
-                    <div class="lg:col-span-3 lg:row-span-4 flex flex-col justify-between p-6 bg-white border border-blue-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-blue-500 reveal-element scroll-reveal" data-delay="100">
+                    <div class="lg:col-start-3 lg:col-span-3 lg:row-start-1 lg:row-span-4 flex flex-col justify-between p-6 bg-white border border-blue-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-blue-500 reveal-element scroll-reveal" data-delay="100">
                         <div>
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="p-2 bg-blue-50 rounded-xl">
@@ -1382,7 +1382,7 @@
                     </div>
 
                     <!-- 3. Lễ khai mạc & Hội nghị (Cell 3) -->
-                    <div class="lg:col-span-5 lg:row-span-1 p-6 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500 reveal-element scroll-reveal" data-delay="150">
+                    <div class="lg:col-start-6 lg:col-span-5 lg:row-start-1 lg:row-span-1 p-6 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500 reveal-element scroll-reveal" data-delay="150">
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-3">
                             <div class="flex items-center gap-2">
                                 <span class="p-1.5 bg-emerald-50 rounded-lg">
@@ -1400,8 +1400,30 @@
                         </p>
                     </div>
 
+                    <!-- 5. Business Matching (Cell 5) -->
+                    <div class="lg:col-start-11 lg:col-span-2 lg:row-start-1 lg:row-span-2 flex flex-col justify-between p-6 bg-white border border-indigo-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-indigo-600 reveal-element scroll-reveal" data-delay="250">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="p-1.5 bg-indigo-50 rounded-lg">
+                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.656-5.64 9.093 9.093 0 00-7.859 0 3 3 0 00-4.656 5.64 9.094 9.094 0 003.741.479m13.74 0V21m-13.74 0V18.72m13.74 0a3 3 0 11-6 0m-7.74 0a3 3 0 11-6 0m15.48 0H6.75"></path>
+                                    </svg>
+                                </span>
+                                <span class="text-[9px] font-black text-indigo-600 tracking-widest uppercase">KẾT NỐI B2B</span>
+                            </div>
+                            <h3 class="text-sm font-bold text-primary-dark mb-2 uppercase leading-snug">BUSINESS MATCHING</h3>
+                            <p class="text-xs text-text-muted leading-relaxed">
+                                Cơ hội kết nối giao thương trực tiếp 1-1 giữa các đối tác và doanh nghiệp tham gia.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between">
+                            <span class="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">Xuyên suốt sự kiện</span>
+                            <a href="chuong-trinh.html" class="text-xs font-bold text-indigo-600 hover:text-indigo-800">Chi tiết</a>
+                        </div>
+                    </div>
+
                     <!-- 4. Hội thảo ACXOA & Smart Mobility (Cell 4) -->
-                    <div class="lg:col-span-5 lg:row-span-1 reveal-element scroll-reveal" data-delay="200">
+                    <div class="lg:col-start-6 lg:col-span-5 lg:row-start-2 lg:row-span-1 reveal-element scroll-reveal" data-delay="200">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                             <!-- Card 4a -->
                             <div class="p-5 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500 flex flex-col justify-between">
@@ -1440,37 +1462,15 @@
                         </div>
                     </div>
 
-                    <!-- 5. Business Matching (Cell 5) -->
-                    <div class="lg:col-span-2 lg:row-span-2 flex flex-col justify-between p-6 bg-white border border-indigo-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-indigo-600 reveal-element scroll-reveal" data-delay="250">
-                        <div>
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="p-1.5 bg-indigo-50 rounded-lg">
-                                    <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.656-5.64 9.093 9.093 0 00-7.859 0 3 3 0 00-4.656 5.64 9.094 9.094 0 003.741.479m13.74 0V21m-13.74 0V18.72m13.74 0a3 3 0 11-6 0m-7.74 0a3 3 0 11-6 0m15.48 0H6.75"></path>
-                                    </svg>
-                                </span>
-                                <span class="text-[9px] font-black text-indigo-600 tracking-widest uppercase">KẾT NỐI B2B</span>
-                            </div>
-                            <h3 class="text-sm font-bold text-primary-dark mb-2 uppercase leading-snug">BUSINESS MATCHING</h3>
-                            <p class="text-xs text-text-muted leading-relaxed">
-                                Cơ hội kết nối giao thương trực tiếp 1-1 giữa các đối tác và doanh nghiệp tham gia.
-                            </p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between">
-                            <span class="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">Xuyên suốt sự kiện</span>
-                            <a href="chuong-trinh.html" class="text-xs font-bold text-indigo-600 hover:text-indigo-800">Chi tiết</a>
-                        </div>
-                    </div>
-
                     <!-- 6. Ngày 2 (Cell 6) -->
-                    <div class="lg:col-span-2 lg:row-span-2 flex flex-col justify-center items-center p-6 bg-gradient-to-br from-purple-50 to-indigo-50/30 border border-purple-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-purple-500 reveal-element scroll-reveal" data-delay="300">
+                    <div class="lg:col-start-1 lg:col-span-2 lg:row-start-3 lg:row-span-2 flex flex-col justify-center items-center p-6 bg-gradient-to-br from-purple-50 to-indigo-50/30 border border-purple-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-purple-500 reveal-element scroll-reveal" data-delay="300">
                         <span class="text-[10px] font-black text-purple-600 tracking-widest uppercase mb-1">NGÀY 2</span>
                         <h3 class="text-3xl font-extrabold text-primary-dark tracking-tight">18/09</h3>
                         <span class="text-xs font-bold text-gray-400 mt-1 uppercase tracking-wide">Thứ Sáu, 2026</span>
                     </div>
 
                     <!-- 7. Hội thảo ACXOA & Smart Life (Cell 7) -->
-                    <div class="lg:col-span-5 lg:row-span-1 reveal-element scroll-reveal" data-delay="350">
+                    <div class="lg:col-start-6 lg:col-span-5 lg:row-start-3 lg:row-span-1 reveal-element scroll-reveal" data-delay="350">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
                             <!-- Card 7a -->
                             <div class="p-5 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500 flex flex-col justify-between">
@@ -1509,27 +1509,8 @@
                         </div>
                     </div>
 
-                    <!-- 8. Lễ vinh danh Vietfuture (Cell 8) -->
-                    <div class="lg:col-span-5 lg:row-span-1 p-6 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500 reveal-element scroll-reveal" data-delay="400">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-3">
-                            <div class="flex items-center gap-2">
-                                <span class="p-1.5 bg-emerald-50 rounded-lg">
-                                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9-3.75V3.75c0-1.036-.84-1.875-1.875-1.875h-5.25A1.875 1.875 0 005.25 3.75v11.25m10.5 0a2.25 2.25 0 002.25-2.25V5.25m-15 0V12.75a2.25 2.25 0 002.25 2.25M12 11.25l-2.25-2.25M12 11.25l2.25-2.25"></path>
-                                    </svg>
-                                </span>
-                                <span class="text-[10px] font-black text-emerald-600 tracking-widest uppercase">LỄ VINH DANH GIẢI THƯỞNG</span>
-                            </div>
-                            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full self-start md:self-auto">13:30 - 16:30 | 18/09</span>
-                        </div>
-                        <h3 class="text-base font-bold text-primary-dark mb-2 uppercase leading-snug">LỄ CÔNG BỐ VÀ VINH DANH VIETFUTURE 2026</h3>
-                        <p class="text-xs text-text-muted leading-relaxed">
-                            Lễ ký kết hợp tác đồng hành và trao giải thưởng danh giá VietFuture dành cho các startups công nghệ trẻ triển vọng.
-                        </p>
-                    </div>
-
                     <!-- 9. Tham quan sự kiện (Cell 9) -->
-                    <div class="lg:col-span-2 lg:row-span-2 flex flex-col justify-between p-6 bg-white border border-indigo-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-indigo-600 reveal-element scroll-reveal" data-delay="450">
+                    <div class="lg:col-start-11 lg:col-span-2 lg:row-start-3 lg:row-span-2 flex flex-col justify-between p-6 bg-white border border-indigo-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-indigo-600 reveal-element scroll-reveal" data-delay="450">
                         <div>
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="p-1.5 bg-indigo-50 rounded-lg">
@@ -1548,6 +1529,25 @@
                             <span class="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">Mở cửa tự do</span>
                             <a href="tham-du.html" class="text-xs font-bold text-indigo-600 hover:text-indigo-800">Chi tiết</a>
                         </div>
+                    </div>
+
+                    <!-- 8. Lễ vinh danh Vietfuture (Cell 8) -->
+                    <div class="lg:col-start-6 lg:col-span-5 lg:row-start-4 lg:row-span-1 p-6 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500 reveal-element scroll-reveal" data-delay="400">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="p-1.5 bg-emerald-50 rounded-lg">
+                                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9-3.75V3.75c0-1.036-.84-1.875-1.875-1.875h-5.25A1.875 1.875 0 005.25 3.75v11.25m10.5 0a2.25 2.25 0 002.25-2.25V5.25m-15 0V12.75a2.25 2.25 0 002.25 2.25M12 11.25l-2.25-2.25M12 11.25l2.25-2.25"></path>
+                                    </svg>
+                                </span>
+                                <span class="text-[10px] font-black text-emerald-600 tracking-widest uppercase">LỄ VINH DANH GIẢI THƯỞNG</span>
+                            </div>
+                            <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full self-start md:self-auto">13:30 - 16:30 | 18/09</span>
+                        </div>
+                        <h3 class="text-base font-bold text-primary-dark mb-2 uppercase leading-snug">LỄ CÔNG BỐ VÀ VINH DANH VIETFUTURE 2026</h3>
+                        <p class="text-xs text-text-muted leading-relaxed">
+                            Lễ ký kết hợp tác đồng hành và trao giải thưởng danh giá VietFuture dành cho các startups công nghệ trẻ triển vọng.
+                        </p>
                     </div>
 
                 </div>
