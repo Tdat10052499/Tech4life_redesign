@@ -356,6 +356,174 @@ function initMapModal() {
     });
 }
 
+// Carousel for Section 10: Truyền thông quảng bá
+function initMediaCarousel() {
+    const slides = document.querySelectorAll('#media-carousel .media-slide');
+    const dots = document.querySelectorAll('#media-carousel .media-dot');
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+    const slideInterval = 5000; // 5 seconds
+    let timer;
+
+    function showSlide(index) {
+        // Remove active states
+        slides.forEach(slide => {
+            slide.classList.remove('opacity-100');
+            slide.classList.add('opacity-0');
+        });
+        dots.forEach(dot => {
+            dot.classList.remove('bg-white', 'w-4');
+            dot.classList.add('bg-white/50', 'w-2');
+        });
+
+        // Set active states
+        slides[index].classList.remove('opacity-0');
+        slides[index].classList.add('opacity-100');
+        if (dots[index]) {
+            dots[index].classList.remove('bg-white/50', 'w-2');
+            dots[index].classList.add('bg-white', 'w-4');
+        }
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        const next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }
+
+    function startTimer() {
+        timer = setInterval(nextSlide, slideInterval);
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        startTimer();
+    }
+
+    // Set first slide active
+    showSlide(0);
+    startTimer();
+
+    // Add click events to dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            resetTimer();
+        });
+    });
+}
+
+// Gallery Lightbox & Toggle for Section 11
+function initGallery() {
+    const btnToggle = document.getElementById('btn-toggle-gallery');
+    const hiddenItems = document.querySelectorAll('.hidden-gallery-item');
+    if (!btnToggle) return;
+
+    let isExpanded = false;
+    btnToggle.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+        hiddenItems.forEach(item => {
+            if (isExpanded) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+
+        const spanText = btnToggle.querySelector('span');
+        const svgIcon = btnToggle.querySelector('svg');
+        if (isExpanded) {
+            spanText.innerText = "Thu gọn";
+            svgIcon.classList.add('rotate-180');
+        } else {
+            spanText.innerText = "Xem thêm hình ảnh (26 ảnh)";
+            svgIcon.classList.remove('rotate-180');
+            // Scroll back to gallery top smoothly so the user doesn't get lost
+            document.getElementById('gallery-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+
+    // Lightbox Logic
+    const galleryItems = document.querySelectorAll('#gallery-grid > div');
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('gallery-modal-img');
+    const modalCaption = document.getElementById('gallery-modal-caption');
+    const btnClose = document.getElementById('close-gallery-modal');
+    const btnPrev = document.getElementById('prev-gallery-modal');
+    const btnNext = document.getElementById('next-gallery-modal');
+
+    if (!modal || !modalImg || !modalCaption) return;
+
+    let currentImgIndex = 0;
+    const imagesList = Array.from(galleryItems).map(item => item.querySelector('img').src);
+
+    function openLightbox(index) {
+        currentImgIndex = index;
+        modalImg.src = imagesList[index];
+        modalCaption.innerText = `${index + 1} / ${imagesList.length}`;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+        }, 10);
+    }
+
+    function closeLightbox() {
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }, 300);
+    }
+
+    function nextImage() {
+        currentImgIndex = (currentImgIndex + 1) % imagesList.length;
+        modalImg.style.opacity = '0';
+        setTimeout(() => {
+            modalImg.src = imagesList[currentImgIndex];
+            modalCaption.innerText = `${currentImgIndex + 1} / ${imagesList.length}`;
+            modalImg.style.opacity = '1';
+        }, 150);
+    }
+
+    function prevImage() {
+        currentImgIndex = (currentImgIndex - 1 + imagesList.length) % imagesList.length;
+        modalImg.style.opacity = '0';
+        setTimeout(() => {
+            modalImg.src = imagesList[currentImgIndex];
+            modalCaption.innerText = `${currentImgIndex + 1} / ${imagesList.length}`;
+            modalImg.style.opacity = '1';
+        }, 150);
+    }
+
+    // Attach click events
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            openLightbox(index);
+        });
+    });
+
+    if (btnClose) btnClose.addEventListener('click', closeLightbox);
+    if (btnNext) btnNext.addEventListener('click', nextImage);
+    if (btnPrev) btnPrev.addEventListener('click', prevImage);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (modal.classList.contains('hidden')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+    });
+
+    // Close on click outside image
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal || (e.target.closest('.max-w-\\[90\\%\\]') === null && e.target !== btnPrev && e.target !== btnNext && !btnPrev.contains(e.target) && !btnNext.contains(e.target))) {
+            closeLightbox();
+        }
+    });
+}
+
 // DomContentLoaded main initialization
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Load components (Header / Footer)
@@ -367,4 +535,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounterObserver();
     initDiaiemSlideshow();
     initMapModal();
+    initMediaCarousel();
+    initGallery();
 });
