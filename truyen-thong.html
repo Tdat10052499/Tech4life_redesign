@@ -1,37 +1,278 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truyền thông - Tech4Life</title>
+    <title>Truyền thông — Tech4Life 2026</title>
+    <meta name="description" content="Thông cáo báo chí và tin tức truyền thông chính thức về Triển lãm và Hội nghị Tech4Life 2025.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            dark: '#1E3A8A',
+                        },
+                        secondary: {
+                            DEFAULT: '#60A5FA',
+                            gradientStart: '#E0E7FF',
+                            gradientEnd: '#DBEAFE',
+                        },
+                        background: {
+                            DEFAULT: '#FFFFFF',
+                            alt: '#F8FAFC',
+                            footer: '#0F172A',
+                        },
+                        text: {
+                            main: '#334155',
+                            muted: '#64748B',
+                            heading: '#1E3A8A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        html, body { min-height: 100vh; }
+        html,
+        body {
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-enter {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-d3 {
+            animation-delay: 250ms;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
-<body class="bg-slate-50 flex flex-col font-sans text-gray-800">
+
+<body class="bg-background-alt flex flex-col font-sans text-text-main antialiased">
     <header id="app-header"></header>
-    
-    <main class="flex-grow container mx-auto px-4 py-12">
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 md:p-12">
-            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">Tech4Life 2026</div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Truyền thông</h1>
-            <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
-                Chào mừng bạn đến với trang <span class="font-semibold text-slate-800">Truyền thông</span>. 
-                Nội dung chi tiết của phần này đang được cập nhật và sẽ sớm ra mắt.
-            </p>
-            
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Skeleton loader / Placeholder blocks -->
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-75"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-150"></div>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-br from-secondary-gradientStart to-secondary-gradientEnd py-16 md:py-24 overflow-hidden">
+            <!-- Background Watermark Logo -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0" aria-hidden="true">
+                <img src="assets/images/logos/tech4life2.png" alt="Tech4Life Watermark" class="w-[500px] md:w-[950px] h-auto opacity-[0.07] max-w-full">
             </div>
-        </div>
+            <!-- Decorative blur shapes -->
+            <div class="absolute top-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" aria-hidden="true"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 1s;" aria-hidden="true"></div>
+
+            <div class="relative container mx-auto px-4 md:px-8 lg:px-12 py-24 md:py-32 z-10">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="hero-enter hero-d3 text-4xl md:text-5xl font-bold text-primary-dark tracking-tight leading-tight" style="text-shadow: 0px 2px 10px rgba(255, 255, 255, 0.9), 0px 0px 4px rgba(255, 255, 255, 1);">
+                        Truyền thông
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <section class="bg-background-alt py-16 md:py-20">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 max-w-6xl space-y-8">
+                
+                <!-- Press Release Article -->
+                <article class="bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 p-6 md:p-8 transition-shadow duration-300">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-3">Thông cáo báo chí</p>
+                    
+                    <header class="mb-8 border-b border-gray-100 pb-6">
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-primary-dark leading-tight tracking-tight mb-2">
+                            TRIỂN LÃM VÀ HỘI NGHỊ TECH4LIFE 2025
+                        </h2>
+                        <p class="text-lg md:text-xl font-medium text-primary">
+                            “Công nghệ nâng tầm cuộc sống”
+                        </p>
+                    </header>
+
+                    <!-- Article Content Paragraphs -->
+                    <div class="space-y-6 text-base text-text-main leading-relaxed">
+                        <p>
+                            <span class="font-bold text-slate-800">[Tp. Hồ Chí Minh – 18/09/2025]</span> Hôm nay, Hiệp hội Phần mềm và Dịch vụ CNTT Việt Nam (VINASA) và Sở Khoa học và Công nghệ TP. Hồ Chí Minh phối hợp tổ chức chương trình Triển lãm và Hội nghị Tech4life 2025 lần thứ 4 với chủ đề “Công nghệ nâng tầm cuộc sống”. Sự kiện diễn ra vào ngày 18-19/09/2025 tại TP. Hồ Chí Minh – là hoạt động trọng điểm trong việc thúc đẩy ứng dụng công nghệ, phục vụ chuyển đổi số tổ chức doanh nghiệp và thông minh hóa cuộc sống của con người.
+                        </p>
+
+                        <p>
+                            Tech4Life là sự kiện công nghệ thường niên tại TP. Hồ Chí Minh, quy tụ giới công nghệ, cộng đồng doanh nghiệp và người dân trải nghiệm những thành tựu công nghệ tiên phong, phục vụ trực tiếp cho chuyển đổi số doanh nghiệp và đời sống thông minh của cộng đồng. Với mục tiêu giới thiệu các sản phẩm, nền tảng, giải pháp và thiết bị công nghệ thông minh, cập nhật xu hướng chuyển đổi số toàn cầu, đưa công nghệ hòa nhập sâu sắc vào mọi lĩnh vực của đời sống. Sự kiện năm nay thu hút hơn 5.000 lượt đại biểu tham dự đến từ 12 nền kinh tế, trong nước có 15 tỉnh thành phố, với 100+ doanh nghiệp trưng bày các giải pháp công nghệ tiên phong từ Việt Nam và các nền kinh tế lớn như Nhật Bản, Hàn Quốc, Malaysia, cùng với sự tham gia của các cơ quan truyền thông, báo chí.
+                        </p>
+
+                        <p>
+                            Khu vực triển lãm Tech4life 2025 tập trung giới thiệu các sản phẩm, thiết bị và giải pháp công nghệ đột phá phục vụ doanh nghiệp, đời sống và cộng đồng, thông qua 03 tuyến nội dung: Tech4Work (Công nghệ cho B2B), Tech4Life (Công nghệ cho B2C), Tech4Entertainment (Công nghệ cho B2C). Các lĩnh vực triển lãm trải rộng: AI & Cloud, Smart Office, Smart Home, Edtech, Startups, HealthTech, AgriTech...
+                        </p>
+
+                        <p>
+                            Tech4life 2025 tổ chức 07 hội thảo chuyên đề với hơn 60 diễn giả đầu ngành, sắp xếp hơn 300 cuộc gặp gỡ giao thương 1:1 giữa các doanh nghiệp Việt Nam và quốc tế, tạo cầu nối cho hợp tác công nghệ và thương mại.
+                        </p>
+
+                        <p>
+                            Nhằm thúc đẩy chuyển đổi số toàn diện và kết nối doanh nghiệp với các giải pháp công nghệ tiên tiến, đưa công nghệ gần hơn tới người dân, Phiên Khai mạc với chủ đề “Bứt phá Kinh tế số và Xã hội số với AI” diễn ra vào sáng ngày 18/09/2025 với sự tham gia của các Lãnh đạo, chuyên gia trong nước và quốc tế. Các tham luận tập trung vào hỗ trợ SMEs, hộ kinh doanh, hợp tác xã chuyển đổi số, phát triển lực lượng doanh nghiệp số, cũng như khai thác AI Agents để tối ưu quản lý và nguồn lực doanh nghiệp. Đặc biệt, nhiều tham luận quốc tế từ tập đoàn và viện nghiên cứu mang đến góc nhìn toàn cầu về cách AI đang định hình nền kinh tế số.
+                        </p>
+
+                        <!-- Subsection -->
+                        <h3 class="text-xl md:text-2xl font-bold text-primary-dark mt-8 mb-4 border-l-4 border-primary pl-3">
+                            TP. Hồ Chí Minh – trung tâm công nghệ, dữ liệu và trí tuệ nhân tạo
+                        </h3>
+
+                        <p>
+                            UBND TP. Hồ Chí Minh vừa ban hành Kế hoạch “Nghiên cứu và phát triển ứng dụng trí tuệ nhân tạo (2020-2030)”, hướng tới mục tiêu kinh tế số chiếm 40% GRDP vào năm 2030. Thành phố đẩy mạnh đầu tư hạ tầng số gồm mạng 5G, IoT tích hợp AI, nền tảng dữ liệu mở và đô thị thông minh, đồng thời tập trung phát triển nguồn nhân lực số. Các hoạt động này cho thấy TP. HCM đang đi đầu trong ứng dụng AI và công nghệ số, tạo môi trường thuận lợi để doanh nghiệp và cộng đồng phát triển.
+                        </p>
+
+                        <p>
+                            Sự kiện cũng tập trung giới thiệu những ứng dụng AI đang thay đổi cách con người học tập, làm việc và giải trí, mở ra tiềm năng phát triển kinh tế số. AI trở thành điểm nhấn nổi bật xuyên suốt chương trình với nhiều góc nhìn:
+                        </p>
+
+                        <!-- AI Bullet List -->
+                        <ul class="space-y-3.5 my-6 pl-2">
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary text-lg mt-0.5 shrink-0 select-none">•</span>
+                                <span class="text-text-main"><span class="font-bold text-slate-800">AI trong quản trị và điều hành doanh nghiệp:</span> tối ưu chi phí, nâng cao năng lực cạnh tranh.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary text-lg mt-0.5 shrink-0 select-none">•</span>
+                                <span class="text-text-main"><span class="font-bold text-slate-800">AI & tương lai nghề nghiệp:</span> định hình công việc, kỹ năng và hành trình phát triển sự nghiệp.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary text-lg mt-0.5 shrink-0 select-none">•</span>
+                                <span class="text-text-main"><span class="font-bold text-slate-800">AI trong đời sống:</span> các ứng dụng phục vụ y tế, giáo dục, tài chính cá nhân.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-primary text-lg mt-0.5 shrink-0 select-none">•</span>
+                                <span class="text-text-main"><span class="font-bold text-slate-800">AI trong kinh tế:</span> giải pháp sáng tạo cho thương mại, logistics, sản xuất và chuỗi cung ứng.</span>
+                            </li>
+                        </ul>
+
+                        <p>
+                            Đặc biệt, trong khuôn khổ Tech4life 2025, Vòng Chung tuyển toàn quốc & Lễ Công bố và Vinh danh Giải thưởng Sáng tạo Tương lai – VietFuture Awards 2025 cũng được tổ chức, với sự tham gia của đông đảo sinh viên, giảng viên từ 46 trường đại học, cao đẳng trên toàn quốc. Bên cạnh khoảnh khắc vinh danh các dự án khởi nghiệp đổi mới sáng tạo xuất sắc, chương trình năm nay còn mang đến nhiều hoạt động truyền cảm hứng cho giới trẻ như hội thảo chuyên đề dành cho sinh viên và startup trẻ, khu triển lãm demo sản phẩm khởi nghiệp, kết nối với doanh nghiệp, quỹ đầu tư và các hoạt động tuyển dụng trực tiếp. Thông qua VietFuture Awards, các dự án tiềm năng không chỉ dừng lại ở ý tưởng, mà còn có cơ hội được cố vấn, ươm tạo và thương mại hóa, tạo động lực lan tỏa mạnh mẽ trong cộng đồng sinh viên và hệ sinh thái khởi nghiệp đổi mới sáng tạo.
+                        </p>
+
+                        <p>
+                            Tech4life 2025 hứa hẹn mang đến không gian trải nghiệm công nghệ đột phá, nơi người dân TP. Hồ Chí Minh có thể khám phá các giải pháp công nghệ tiên tiến, tham gia các hội thảo chuyên sâu, và kết nối với những xu hướng công nghệ mới nhất.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Combined Contact Card -->
+                <div class="bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] border border-gray-100 p-6 md:p-8 transition-shadow duration-300">
+                    <div class="border-b border-gray-100 pb-4 mb-6">
+                        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-1">Liên hệ Ban tổ chức</p>
+                        <h3 class="text-2xl font-bold text-primary-dark">Đầu mối thông tin Truyền thông</h3>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <!-- Top Block: Press Contact -->
+                        <div class="space-y-4">
+                            <h4 class="text-base font-bold text-slate-800 pb-1 border-b border-gray-100">Liên hệ BTC</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <!-- Contact Person -->
+                                <div class="flex items-center gap-4 p-4 rounded-xl bg-blue-50/50 border border-blue-100/50">
+                                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-text-muted">Đại diện truyền thông</p>
+                                        <p class="text-base font-bold text-slate-800 leading-tight">Ms. Nguyễn Ngọc Phương Anh</p>
+                                    </div>
+                                </div>
+
+                                <!-- Mobile Link -->
+                                <a href="tel:+84937551871" class="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 border border-gray-100 transition-colors group flex">
+                                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-green-50 text-green-600 group-hover:bg-green-100 transition-colors shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-xs text-text-muted">Di động</p>
+                                        <p class="text-base font-semibold text-slate-800 group-hover:text-primary transition-colors">0937 551 871</p>
+                                    </div>
+                                </a>
+
+                                <!-- Email Link -->
+                                <a href="mailto:anhnnp@vinasa.org.vn" class="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 border border-gray-100 transition-colors group flex">
+                                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-50 text-primary group-hover:bg-blue-100 transition-colors shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4 min-w-0">
+                                        <p class="text-xs text-text-muted">Email liên hệ</p>
+                                        <p class="text-base font-semibold text-slate-800 group-hover:text-primary transition-colors truncate">anhnnp@vinasa.org.vn</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Block: VINASA Contact -->
+                        <div class="space-y-4">
+                            <h4 class="text-base font-bold text-slate-800 pb-1 border-b border-gray-100">Ban tổ chức VINASA</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- Phone -->
+                                <a href="tel:+842838212001" class="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 border border-gray-100 transition-colors group flex">
+                                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 text-slate-600 group-hover:bg-primary/10 group-hover:text-primary transition-colors shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-xs text-text-muted">Điện thoại</p>
+                                        <p class="text-base font-semibold text-slate-800 group-hover:text-primary transition-colors">(+84) 28 3821 2001</p>
+                                    </div>
+                                </a>
+
+                                <!-- Web -->
+                                <a href="https://www.vinasa.org.vn" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 border border-gray-100 transition-colors group flex">
+                                    <div class="flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 text-slate-600 group-hover:bg-primary/10 group-hover:text-primary transition-colors shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-xs text-text-muted">Website</p>
+                                        <p class="text-base font-semibold text-slate-800 group-hover:text-primary transition-colors">www.vinasa.org.vn</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
 
     <footer id="app-footer"></footer>
-    
+
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
