@@ -1,37 +1,485 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới thiệu - Tech4Life</title>
+    <title>Giới thiệu - Tech4life Expo & Summit 2026</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB', // Xanh hoàng gia (Royal Blue)
+                            dark: '#1E3A8A',    // Xanh dương đậm (Deep Blue)
+                        },
+                        secondary: {
+                            DEFAULT: '#60A5FA', // Xanh lam sáng
+                            gradientStart: '#E0E7FF', // Tím nhạt
+                            gradientEnd: '#DBEAFE',   // Xanh nhạt
+                        },
+                        background: {
+                            DEFAULT: '#FFFFFF', // Trắng
+                            alt: '#F8FAFC',     // Xám nhạt
+                            footer: '#0F172A',  // Xanh đen đậm
+                        },
+                        text: {
+                            main: '#334155',    // Xám đậm
+                            muted: '#64748B',   // Xám nhạt hơn
+                            heading: '#1E3A8A', // Xanh dương đậm
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        html, body { min-height: 100vh; }
+        html,
+        body {
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .logo-filter {
+            filter: grayscale(100%);
+            opacity: 0.65;
+            transition: all 0.3s ease;
+        }
+
+        .logo-filter:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Subtle floating animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Reveal animation classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
-<body class="bg-slate-50 flex flex-col font-sans text-gray-800">
-    <header id="app-header"></header>
-    
-    <main class="flex-grow container mx-auto px-4 py-12">
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 md:p-12">
-            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">Tech4Life 2026</div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Giới thiệu</h1>
-            <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
-                Chào mừng bạn đến với trang <span class="font-semibold text-slate-800">Giới thiệu</span>. 
-                Nội dung chi tiết của phần này đang được cập nhật và sẽ sớm ra mắt.
-            </p>
-            
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Skeleton loader / Placeholder blocks -->
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-75"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-150"></div>
+
+<body class="bg-white flex flex-col font-sans text-text-main antialiased overflow-x-hidden">
+    <!-- HEADER CONTAINER (Loaded via JS) -->
+    <header id="app-header" class="relative z-50"></header>
+
+    <main class="flex-grow">
+        <!-- 1. THE HERO: Standard Banner -->
+        <section
+            class="relative bg-gradient-to-br from-secondary-gradientStart to-secondary-gradientEnd pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
+            <!-- Watermark background logo -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0"
+                aria-hidden="true">
+                <img src="assets/images/logos/tech4life2.png" alt="Tech4life Watermark"
+                    class="w-[500px] md:w-[950px] h-auto max-w-full" style="opacity: 0.15;">
             </div>
-        </div>
+
+            <!-- Decorative blobs -->
+            <div class="absolute top-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse"
+                aria-hidden="true"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse"
+                style="animation-delay: 1s;" aria-hidden="true"></div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-center reveal active">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-dark tracking-tight mb-4"
+                    style="text-shadow: 0px 2px 10px rgba(255, 255, 255, 0.9), 0px 0px 4px rgba(255, 255, 255, 1);">
+                    Giới thiệu Hội nghị
+                </h1>
+            </div>
+        </section>
+
+
+        <!-- 2. INTRODUCTION: About Tech4Life (Light Glassmorphism Section) -->
+        <section class="py-24 md:py-32 bg-slate-50 relative overflow-hidden">
+            <!-- Animated Pastel Abstract Background -->
+            <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                <div class="absolute top-0 right-1/4 w-[600px] h-[600px] bg-blue-300/30 rounded-full mix-blend-multiply filter blur-[100px] animate-pulse"></div>
+                <div class="absolute bottom-0 left-1/4 w-[800px] h-[800px] bg-purple-300/30 rounded-full mix-blend-multiply filter blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-200/30 rounded-full mix-blend-multiply filter blur-[100px] animate-pulse" style="animation-delay: 4s;"></div>
+            </div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <!-- Section Header -->
+                <div class="text-center mb-16 md:mb-24 reveal">
+                    <div class="inline-flex items-center justify-center p-1 rounded-full bg-white/60 border border-white/80 backdrop-blur-md mb-6 shadow-sm">
+                        <span class="px-6 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-sm font-bold text-white uppercase tracking-[0.2em] shadow-md">
+                            Giới thiệu Tech4Life
+                        </span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-light text-slate-800 tracking-tight">
+                        Triển lãm & Hội nghị <br class="hidden md:block">
+                        <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+                            Công nghệ thường niên
+                        </span>
+                    </h2>
+                </div>
+
+                <!-- Bento Grid Content (Light Mode Glassmorphism) -->
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 reveal">
+                        
+                        <!-- Main Highlight Block -->
+                        <div class="lg:col-span-12 group">
+                            <div class="h-full relative bg-white/60 border border-white/80 hover:border-blue-200/80 rounded-[2rem] p-8 md:p-12 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(59,130,246,0.15)] shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                                
+                                <div class="relative z-10 flex flex-col md:flex-row gap-8 items-start">
+                                    <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/25">
+                                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-xl md:text-2xl text-slate-700 font-light leading-relaxed">
+                                            Triển lãm và Hội nghị Tech4life 2026 lần thứ 5 là sự kiện công nghệ thường niên với chủ đề <strong class="text-slate-900 font-semibold">“Công nghệ nâng tầm cuộc sống”</strong> dự kiến diễn ra vào ngày <span class="text-blue-600 font-medium">17-18/09/2026</span> tại TP. Hồ Chí Minh. Hiệp hội Phần mềm và Dịch vụ CNTT Việt Nam (VINASA) và Sở Khoa học và Công nghệ TP. Hồ Chí Minh phối hợp tổ chức là hoạt động trọng điểm trong việc thúc đẩy ứng dụng công nghệ, phục vụ chuyển đổi số tổ chức doanh nghiệp và thông minh hóa cuộc sống của con người.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Block 1 -->
+                        <div class="lg:col-span-5 group">
+                            <div class="h-full relative bg-white/50 border border-white/80 hover:border-indigo-200/80 rounded-[2rem] p-8 md:p-10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(99,102,241,0.15)] shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                                <div class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 transition-transform duration-500 shadow-sm">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                </div>
+                                <p class="text-lg text-slate-600 leading-relaxed">
+                                    <strong class="text-slate-900 text-xl block mb-2">Tech4Life 2026</strong> 
+                                    là Triển lãm và Hội nghị công nghệ <strong class="text-blue-600 font-medium">B2B</strong> và <strong class="text-blue-600 font-medium">B2C</strong> thường niên được tổ chức từ năm 2022.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Block 2 -->
+                        <div class="lg:col-span-7 group">
+                            <div class="h-full relative bg-white/50 border border-white/80 hover:border-purple-200/80 rounded-[2rem] p-8 md:p-10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(168,85,247,0.15)] shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                                <div class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform duration-500 shadow-sm">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <p class="text-lg text-slate-600 leading-relaxed">
+                                    Trọng tâm hướng đến giới thiệu, trình diễn, cập nhật các xu hướng, sản phẩm, giải pháp thông minh phục vụ chuyển đổi số cho các tổ chức doanh nghiệp (<strong class="text-purple-600 font-medium">Tech4Work</strong>) và thông minh hóa, nâng cao chất lượng cuộc sống của con người (<strong class="text-purple-600 font-medium">Tech4life</strong> và <strong class="text-purple-600 font-medium">Tech4Entertainment</strong>).
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. THE ECOSYSTEM: The Staggered Narrative -->
+        <section class="py-24 md:py-32 bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="mb-24 text-center reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary-dark tracking-tight mb-4">4 Trụ Cột Giá Trị
+                    </h2>
+                    <div class="w-16 h-1 bg-primary mx-auto rounded"></div>
+                </div>
+
+                <div class="relative max-w-6xl mx-auto">
+                    <!-- Central subtle line to connect elements optionally (hidden on mobile) -->
+                    <div
+                        class="hidden lg:block absolute top-0 bottom-0 left-1/2 w-px bg-slate-100 -translate-x-1/2 z-0">
+                    </div>
+
+                    <!-- Item 1: Left Aligned -->
+                    <div
+                        class="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 mb-24 lg:mb-32 relative z-10 reveal">
+                        <div class="w-full lg:w-1/2 lg:text-right relative">
+                            <!-- Massive Background Number -->
+                            <div
+                                class="absolute top-1/2 lg:right-0 -translate-y-1/2 text-[12rem] font-black text-slate-50 leading-none z-0 select-none">
+                                01</div>
+                            <div class="relative z-10">
+                                <h3 class="text-3xl font-bold text-primary-dark mb-4">Trình diễn</h3>
+                                <p class="text-lg text-text-muted leading-relaxed">
+                                    Khu vực trưng bày các sản phẩm, thiết bị thông minh ứng dụng trực tiếp vào đời sống,
+                                    mang lại trải nghiệm tương tác chân thực nhất cho người tham dự.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2">
+                            <img src="assets/images/banners/GioithieuTech4life/GioithieuTech4life2.png" alt="Trình diễn"
+                                class="w-full h-80 object-cover rounded-2xl shadow-lg">
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Right Aligned -->
+                    <div
+                        class="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-20 mb-24 lg:mb-32 relative z-10 reveal">
+                        <div class="w-full lg:w-1/2 relative">
+                            <div
+                                class="absolute top-1/2 lg:left-0 -translate-y-1/2 text-[12rem] font-black text-slate-50 leading-none z-0 select-none">
+                                02</div>
+                            <div class="relative z-10">
+                                <h3 class="text-3xl font-bold text-primary-dark mb-4">Nắm bắt</h3>
+                                <p class="text-lg text-text-muted leading-relaxed">
+                                    Đón đầu các giải pháp số, cập nhật những sản phẩm AI và IoT mới nhất thông qua các
+                                    chuyên đề hội thảo từ chuyên gia đầu ngành.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2">
+                            <img src="assets/images/banners/GioithieuTech4life/GioithieuTech4life3.png" alt="Nắm bắt"
+                                class="w-full h-80 object-cover rounded-2xl shadow-lg">
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Left Aligned -->
+                    <div
+                        class="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 mb-24 lg:mb-32 relative z-10 reveal">
+                        <div class="w-full lg:w-1/2 lg:text-right relative">
+                            <div
+                                class="absolute top-1/2 lg:right-0 -translate-y-1/2 text-[12rem] font-black text-slate-50 leading-none z-0 select-none">
+                                03</div>
+                            <div class="relative z-10">
+                                <h3 class="text-3xl font-bold text-primary-dark mb-4">Kết nối</h3>
+                                <p class="text-lg text-text-muted leading-relaxed">
+                                    Môi trường xúc tiến thương mại hoàn hảo. Mở rộng cơ hội giao thương B2B trực tiếp
+                                    với hàng ngàn đối tác tiềm năng và tiếp cận tệp khách hàng B2C rộng lớn.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2">
+                            <img src="assets/images/banners/GioithieuTech4life/GioithieuTech4life1.png" alt="Kết nối"
+                                class="w-full h-80 object-cover rounded-2xl shadow-lg">
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Right Aligned -->
+                    <div class="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-20 relative z-10 reveal">
+                        <div class="w-full lg:w-1/2 relative">
+                            <div
+                                class="absolute top-1/2 lg:left-0 -translate-y-1/2 text-[12rem] font-black text-slate-50 leading-none z-0 select-none">
+                                04</div>
+                            <div class="relative z-10">
+                                <h3 class="text-3xl font-bold text-primary-dark mb-4">Quảng bá</h3>
+                                <p class="text-lg text-text-muted leading-relaxed">
+                                    Sự đồng hành của hơn 30 đơn vị truyền thông lớn giúp lan tỏa mạnh mẽ giá trị thương
+                                    hiệu doanh nghiệp đến hàng triệu người theo dõi trên cả nước.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2">
+                            <img src="assets/images/banners/Baotrovatochuc/baotrovatochuc2.png" alt="Quảng bá"
+                                class="w-full h-80 object-cover rounded-2xl shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. THE IMPACT: The Minimalist Ledger -->
+        <section class="py-24 bg-background-alt border-y border-slate-200">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div
+                    class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-200 border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm reveal">
+                    <!-- Cell 1 -->
+                    <div
+                        class="p-10 flex flex-col items-center justify-center text-center group hover:bg-slate-50 transition-colors">
+                        <span class="text-5xl md:text-6xl font-extrabold text-primary mb-3">100<span
+                                class="text-3xl">+</span></span>
+                        <span class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Gian Hàng</span>
+                    </div>
+                    <!-- Cell 2 -->
+                    <div
+                        class="p-10 flex flex-col items-center justify-center text-center group hover:bg-slate-50 transition-colors">
+                        <span class="text-5xl md:text-6xl font-extrabold text-primary mb-3">5K<span
+                                class="text-3xl">+</span></span>
+                        <span class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Lượt Khách</span>
+                    </div>
+                    <!-- Cell 3 -->
+                    <div
+                        class="p-10 flex flex-col items-center justify-center text-center group hover:bg-slate-50 transition-colors">
+                        <span class="text-5xl md:text-6xl font-extrabold text-primary mb-3">50<span
+                                class="text-3xl">+</span></span>
+                        <span class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Diễn Giả</span>
+                    </div>
+                    <!-- Cell 4 -->
+                    <div
+                        class="p-10 flex flex-col items-center justify-center text-center group hover:bg-slate-50 transition-colors">
+                        <span class="text-5xl md:text-6xl font-extrabold text-primary mb-3">15<span
+                                class="text-3xl">+</span></span>
+                        <span class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Phiên Hội
+                            Thảo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. TIME & LOCATION: The Anchor -->
+        <section class="py-24 md:py-32 bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="relative max-w-5xl mx-auto reveal">
+                    <!-- Venue Image (70% width, aligned right on desktop) -->
+                    <div class="w-full md:w-3/4 ml-auto rounded-2xl overflow-hidden shadow-2xl h-[400px] md:h-[500px]">
+                        <img src="assets/images/banners/Diaiemtochuc/diaiemtochuc1.png" alt="Venue"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Offset Block: Sits on bottom-left of the image -->
+                    <div
+                        class="relative md:absolute md:bottom-[-40px] md:left-0 w-full md:w-[450px] bg-primary p-10 md:p-12 shadow-2xl mt-[-80px] md:mt-0 z-10">
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 border-b border-blue-400/50 pb-6">
+                            Thông tin<br>Tổ chức
+                        </h2>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4 text-white">
+                                <svg class="w-6 h-6 flex-shrink-0 mt-1 opacity-80" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <div>
+                                    <p class="text-sm font-medium opacity-80 uppercase tracking-wider mb-1">Thời gian
+                                    </p>
+                                    <p class="text-lg font-bold">17 & 18 / 09 / 2026</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 text-white">
+                                <svg class="w-6 h-6 flex-shrink-0 mt-1 opacity-80" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <div>
+                                    <p class="text-sm font-medium opacity-80 uppercase tracking-wider mb-1">Địa điểm</p>
+                                    <p class="text-lg font-bold leading-snug">Quận 1,<br>TP. Hồ Chí Minh</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://maps.google.com" target="_blank"
+                            class="mt-8 inline-flex items-center text-white text-sm font-semibold hover:text-blue-200 transition-colors group">
+                            Xem bản đồ
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. THE AUTHORITY: The Gallery -->
+        <section class="py-24 bg-background-alt border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 text-center reveal">
+                <h2 class="text-xl md:text-2xl font-bold text-primary-dark tracking-wide uppercase mb-12">Bảo trợ & Tổ
+                    chức</h2>
+
+                <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 max-w-4xl mx-auto">
+                    <!-- VINASA Logo -->
+                    <div class="w-40 md:w-56 logo-filter cursor-pointer">
+                        <img src="assets/images/logos/logo-VINASA-1024x1005.png" alt="VINASA"
+                            class="w-full h-auto object-contain">
+                    </div>
+                    <!-- Tech4Life Logo -->
+                    <div class="w-40 md:w-56 logo-filter cursor-pointer">
+                        <img src="assets/images/logos/tech4life2.png" alt="Tech4Life"
+                            class="w-full h-auto object-contain">
+                    </div>
+                </div>
+
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-left">
+                    <div>
+                        <h4
+                            class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2">
+                            Bảo trợ</h4>
+                        <p class="text-sm font-medium text-text-main">UBND TP.HCM</p>
+                    </div>
+                    <div>
+                        <h4
+                            class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2">
+                            Tổ chức</h4>
+                        <p class="text-sm font-medium text-text-main">VINASA</p>
+                        <p class="text-sm font-medium text-text-main mt-2">Sở KH&CN TP.HCM</p>
+                    </div>
+                    <div class="col-span-2">
+                        <h4
+                            class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2">
+                            Đơn vị phối hợp</h4>
+                        <p class="text-sm font-medium text-text-main">ITPC, QTSC, HUBA, CIO Vietnam, JETRO, JISA, HKPC,
+                            OCTF, Informa, ATC...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer id="app-footer"></footer>
-    
+
     <script src="assets/js/main.js"></script>
+    <script>
+        // Simple Intersection Observer for reveal animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
 </body>
+
 </html>
