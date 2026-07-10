@@ -524,11 +524,37 @@ function initGallery() {
     });
 }
 
+// Navbar scroll transition logic (Glassmorphism past Hero)
+function initNavbarScrollEffect() {
+    const nav = document.getElementById('main-nav');
+    if (!nav) return;
+
+    window.handleNavbarScroll = function() {
+        const isMobileOpen = nav.classList.contains('mobile-menu-open');
+        
+        if (window.scrollY > 80 || isMobileOpen) {
+            // Glassmorphic styling
+            nav.classList.remove('bg-transparent', 'border-transparent', 'shadow-none');
+            nav.classList.add('bg-white/80', 'backdrop-blur-md', 'shadow-md', 'border-gray-200/40');
+        } else {
+            // Transparent styling
+            nav.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow-md', 'border-gray-200/40');
+            nav.classList.add('bg-transparent', 'border-transparent', 'shadow-none');
+        }
+    };
+
+    // Run once on load
+    window.handleNavbarScroll();
+    
+    // Listen to scroll events
+    window.addEventListener('scroll', window.handleNavbarScroll, { passive: true });
+}
+
 // DomContentLoaded main initialization
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // 1. Load components (Header / Footer)
-    loadComponent('app-header', 'components/navbar.html');
-    loadComponent('app-footer', 'components/footer.html');
+    await loadComponent('app-header', 'components/navbar.html');
+    await loadComponent('app-footer', 'components/footer.html');
 
     // 2. Initialize observer components
     initGlobalScrollReveal();
@@ -537,4 +563,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initMapModal();
     initMediaCarousel();
     initGallery();
+    initNavbarScrollEffect();
 });

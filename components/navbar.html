@@ -1,5 +1,5 @@
 <!-- Desktop & Mobile Navigation Bar -->
-<nav class="bg-white text-gray-800 shadow-sm sticky top-0 z-50 border-b border-gray-100">
+<nav id="main-nav" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent border-b border-transparent text-gray-800 shadow-none">
     <div class="container mx-auto px-4 md:px-8 lg:px-12 flex justify-between items-center h-20">
 
         <!-- Logo Section -->
@@ -345,12 +345,19 @@
         menuBtn.addEventListener('click', () => {
             drawer.classList.toggle('hidden');
             const isOpen = !drawer.classList.contains('hidden');
+            const mainNav = document.getElementById('main-nav');
             if (isOpen) {
                 // Change icon to close (X)
                 menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                if (mainNav) mainNav.classList.add('mobile-menu-open');
             } else {
                 // Change icon to hamburger
                 menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                if (mainNav) mainNav.classList.remove('mobile-menu-open');
+            }
+            // Trigger scroll handler to refresh styles
+            if (typeof window.handleNavbarScroll === 'function') {
+                window.handleNavbarScroll();
             }
         });
     }
