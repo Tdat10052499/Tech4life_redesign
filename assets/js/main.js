@@ -374,14 +374,14 @@ function initMediaCarousel() {
         });
         dots.forEach(dot => {
             dot.classList.remove('bg-white', 'w-4');
-            dot.classList.add('bg-white/40', 'w-2');
+            dot.classList.add('bg-white/50', 'w-2');
         });
 
         // Set active states
         slides[index].classList.remove('opacity-0');
         slides[index].classList.add('opacity-100');
         if (dots[index]) {
-            dots[index].classList.remove('bg-white/40', 'w-2');
+            dots[index].classList.remove('bg-white/50', 'w-2');
             dots[index].classList.add('bg-white', 'w-4');
         }
         currentSlide = index;
