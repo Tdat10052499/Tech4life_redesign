@@ -61,6 +61,7 @@ function initGlobalScrollReveal() {
             el.closest('#countdown-hours') ||
             el.closest('#countdown-minutes') ||
             el.closest('#countdown-seconds') ||
+            el.closest('#diaiem-slideshow') ||
             el.classList.contains('no-reveal') ||
             el.classList.contains('counter') ||
             el.alt === 'Tech4life Watermark'
@@ -138,6 +139,223 @@ function initCounterObserver() {
     });
 }
 
+// Slideshow for Section 4: Địa điểm tổ chức
+function initDiaiemSlideshow() {
+    const slides = document.querySelectorAll('#diaiem-slideshow .slide-img');
+    const dots = document.querySelectorAll('.slide-dot');
+    const progress = document.getElementById('slideshow-progress');
+    if (slides.length === 0 || !progress) return;
+
+    let currentSlide = 0;
+    const slideInterval = 5000; // 5 seconds
+    let timer;
+
+    function resetProgressBar() {
+        progress.style.transition = 'none';
+        progress.style.width = '0%';
+        progress.offsetHeight; // Force reflow
+        progress.style.transition = `width ${slideInterval}ms linear`;
+        progress.style.width = '100%';
+    }
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.remove('opacity-0');
+                slide.classList.add('opacity-100');
+            } else {
+                slide.classList.remove('opacity-100');
+                slide.classList.add('opacity-0');
+            }
+        });
+
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.add('bg-white', 'scale-125');
+                dot.classList.remove('bg-white/50');
+            } else {
+                dot.classList.remove('bg-white', 'scale-125');
+                dot.classList.add('bg-white/50');
+            }
+        });
+
+        currentSlide = index;
+        resetProgressBar();
+    }
+
+    function nextSlide() {
+        let next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }
+
+    function startTimer() {
+        resetProgressBar();
+        timer = setInterval(nextSlide, slideInterval);
+    }
+
+    function stopTimer() {
+        clearInterval(timer);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopTimer();
+            showSlide(index);
+            timer = setInterval(nextSlide, slideInterval);
+        });
+    });
+
+    startTimer();
+}
+
+// Map Modal Lightbox with Zoom and Pan
+function initMapModal() {
+    const trigger = document.getElementById('map-trigger');
+    const modal = document.getElementById('map-modal');
+    const closeBtn = document.getElementById('close-map-modal');
+    const modalImg = document.getElementById('modal-map-img');
+    const container = document.getElementById('modal-container');
+
+    if (!trigger || !modal || !closeBtn || !modalImg || !container) return;
+
+    let scale = 1;
+    let isDragging = false;
+    let startX = 0, startY = 0;
+    let translateX = 0, translateY = 0;
+
+    // Open Modal
+    trigger.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+        }, 10);
+        document.body.style.overflow = 'hidden';
+        resetZoom();
+    });
+
+    // Close Modal
+    function closeModal() {
+        modal.classList.add('opacity-0');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }, 300);
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close on click outside the image
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target === container) {
+            closeModal();
+        }
+    });
+
+    // Reset Zoom and Pan
+    function resetZoom() {
+        scale = 1;
+        translateX = 0;
+        translateY = 0;
+        updateTransform();
+    }
+
+    function updateTransform() {
+        modalImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        if (scale > 1) {
+            modalImg.classList.remove('cursor-zoom-in');
+            modalImg.classList.add('cursor-zoom-out');
+        } else {
+            modalImg.classList.remove('cursor-zoom-out');
+            modalImg.classList.add('cursor-zoom-in');
+        }
+    }
+
+    // Zoom on wheel scroll
+    container.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const zoomSpeed = 0.15;
+        if (e.deltaY < 0) {
+            scale = Math.min(scale + zoomSpeed, 4);
+        } else {
+            scale = Math.max(scale - zoomSpeed, 1);
+            if (scale === 1) {
+                translateX = 0;
+                translateY = 0;
+            }
+        }
+        updateTransform();
+    }, { passive: false });
+
+    // Double click to toggle zoom
+    modalImg.addEventListener('dblclick', () => {
+        if (scale > 1) {
+            resetZoom();
+        } else {
+            scale = 2.5;
+            updateTransform();
+        }
+    });
+
+    // Drag to pan image when zoomed in
+    container.addEventListener('mousedown', (e) => {
+        if (scale <= 1) return;
+        isDragging = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+        e.preventDefault();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        updateTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    // Touch support for mobile pinch and drag
+    let initialDist = 0;
+    container.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 2) {
+            initialDist = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+        } else if (e.touches.length === 1 && scale > 1) {
+            isDragging = true;
+            startX = e.touches[0].clientX - translateX;
+            startY = e.touches[0].clientY - translateY;
+        }
+    });
+
+    container.addEventListener('touchmove', (e) => {
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            const dist = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+            const factor = dist / initialDist;
+            scale = Math.max(1, Math.min(scale * factor, 4));
+            initialDist = dist;
+            updateTransform();
+        } else if (e.touches.length === 1 && isDragging) {
+            translateX = e.touches[0].clientX - startX;
+            translateY = e.touches[0].clientY - startY;
+            updateTransform();
+        }
+    }, { passive: false });
+
+    container.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+}
+
 // DomContentLoaded main initialization
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Load components (Header / Footer)
@@ -147,4 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Initialize observer components
     initGlobalScrollReveal();
     initCounterObserver();
+    initDiaiemSlideshow();
+    initMapModal();
 });
