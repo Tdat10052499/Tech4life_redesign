@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diễn giả - Tech4Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            dark: '#1E3A8A',
+                        },
+                        secondary: {
+                            DEFAULT: '#60A5FA',
+                            gradientStart: '#E0E7FF',
+                            gradientEnd: '#DBEAFE',
+                        },
+                        background: {
+                            DEFAULT: '#FFFFFF',
+                            alt: '#F8FAFC',
+                            footer: '#0F172A',
+                        },
+                        text: {
+                            main: '#334155',
+                            muted: '#64748B',
+                            heading: '#1E3A8A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": {
+                                transform: "translate(0px, 0px) scale(1)",
+                            },
+                            "33%": {
+                                transform: "translate(30px, -50px) scale(1.1)",
+                            },
+                            "66%": {
+                                transform: "translate(-20px, 20px) scale(0.9)",
+                            },
+                            "100%": {
+                                transform: "translate(0px, 0px) scale(1)",
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html,
+        body {
+            min-height: 100vh;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .hero-enter {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-d2 {
+            animation-delay: 150ms;
+        }
+
+        .hero-d3 {
+            animation-delay: 250ms;
+        }
+
+        .hero-d4 {
+            animation-delay: 350ms;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="flex flex-col bg-[#F8FAFC] text-slate-700">
+    <header id="app-header"></header>
+
+    <main class="flex-grow">
+        <section
+            class="relative bg-gradient-to-br from-secondary-gradientStart to-secondary-gradientEnd py-24 md:py-32 overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0"
+                aria-hidden="true">
+                <img src="assets/images/logos/tech4life2.png" alt="" class="w-[500px] md:w-[950px] h-auto max-w-full"
+                    style="opacity: 0.15;">
+            </div>
+            <div class="absolute top-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse"
+                aria-hidden="true"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse"
+                style="animation-delay: 1s;" aria-hidden="true"></div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="hero-enter hero-d3 text-4xl md:text-5xl font-bold text-primary-dark tracking-tight leading-tight mb-10"
+                        style="text-shadow: 0px 2px 10px rgba(255, 255, 255, 0.9), 0px 0px 4px rgba(255, 255, 255, 1);">
+                        Diễn giả
+                    </h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speakers Grid Section -->
+        <section class="relative py-16 md:py-24 overflow-hidden">
+            <!-- Decorative Background Blobs for Glassmorphism Effect -->
+            <div class="absolute top-40 left-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"
+                aria-hidden="true"></div>
+            <div class="absolute top-80 right-10 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"
+                aria-hidden="true"></div>
+            <div class="absolute -bottom-20 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"
+                aria-hidden="true"></div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+
+                <div class="text-center max-w-2xl mx-auto mb-16 hero-enter">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-3">Chuyên gia hàng đầu
+                    </p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Các diễn giả tại Tech4Life</h2>
+                    <div class="w-20 h-1.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-10">
+
+                    <!-- Speaker 1 -->
+                    <div
+                        class="hero-enter group relative pt-4 px-4 pb-4 bg-white/40 backdrop-blur-md border border-white/60 rounded-[2rem] hover:bg-white/80 transition-all duration-500 hover:shadow-[0_8px_40px_rgb(37,99,235,0.08)]">
+                        <!-- Image Container -->
+                        <div class="relative w-full aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-sm">
+                            <img src="assets/images/speakers/nguyendinhthang1-1.jpg" alt="Ông Nguyễn Đình Thắng"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                        </div>
+
+                        <!-- Floating Info Card -->
+                        <div
+                            class="relative -mt-12 mx-auto w-11/12 bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgb(0,0,0,0.06)] group-hover:shadow-[0_10px_30px_rgb(37,99,235,0.15)] group-hover:-translate-y-3 transition-all duration-500 ease-out z-10 border border-blue-50 text-center">
+                            <h3
+                                class="text-base md:text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">
+                                Ông Nguyễn Đình Thắng</h3>
+                            <div
+                                class="w-8 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-2.5 mb-2.5 rounded-full opacity-50 group-hover:opacity-100 group-hover:w-12 transition-all duration-500">
+                            </div>
+                            <p
+                                class="text-[13px] font-medium text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
+                                Hội đồng sáng lập VINASA</p>
+                        </div>
+                    </div>
+
+                    <!-- Speaker 2 -->
+                    <div
+                        class="hero-enter hero-d2 group relative pt-4 px-4 pb-4 bg-white/40 backdrop-blur-md border border-white/60 rounded-[2rem] hover:bg-white/80 transition-all duration-500 hover:shadow-[0_8px_40px_rgb(37,99,235,0.08)]">
+                        <div class="relative w-full aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-sm">
+                            <img src="assets/images/speakers/phianhtuan.jpg" alt="Ông Phí Anh Tuấn"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                        </div>
+                        <div
+                            class="relative -mt-12 mx-auto w-11/12 bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgb(0,0,0,0.06)] group-hover:shadow-[0_10px_30px_rgb(37,99,235,0.15)] group-hover:-translate-y-3 transition-all duration-500 ease-out z-10 border border-blue-50 text-center">
+                            <h3
+                                class="text-base md:text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">
+                                Ông Phí Anh Tuấn</h3>
+                            <div
+                                class="w-8 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-2.5 mb-2.5 rounded-full opacity-50 group-hover:opacity-100 group-hover:w-12 transition-all duration-500">
+                            </div>
+                            <p
+                                class="text-[13px] font-medium text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
+                                Phó Chủ tịch Hội đồng Quản trị Công ty PAT Consulting</p>
+                        </div>
+                    </div>
+
+                    <!-- Speaker 3 -->
+                    <div
+                        class="hero-enter hero-d3 group relative pt-4 px-4 pb-4 bg-white/40 backdrop-blur-md border border-white/60 rounded-[2rem] hover:bg-white/80 transition-all duration-500 hover:shadow-[0_8px_40px_rgb(37,99,235,0.08)]">
+                        <div class="relative w-full aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-sm">
+                            <img src="assets/images/speakers/nguyenmanhcuong.jpg" alt="Ông Nguyễn Mạnh Cường"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                        </div>
+                        <div
+                            class="relative -mt-12 mx-auto w-11/12 bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgb(0,0,0,0.06)] group-hover:shadow-[0_10px_30px_rgb(37,99,235,0.15)] group-hover:-translate-y-3 transition-all duration-500 ease-out z-10 border border-blue-50 text-center">
+                            <h3
+                                class="text-base md:text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">
+                                Ông Nguyễn Mạnh Cường</h3>
+                            <div
+                                class="w-8 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-2.5 mb-2.5 rounded-full opacity-50 group-hover:opacity-100 group-hover:w-12 transition-all duration-500">
+                            </div>
+                            <p
+                                class="text-[13px] font-medium text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
+                                Phó Tổng Thư ký, Hội tự động hóa</p>
+                        </div>
+                    </div>
+
+                    <!-- Speaker 4 -->
+                    <div
+                        class="hero-enter hero-d4 group relative pt-4 px-4 pb-4 bg-white/40 backdrop-blur-md border border-white/60 rounded-[2rem] hover:bg-white/80 transition-all duration-500 hover:shadow-[0_8px_40px_rgb(37,99,235,0.08)]">
+                        <div class="relative w-full aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-sm">
+                            <img src="assets/images/speakers/nguyenthithugiang.jpg" alt="Bà Nguyễn Thị Thu Giang"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                        </div>
+                        <div
+                            class="relative -mt-12 mx-auto w-11/12 bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgb(0,0,0,0.06)] group-hover:shadow-[0_10px_30px_rgb(37,99,235,0.15)] group-hover:-translate-y-3 transition-all duration-500 ease-out z-10 border border-blue-50 text-center">
+                            <h3
+                                class="text-base md:text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">
+                                Bà Nguyễn Thị Thu Giang</h3>
+                            <div
+                                class="w-8 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-2.5 mb-2.5 rounded-full opacity-50 group-hover:opacity-100 group-hover:w-12 transition-all duration-500">
+                            </div>
+                            <p
+                                class="text-[13px] font-medium text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
+                                Phó Chủ tịch kiêm Tổng thư ký VINASA</p>
+                        </div>
+                    </div>
+
+                    <!-- Speaker 5 -->
+                    <div
+                        class="hero-enter group relative pt-4 px-4 pb-4 bg-white/40 backdrop-blur-md border border-white/60 rounded-[2rem] hover:bg-white/80 transition-all duration-500 hover:shadow-[0_8px_40px_rgb(37,99,235,0.08)]">
+                        <div class="relative w-full aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-sm">
+                            <img src="assets/images/speakers/nguyenhuuyen.jpg" alt="Ông Nguyễn Hữu Yên"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                        </div>
+                        <div
+                            class="relative -mt-12 mx-auto w-11/12 bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgb(0,0,0,0.06)] group-hover:shadow-[0_10px_30px_rgb(37,99,235,0.15)] group-hover:-translate-y-3 transition-all duration-500 ease-out z-10 border border-blue-50 text-center">
+                            <h3
+                                class="text-base md:text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">
+                                Ông Nguyễn Hữu Yên</h3>
+                            <div
+                                class="w-8 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-2.5 mb-2.5 rounded-full opacity-50 group-hover:opacity-100 group-hover:w-12 transition-all duration-500">
+                            </div>
+                            <p
+                                class="text-[13px] font-medium text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
+                                Phó Giám đốc Sở Khoa học & Công nghệ TP. HCM</p>
+                        </div>
+                    </div>
+
+                    <!-- Speaker 6 -->
+                    <div
+                        class="hero-enter hero-d2 group relative pt-4 px-4 pb-4 bg-white/40 backdrop-blur-md border border-white/60 rounded-[2rem] hover:bg-white/80 transition-all duration-500 hover:shadow-[0_8px_40px_rgb(37,99,235,0.08)]">
+                        <div class="relative w-full aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-sm">
+                            <img src="assets/images/speakers/khaphan.jpg" alt="Ông Kha Phan"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                        </div>
+                        <div
+                            class="relative -mt-12 mx-auto w-11/12 bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgb(0,0,0,0.06)] group-hover:shadow-[0_10px_30px_rgb(37,99,235,0.15)] group-hover:-translate-y-3 transition-all duration-500 ease-out z-10 border border-blue-50 text-center">
+                            <h3
+                                class="text-base md:text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">
+                                Ông Kha Phan</h3>
+                            <div
+                                class="w-8 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-2.5 mb-2.5 rounded-full opacity-50 group-hover:opacity-100 group-hover:w-12 transition-all duration-500">
+                            </div>
+                            <p
+                                class="text-[13px] font-medium text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
+                                Co-founder & CTO tại Easy AI</p>
+                        </div>
+                    </div>
+
+                    <!-- Speaker 7 -->
+                    <div
+                        class="hero-enter hero-d3 group relative pt-4 px-4 pb-4 bg-white/40 backdrop-blur-md border border-white/60 rounded-[2rem] hover:bg-white/80 transition-all duration-500 hover:shadow-[0_8px_40px_rgb(37,99,235,0.08)]">
+                        <div class="relative w-full aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-sm">
+                            <img src="assets/images/speakers/dinhthihuyen1.jpg" alt="Bà Đinh Thị Huyền"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                        </div>
+                        <div
+                            class="relative -mt-12 mx-auto w-11/12 bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgb(0,0,0,0.06)] group-hover:shadow-[0_10px_30px_rgb(37,99,235,0.15)] group-hover:-translate-y-3 transition-all duration-500 ease-out z-10 border border-blue-50 text-center">
+                            <h3
+                                class="text-base md:text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">
+                                Bà Đinh Thị Huyền</h3>
+                            <div
+                                class="w-8 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-2.5 mb-2.5 rounded-full opacity-50 group-hover:opacity-100 group-hover:w-12 transition-all duration-500">
+                            </div>
+                            <p
+                                class="text-[13px] font-medium text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
+                                Giám đốc Công ty Cổ phần Tư vấn thuế SAVITAX</p>
+                        </div>
+                    </div>
+
+                    <!-- Speaker 8 -->
+                    <div
+                        class="hero-enter hero-d4 group relative pt-4 px-4 pb-4 bg-white/40 backdrop-blur-md border border-white/60 rounded-[2rem] hover:bg-white/80 transition-all duration-500 hover:shadow-[0_8px_40px_rgb(37,99,235,0.08)]">
+                        <div class="relative w-full aspect-[4/5] rounded-[1.5rem] overflow-hidden shadow-sm">
+                            <img src="assets/images/speakers/nguyenthihop.jpg" alt="Bà Nguyễn Thị Hợp"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                        </div>
+                        <div
+                            class="relative -mt-12 mx-auto w-11/12 bg-white rounded-2xl p-5 shadow-[0_4px_20px_rgb(0,0,0,0.06)] group-hover:shadow-[0_10px_30px_rgb(37,99,235,0.15)] group-hover:-translate-y-3 transition-all duration-500 ease-out z-10 border border-blue-50 text-center">
+                            <h3
+                                class="text-base md:text-lg font-bold text-slate-800 group-hover:text-primary transition-colors">
+                                Bà Nguyễn Thị Hợp</h3>
+                            <div
+                                class="w-8 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-2.5 mb-2.5 rounded-full opacity-50 group-hover:opacity-100 group-hover:w-12 transition-all duration-500">
+                            </div>
+                            <p
+                                class="text-[13px] font-medium text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
+                                ERP Consultant, ORO Co., Ltd.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="app-footer"></footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
