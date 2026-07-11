@@ -78,10 +78,22 @@
             opacity: 1;
             transform: translateY(0);
         }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animate-gradient-move {
+            background-size: 200% 200%;
+            animation: gradientMove 20s ease infinite;
+        }
     </style>
 </head>
 
-<body class="bg-white flex flex-col font-sans text-text-main antialiased">
+<body class="bg-transparent flex flex-col font-sans text-text-main antialiased">
+    <!-- Animated Glassmorphism Background -->
+    <div class="fixed inset-0 -z-10 bg-gradient-to-tr from-[#FFFFFF] via-[#EFF6FF] via-[#FAF5FF] to-[#F0FDFA] animate-gradient-move"></div>
     <!-- HEADER CONTAINER (Loaded via JS) -->
     <header id="app-header"></header>
 
@@ -283,7 +295,7 @@
         </section>
 
         <!-- SECTION 2: GIỚI THIỆU TECH4LIFE -->
-        <section class="py-20 md:py-28 bg-white overflow-hidden">
+        <section class="py-20 md:py-28 bg-white/40 backdrop-blur-md border-b border-white/30 overflow-hidden">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <!-- 1. Phần Dẫn dắt (Centered Introduction) -->
                 <div class="text-center max-w-4xl mx-auto mb-16">
@@ -408,7 +420,7 @@
         </section>
 
         <!-- SECTION 3: BẢO TRỢ & TỔ CHỨC -->
-        <section class="py-16 md:py-24 bg-background-alt border-t border-b border-gray-100">
+        <section class="py-16 md:py-24 bg-white/20 backdrop-blur-sm border-b border-white/20">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <!-- Section Title -->
                 <div>
@@ -566,7 +578,7 @@
         </section>
 
         <!-- SECTION 4: THỜI GIAN & ĐỊA ĐIỂM -->
-        <section class="py-16 md:py-24 bg-gray-50 border-t border-b border-gray-100">
+        <section class="py-16 md:py-24 bg-white/40 backdrop-blur-md border-b border-white/30">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <!-- Section Title -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -646,7 +658,7 @@
         </section>
 
         <!-- SECTION 5: QUY MÔ & HOẠT ĐỘNG CHÍNH -->
-        <section class="py-16 md:py-24 bg-background-alt border-t border-b border-gray-100">
+        <section class="py-16 md:py-24 bg-white/20 backdrop-blur-sm border-b border-white/20">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <!-- Section Title -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -757,7 +769,7 @@
         </section>
 
         <!-- SECTION 6: ĐỐI TƯỢNG THAM GIA -->
-        <section class="py-20 md:py-28 bg-white border-t border-b border-gray-100">
+        <section class="py-20 md:py-28 bg-white/40 backdrop-blur-md border-b border-white/30">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <!-- Section Title -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -863,7 +875,7 @@
         </section>
 
         <!-- SECTION 7: SƠ ĐỒ TRIỂN LÃM -->
-        <section class="py-16 md:py-20 bg-background-alt border-t border-gray-100">
+        <section class="py-16 md:py-20 bg-white/20 backdrop-blur-sm border-b border-white/20">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 no-reveal">Bản đồ sự kiện</div>
@@ -908,7 +920,7 @@
         </div>
 
         <!-- SECTION 8: DANH MỤC TRIỂN LÃM -->
-        <section class="py-20 md:py-28 bg-white border-t border-b border-gray-100 overflow-hidden">
+        <section class="py-20 md:py-28 bg-white/40 backdrop-blur-md border-b border-white/30 overflow-hidden">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
                     
@@ -1318,7 +1330,7 @@
         </section>
 
         <!-- SECTION 9: CÁC HOẠT ĐỘNG CHÍNH -->
-        <section class="py-20 md:py-28 bg-background-alt border-t border-gray-100 overflow-hidden">
+        <section class="py-20 md:py-28 bg-white/20 backdrop-blur-sm border-b border-white/20 overflow-hidden">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <!-- Section Title -->
                 <div class="text-left mb-8 no-reveal">
@@ -1565,7 +1577,7 @@
         </section>
 
         <!-- SECTION 10: TRUYỀN THÔNG, QUẢNG BÁ -->
-        <section class="py-16 md:py-20 bg-white">
+        <section class="py-16 md:py-20 bg-white/40 backdrop-blur-md border-b border-white/30">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div>
@@ -1636,7 +1648,7 @@
         </section>
 
         <!-- SECTION 11: NHỮNG CON SỐ VÀ HÌNH ẢNH NỔI BẬT 2025 -->
-        <section class="py-16 md:py-20 bg-background-alt border-t border-gray-100">
+        <section class="py-16 md:py-20 bg-white/20 backdrop-blur-sm border-b border-white/20">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="text-center max-w-3xl mx-auto mb-12">
                     <h2 class="text-3xl font-bold text-primary-dark uppercase">NHỮNG CON SỐ VÀ HÌNH ẢNH NỔI BẬT 2025</h2>
@@ -2053,7 +2065,7 @@
         </section>
 
         <!-- SECTION 12: ĐƠN VỊ BẢO TRỢ, TỔ CHỨC & TRUYỀN THÔNG 2026 -->
-        <section class="py-16 md:py-24 bg-white border-t border-gray-100">
+        <section class="py-16 md:py-24 bg-white/40 backdrop-blur-md border-b border-white/30">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-3xl font-bold text-primary-dark uppercase tracking-tight">ĐƠN VỊ BẢO TRỢ, TỔ CHỨC & TRUYỀN THÔNG 2026</h2>
@@ -2244,7 +2256,7 @@
                     </div>
                 </div>
 <!-- SECTION 13: BANNER DANH BẠ CHUYỂN ĐỔI SỐ -->
-        <section class="py-16 md:py-20 bg-white">
+        <section class="py-16 md:py-20 bg-white/30 backdrop-blur-md">
             <div class="container mx-auto px-4 md:px-8 lg:px-12">
                 <div class="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-[0_20px_50px_rgba(37,99,235,0.15)] hover:scale-[1.01]">
                     <a href="https://danhbachuyendoiso.vn/" target="_blank" class="block">
