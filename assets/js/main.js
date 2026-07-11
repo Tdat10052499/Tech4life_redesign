@@ -550,11 +550,58 @@ function initNavbarScrollEffect() {
     window.addEventListener('scroll', window.handleNavbarScroll, { passive: true });
 }
 
+// Mobile sidebar initialization
+function initMobileSidebar() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-sidebar-btn');
+    const overlay = document.getElementById('mobile-sidebar-overlay');
+    const sidebar = document.getElementById('mobile-sidebar');
+
+    if (!menuBtn || !sidebar) return;
+
+    function openSidebar() {
+        sidebar.classList.remove('translate-x-full');
+        if (overlay) {
+            overlay.classList.remove('pointer-events-none', 'opacity-0');
+            overlay.classList.add('opacity-100');
+        }
+        document.body.classList.add('overflow-hidden');
+    }
+
+    function closeSidebar() {
+        sidebar.classList.add('translate-x-full');
+        if (overlay) {
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+        }
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    menuBtn.addEventListener('click', openSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    if (overlay) overlay.addEventListener('click', closeSidebar);
+
+    // Dropdown accordion toggler
+    window.toggleMobileDropdown = function(id) {
+        const dropdown = document.getElementById(id);
+        const arrow = document.getElementById('arrow-' + id);
+        if (dropdown) {
+            dropdown.classList.toggle('hidden');
+            if (arrow) {
+                arrow.classList.toggle('rotate-180');
+            }
+        }
+    };
+}
+
 // DomContentLoaded main initialization
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Load components (Header / Footer)
     await loadComponent('app-header', 'components/navbar.html');
     await loadComponent('app-footer', 'components/footer.html');
+
+    // Initialize Mobile Sidebar right after header loading
+    initMobileSidebar();
 
     // 2. Initialize observer components
     initGlobalScrollReveal();
