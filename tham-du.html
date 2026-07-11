@@ -70,15 +70,20 @@
     
     <main class="flex-grow bg-[#F8FAFC]">
         <!-- Page Header / Hero Section -->
-        <section class="relative bg-[#0B1528] py-20 overflow-hidden border-b border-gray-800">
-            <!-- Decorative background grid and glow -->
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <section class="relative bg-gradient-to-br from-secondary-gradientStart to-secondary-gradientEnd py-24 md:py-32 overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0" aria-hidden="true">
+                <img src="assets/images/logo Tech4Life/watermark.png" alt="" class="w-[500px] md:w-[950px] h-auto max-w-full" style="opacity: 0.15;">
+            </div>
+            <div class="absolute top-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse" aria-hidden="true"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse" style="animation-delay: 1s;" aria-hidden="true"></div>
 
-            <div class="container mx-auto px-4 text-center relative z-10">
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-widest uppercase">
-                    Đăng ký tham dự
-                </h1>
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="hero-enter hero-d3 text-4xl md:text-5xl font-bold text-primary-dark tracking-tight leading-tight mb-10"
+                        style="text-shadow: 0px 2px 10px rgba(255, 255, 255, 0.9), 0px 0px 4px rgba(255, 255, 255, 1);">
+                        Đăng ký tham dự
+                    </h1>
+                </div>
             </div>
         </section>
 
