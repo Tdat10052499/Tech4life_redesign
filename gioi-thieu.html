@@ -1,37 +1,2376 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới thiệu - Tech4Life</title>
+    <title>Giới thiệu - Tech4life Expo & Summit 2026</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB', // Xanh hoàng gia (Royal Blue)
+                            dark: '#1E3A8A',    // Xanh dương đậm (Deep Blue)
+                        },
+                        secondary: {
+                            DEFAULT: '#60A5FA', // Xanh lam sáng
+                            gradientStart: '#E0E7FF', // Tím nhạt
+                            gradientEnd: '#DBEAFE',   // Xanh nhạt
+                        },
+                        background: {
+                            DEFAULT: '#FFFFFF', // Trắng
+                            alt: '#F8FAFC',     // Xám nhạt
+                            footer: '#0F172A',  // Xanh đen đậm
+                        },
+                        text: {
+                            main: '#334155',    // Xám đậm
+                            muted: '#64748B',   // Xám nhạt hơn
+                            heading: '#1E3A8A', // Xanh dương đậm
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        html, body { min-height: 100vh; }
+        html,
+        body {
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .logo-filter {
+            filter: grayscale(100%);
+            opacity: 0.65;
+            transition: all 0.3s ease;
+        }
+
+        .logo-filter:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Subtle floating animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Reveal animation classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
-<body class="bg-slate-50 flex flex-col font-sans text-gray-800">
-    <header id="app-header"></header>
-    
-    <main class="flex-grow container mx-auto px-4 py-12">
-        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 md:p-12">
-            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">Tech4Life 2026</div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Giới thiệu</h1>
-            <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
-                Chào mừng bạn đến với trang <span class="font-semibold text-slate-800">Giới thiệu</span>. 
-                Nội dung chi tiết của phần này đang được cập nhật và sẽ sớm ra mắt.
-            </p>
-            
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Skeleton loader / Placeholder blocks -->
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-75"></div>
-                <div class="h-48 bg-slate-100 rounded-lg border border-slate-200 animate-pulse delay-150"></div>
+
+<body class="bg-white flex flex-col font-sans text-text-main antialiased overflow-x-hidden">
+    <!-- HEADER CONTAINER (Loaded via JS) -->
+    <header id="app-header" class="relative z-50"></header>
+
+    <main class="flex-grow">
+        <!-- 1. THE HERO: Standard Banner -->
+        <section
+            class="relative bg-gradient-to-br from-secondary-gradientStart to-secondary-gradientEnd pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
+            <!-- Watermark background logo -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0"
+                aria-hidden="true">
+                <img src="assets/images/logos/tech4life2.png" alt="Tech4life Watermark"
+                    class="w-[500px] md:w-[950px] h-auto max-w-full" style="opacity: 0.15;">
+            </div>
+
+            <!-- Decorative blobs -->
+            <div class="absolute top-0 left-0 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse"
+                aria-hidden="true"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse"
+                style="animation-delay: 1s;" aria-hidden="true"></div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-center reveal active">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-dark tracking-tight mb-4"
+                    style="text-shadow: 0px 2px 10px rgba(255, 255, 255, 0.9), 0px 0px 4px rgba(255, 255, 255, 1);">
+                    Giới thiệu Hội nghị
+                </h1>
+            </div>
+        </section>
+
+
+        <!-- 2. INTRODUCTION: About Tech4Life (Light Glassmorphism Section) -->
+        <section class="py-24 md:py-32 bg-slate-50 relative overflow-hidden">
+            <!-- Animated Pastel Abstract Background -->
+            <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                <div
+                    class="absolute top-0 right-1/4 w-[600px] h-[600px] bg-blue-300/30 rounded-full mix-blend-multiply filter blur-[100px] animate-pulse">
+                </div>
+                <div class="absolute bottom-0 left-1/4 w-[800px] h-[800px] bg-purple-300/30 rounded-full mix-blend-multiply filter blur-[120px] animate-pulse"
+                    style="animation-delay: 2s;"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-200/30 rounded-full mix-blend-multiply filter blur-[100px] animate-pulse"
+                    style="animation-delay: 4s;"></div>
+            </div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <!-- Section Header -->
+                <div class="text-center mb-16 md:mb-24 reveal">
+                    <div
+                        class="inline-flex items-center justify-center p-1 rounded-full bg-white/60 border border-white/80 backdrop-blur-md mb-6 shadow-sm">
+                        <span
+                            class="px-6 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-sm font-bold text-white uppercase tracking-[0.2em] shadow-md">
+                            Giới thiệu Tech4Life
+                        </span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-light text-slate-800 tracking-tight">
+                        Triển lãm & Hội nghị <br class="hidden md:block">
+                        <span
+                            class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+                            Công nghệ thường niên
+                        </span>
+                    </h2>
+                </div>
+
+                <!-- Bento Grid Content (Light Mode Glassmorphism) -->
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 reveal">
+
+                        <!-- Main Highlight Block -->
+                        <div class="lg:col-span-12 group">
+                            <div
+                                class="h-full relative bg-white/60 border border-white/80 hover:border-blue-200/80 rounded-[2rem] p-8 md:p-12 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(59,130,246,0.15)] shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+
+                                <div class="relative z-10 flex flex-col md:flex-row gap-8 items-start">
+                                    <div
+                                        class="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/25">
+                                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-xl md:text-2xl text-slate-700 font-light leading-relaxed">
+                                            Triển lãm và Hội nghị Tech4life 2026 lần thứ 5 là sự kiện công nghệ thường
+                                            niên với chủ đề <strong class="text-slate-900 font-semibold">“Công nghệ nâng
+                                                tầm cuộc sống”</strong> dự kiến diễn ra vào ngày <span
+                                                class="text-blue-600 font-medium">17-18/09/2026</span> tại TP. Hồ Chí
+                                            Minh. Hiệp hội Phần mềm và Dịch vụ CNTT Việt Nam (VINASA) và Sở Khoa học và
+                                            Công nghệ TP. Hồ Chí Minh phối hợp tổ chức là hoạt động trọng điểm trong
+                                            việc thúc đẩy ứng dụng công nghệ, phục vụ chuyển đổi số tổ chức doanh nghiệp
+                                            và thông minh hóa cuộc sống của con người.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Block 1 -->
+                        <div class="lg:col-span-5 group">
+                            <div
+                                class="h-full relative bg-white/50 border border-white/80 hover:border-indigo-200/80 rounded-[2rem] p-8 md:p-10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(99,102,241,0.15)] shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 mb-6 group-hover:scale-110 transition-transform duration-500 shadow-sm">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <p class="text-lg text-slate-600 leading-relaxed">
+                                    <strong class="text-slate-900 text-xl block mb-2">Tech4Life 2026</strong>
+                                    là Triển lãm và Hội nghị công nghệ <strong
+                                        class="text-blue-600 font-medium">B2B</strong> và <strong
+                                        class="text-blue-600 font-medium">B2C</strong> thường niên được tổ chức từ năm
+                                    2022.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Block 2 -->
+                        <div class="lg:col-span-7 group">
+                            <div
+                                class="h-full relative bg-white/50 border border-white/80 hover:border-purple-200/80 rounded-[2rem] p-8 md:p-10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(168,85,247,0.15)] shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform duration-500 shadow-sm">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <p class="text-lg text-slate-600 leading-relaxed">
+                                    Trọng tâm hướng đến giới thiệu, trình diễn, cập nhật các xu hướng, sản phẩm, giải
+                                    pháp thông minh phục vụ chuyển đổi số cho các tổ chức doanh nghiệp (<strong
+                                        class="text-purple-600 font-medium">Tech4Work</strong>) và thông minh hóa, nâng
+                                    cao chất lượng cuộc sống của con người (<strong
+                                        class="text-purple-600 font-medium">Tech4life</strong> và <strong
+                                        class="text-purple-600 font-medium">Tech4Entertainment</strong>).
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. THE ECOSYSTEM: The Staggered Narrative -->
+        <section class="py-24 md:py-32 bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="mb-24 text-center reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary-dark tracking-tight mb-4">4 Trụ Cột Giá Trị
+                    </h2>
+                    <div class="w-16 h-1 bg-primary mx-auto rounded"></div>
+                </div>
+
+                <div class="relative max-w-6xl mx-auto">
+                    <!-- Central subtle line to connect elements optionally (hidden on mobile) -->
+                    <div
+                        class="hidden lg:block absolute top-0 bottom-0 left-1/2 w-px bg-slate-100 -translate-x-1/2 z-0">
+                    </div>
+
+                    <!-- Item 1: Left Aligned -->
+                    <div
+                        class="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 mb-24 lg:mb-32 relative z-10 reveal">
+                        <div class="w-full lg:w-1/2 lg:text-right relative">
+                            <!-- Massive Background Number -->
+                            <div
+                                class="absolute top-1/2 lg:right-0 -translate-y-1/2 text-[12rem] font-black text-slate-50 leading-none z-0 select-none">
+                                01</div>
+                            <div class="relative z-10">
+                                <h3 class="text-3xl font-bold text-primary-dark mb-4">Trình diễn</h3>
+                                <p class="text-lg text-text-muted leading-relaxed">
+                                    Khu vực trưng bày các sản phẩm, thiết bị thông minh ứng dụng trực tiếp vào đời sống,
+                                    mang lại trải nghiệm tương tác chân thực nhất cho người tham dự.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2">
+                            <img src="assets/images/banners/GioithieuTech4life/GioithieuTech4life2.png" alt="Trình diễn"
+                                class="w-full h-80 object-cover rounded-2xl shadow-lg">
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Right Aligned -->
+                    <div
+                        class="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-20 mb-24 lg:mb-32 relative z-10 reveal">
+                        <div class="w-full lg:w-1/2 relative">
+                            <div
+                                class="absolute top-1/2 lg:left-0 -translate-y-1/2 text-[12rem] font-black text-slate-50 leading-none z-0 select-none">
+                                02</div>
+                            <div class="relative z-10">
+                                <h3 class="text-3xl font-bold text-primary-dark mb-4">Nắm bắt</h3>
+                                <p class="text-lg text-text-muted leading-relaxed">
+                                    Đón đầu các giải pháp số, cập nhật những sản phẩm AI và IoT mới nhất thông qua các
+                                    chuyên đề hội thảo từ chuyên gia đầu ngành.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2">
+                            <img src="assets/images/banners/GioithieuTech4life/GioithieuTech4life3.png" alt="Nắm bắt"
+                                class="w-full h-80 object-cover rounded-2xl shadow-lg">
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Left Aligned -->
+                    <div
+                        class="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 mb-24 lg:mb-32 relative z-10 reveal">
+                        <div class="w-full lg:w-1/2 lg:text-right relative">
+                            <div
+                                class="absolute top-1/2 lg:right-0 -translate-y-1/2 text-[12rem] font-black text-slate-50 leading-none z-0 select-none">
+                                03</div>
+                            <div class="relative z-10">
+                                <h3 class="text-3xl font-bold text-primary-dark mb-4">Kết nối</h3>
+                                <p class="text-lg text-text-muted leading-relaxed">
+                                    Môi trường xúc tiến thương mại hoàn hảo. Mở rộng cơ hội giao thương B2B trực tiếp
+                                    với hàng ngàn đối tác tiềm năng và tiếp cận tệp khách hàng B2C rộng lớn.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2">
+                            <img src="assets/images/banners/GioithieuTech4life/GioithieuTech4life1.png" alt="Kết nối"
+                                class="w-full h-80 object-cover rounded-2xl shadow-lg">
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Right Aligned -->
+                    <div class="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-20 relative z-10 reveal">
+                        <div class="w-full lg:w-1/2 relative">
+                            <div
+                                class="absolute top-1/2 lg:left-0 -translate-y-1/2 text-[12rem] font-black text-slate-50 leading-none z-0 select-none">
+                                04</div>
+                            <div class="relative z-10">
+                                <h3 class="text-3xl font-bold text-primary-dark mb-4">Quảng bá</h3>
+                                <p class="text-lg text-text-muted leading-relaxed">
+                                    Sự đồng hành của hơn 30 đơn vị truyền thông lớn giúp lan tỏa mạnh mẽ giá trị thương
+                                    hiệu doanh nghiệp đến hàng triệu người theo dõi trên cả nước.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2">
+                            <img src="assets/images/banners/Baotrovatochuc/baotrovatochuc2.png" alt="Quảng bá"
+                                class="w-full h-80 object-cover rounded-2xl shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BẢO TRỢ & TỔ CHỨC SECTION -->
+        <section class="py-24 md:py-32 bg-slate-50 relative overflow-hidden border-t border-slate-100">
+            <!-- Subtle background decoration -->
+            <div
+                class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none">
+            </div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <div class="mb-16 reveal text-center lg:text-left">
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary-dark tracking-tight uppercase">Bảo trợ & Tổ
+                        chức</h2>
+                    <div class="w-16 h-1 bg-primary rounded mt-4 mx-auto lg:mx-0"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start reveal">
+                    <!-- Images Left Column -->
+                    <div class="lg:col-span-5 flex flex-col gap-6">
+                        <div
+                            class="rounded-3xl overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] group relative">
+                            <div
+                                class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                            </div>
+                            <img src="assets/images/banners/Baotrovatochuc/baotrovatochuc1.png"
+                                alt="Cơ quan bảo trợ và tổ chức"
+                                class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div
+                            class="rounded-3xl overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] group relative">
+                            <div
+                                class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                            </div>
+                            <img src="assets/images/banners/Baotrovatochuc/baotrovatochuc2.png" alt="Đơn vị phối hợp"
+                                class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+
+                    <!-- Content Right Column -->
+                    <div class="lg:col-span-7 space-y-10 lg:pl-8">
+
+                        <!-- CƠ QUAN BẢO TRỢ -->
+                        <div class="flex gap-5 group">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-slate-100 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl md:text-2xl font-bold text-indigo-600 uppercase tracking-wide mb-2">
+                                    Cơ quan bảo trợ</h3>
+                                <p class="text-lg md:text-xl text-slate-700 font-medium">Ủy ban nhân dân Thành phố Hồ
+                                    Chí Minh</p>
+                            </div>
+                        </div>
+
+                        <!-- ĐƠN VỊ TỔ CHỨC -->
+                        <div class="flex gap-5 group">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-slate-100 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl md:text-2xl font-bold text-indigo-600 uppercase tracking-wide mb-2">
+                                    Đơn vị tổ chức</h3>
+                                <ul class="space-y-3 text-lg text-slate-700 font-medium">
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2.5 flex-shrink-0"></div>
+                                        <span>Hiệp hội Phần mềm và Dịch vụ CNTT Việt Nam (VINASA)</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2.5 flex-shrink-0"></div>
+                                        <span>Sở Khoa học & Công nghệ TP.HCM</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ĐƠN VỊ PHỐI HỢP TRONG NƯỚC -->
+                        <div class="flex gap-5 group">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-slate-100 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-indigo-600 uppercase tracking-wide mb-3 flex items-center gap-1.5">
+                                    Đơn vị phối hợp trong nước <span class="text-red-500 font-bold text-2xl">*</span>
+                                </h3>
+                                <ul class="space-y-3 text-lg text-slate-700 font-medium">
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2.5 flex-shrink-0"></div>
+                                        <span>Trung tâm xúc tiến Thương mại và Đầu tư TP.HCM (ITPC)</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2.5 flex-shrink-0"></div>
+                                        <span>Khu công viên Phần mềm Quang Trung (QTSC)</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2.5 flex-shrink-0"></div>
+                                        <span>Hiệp hội Doanh nghiệp TP.HCM (HUBA)</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2.5 flex-shrink-0"></div>
+                                        <span>CIO Vietnam</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ĐƠN VỊ PHỐI HỢP QUỐC TẾ -->
+                        <div class="flex gap-5 group">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-slate-100 text-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-indigo-600 uppercase tracking-wide mb-3 flex items-center gap-1.5">
+                                    Đơn vị phối hợp quốc tế <span class="text-red-500 font-bold text-2xl">*</span>
+                                </h3>
+                                <ul class="space-y-3 text-lg text-slate-700 font-medium">
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2.5 flex-shrink-0"></div>
+                                        <span>JETRO, JISA</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2.5 flex-shrink-0"></div>
+                                        <span>HKPC, OCTF</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2.5 flex-shrink-0"></div>
+                                        <span>Informa, ATC</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2.5 flex-shrink-0"></div>
+                                        <span>NIPA, KICC, KAIT, KITA</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. TIME & LOCATION: The Anchor -->
+        <section class="py-24 md:py-32 bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="relative max-w-6xl mx-auto reveal">
+                    <!-- Venue Image Grid (Right aligned on desktop) -->
+                    <div class="w-full md:w-3/4 ml-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="rounded-2xl overflow-hidden shadow-lg h-[250px]">
+                            <img src="assets/images/banners/Diaiemtochuc/diaiemtochuc1.png" alt="Venue 1"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-lg h-[250px]">
+                            <img src="assets/images/banners/Diaiemtochuc/diaiemtochuc2.png" alt="Venue 2"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-lg h-[250px]">
+                            <img src="assets/images/banners/Diaiemtochuc/diaiemtochuc3.png" alt="Venue 3"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-lg h-[250px]">
+                            <img src="assets/images/banners/Diaiemtochuc/diaiemtochuc4.png" alt="Venue 4"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+
+                    <!-- Offset Blue Block: Sits on bottom-left -->
+                    <div
+                        class="relative md:absolute md:top-1/2 md:-translate-y-1/2 md:left-0 w-full md:w-[450px] bg-blue-600 p-10 md:p-12 shadow-2xl mt-[-80px] md:mt-0 z-10 rounded-2xl md:rounded-none md:rounded-r-3xl">
+                        <h2
+                            class="text-2xl md:text-3xl font-bold text-white mb-8 border-b border-blue-400/50 pb-6 uppercase tracking-wide">
+                            Thông tin Tổ chức
+                        </h2>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4 text-white">
+                                <svg class="w-6 h-6 flex-shrink-0 mt-1 opacity-80" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <div>
+                                    <p class="text-sm font-medium opacity-80 uppercase tracking-wider mb-1">Thời gian
+                                    </p>
+                                    <p class="text-lg font-bold">08:00 – 17:00<br>Ngày 17-18/09/2026</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 text-white">
+                                <svg class="w-6 h-6 flex-shrink-0 mt-1 opacity-80" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <div>
+                                    <p class="text-sm font-medium opacity-80 uppercase tracking-wider mb-1">Địa điểm</p>
+                                    <p class="text-lg font-bold leading-snug">Quận 1,<br>Thành phố Hồ Chí Minh</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://maps.google.com" target="_blank"
+                            class="mt-8 inline-flex items-center text-white text-sm font-semibold hover:text-blue-200 transition-colors group">
+                            Xem bản đồ
+                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUY MÔ & HOẠT ĐỘNG CHÍNH SECTION -->
+        <section class="py-24 bg-background-alt border-y border-slate-200">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary-dark tracking-tight uppercase">Quy mô & Hoạt
+                        động chính</h2>
+                    <div class="w-24 h-1 bg-blue-500 rounded mt-4 mx-auto"></div>
+                </div>
+
+                <!-- Stats Grid (6 items) -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-20 reveal">
+                    <!-- Stat 1 -->
+                    <div
+                        class="bg-gradient-to-br from-[#7C3AED] to-[#6D28D9] rounded-2xl p-6 md:p-8 text-center text-white shadow-lg hover:-translate-y-1 transition-transform border border-purple-400/30 flex flex-col justify-center">
+                        <div class="text-3xl md:text-5xl font-extrabold mb-1">150<span class="text-2xl">+</span></div>
+                        <div class="text-sm md:text-base font-semibold tracking-wide">Gian hàng</div>
+                    </div>
+                    <!-- Stat 2 -->
+                    <div
+                        class="bg-gradient-to-br from-[#3B82F6] to-[#2563EB] rounded-2xl p-6 md:p-8 text-center text-white shadow-lg hover:-translate-y-1 transition-transform border border-blue-400/30 flex flex-col justify-center">
+                        <div class="text-3xl md:text-5xl font-extrabold mb-1">5000<span class="text-2xl">+</span></div>
+                        <div class="text-sm md:text-base font-semibold tracking-wide">Lượt tham quan</div>
+                    </div>
+                    <!-- Stat 3 -->
+                    <div
+                        class="bg-gradient-to-br from-[#84CC16] to-[#65A30D] rounded-2xl p-6 md:p-8 text-center text-white shadow-lg hover:-translate-y-1 transition-transform border border-lime-400/30 flex flex-col justify-center">
+                        <div class="text-3xl md:text-5xl font-extrabold mb-1">100<span class="text-2xl">+</span></div>
+                        <div class="text-sm md:text-base font-semibold tracking-wide">Thương hiệu</div>
+                    </div>
+                    <!-- Stat 4 -->
+                    <div
+                        class="bg-gradient-to-br from-[#D946EF] to-[#C026D3] rounded-2xl p-6 md:p-8 text-center text-white shadow-lg hover:-translate-y-1 transition-transform border border-fuchsia-400/30 flex flex-col justify-center">
+                        <div class="text-3xl md:text-5xl font-extrabold mb-1">10<span class="text-2xl">+</span></div>
+                        <div class="text-sm md:text-base font-semibold tracking-wide">Quốc gia</div>
+                    </div>
+                    <!-- Stat 5 -->
+                    <div
+                        class="bg-gradient-to-br from-[#2DD4BF] to-[#0D9488] rounded-2xl p-6 md:p-8 text-center text-white shadow-lg hover:-translate-y-1 transition-transform border border-teal-400/30 flex flex-col justify-center">
+                        <div class="text-3xl md:text-5xl font-extrabold mb-1">80<span class="text-2xl">+</span></div>
+                        <div class="text-sm md:text-base font-semibold tracking-wide">Diễn giả</div>
+                    </div>
+                    <!-- Stat 6 -->
+                    <div
+                        class="bg-gradient-to-br from-[#EAB308] to-[#CA8A04] rounded-2xl p-6 md:p-8 text-center text-white shadow-lg hover:-translate-y-1 transition-transform border border-yellow-400/30 flex flex-col justify-center">
+                        <div class="text-3xl md:text-5xl font-extrabold mb-1">200<span class="text-2xl">+</span></div>
+                        <div class="text-sm md:text-base font-semibold tracking-wide">Lượt kết nối</div>
+                    </div>
+                </div>
+
+                <!-- Activities Grid (5 cards) -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 reveal">
+                    <!-- Card 1 -->
+                    <div
+                        class="bg-white rounded-3xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.15)] transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+                        <div class="rounded-2xl overflow-hidden mb-5 aspect-[4/3]">
+                            <img src="assets/images/banners/Quymocachoatdongchinh/trienlam.png"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3
+                            class="text-center font-bold text-slate-800 uppercase tracking-wide text-sm md:text-base px-2 pb-3">
+                            Triển lãm</h3>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                        class="bg-white rounded-3xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.15)] transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+                        <div class="rounded-2xl overflow-hidden mb-5 aspect-[4/3]">
+                            <img src="assets/images/banners/Quymocachoatdongchinh/bizmatching.png"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3
+                            class="text-center font-bold text-slate-800 uppercase tracking-wide text-sm md:text-base px-2 pb-3">
+                            Biz Matching</h3>
+                    </div>
+                    <!-- Card 3 -->
+                    <div
+                        class="bg-white rounded-3xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.15)] transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+                        <div class="rounded-2xl overflow-hidden mb-5 aspect-[4/3]">
+                            <img src="assets/images/banners/Quymocachoatdongchinh/democongnghe.png"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3
+                            class="text-center font-bold text-slate-800 uppercase tracking-wide text-sm md:text-base px-2 pb-3">
+                            Demo<br>Công nghệ</h3>
+                    </div>
+                    <!-- Card 4 -->
+                    <div
+                        class="bg-white rounded-3xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.15)] transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+                        <div class="rounded-2xl overflow-hidden mb-5 aspect-[4/3]">
+                            <img src="assets/images/banners/Quymocachoatdongchinh/hoithao.png"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3
+                            class="text-center font-bold text-slate-800 uppercase tracking-wide text-sm md:text-base px-2 pb-3">
+                            Hội nghị</h3>
+                    </div>
+                    <!-- Card 5 -->
+                    <div
+                        class="bg-white rounded-3xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_15px_40px_rgba(59,130,246,0.15)] transition-all duration-300 hover:-translate-y-2 group cursor-pointer">
+                        <div class="rounded-2xl overflow-hidden mb-5 aspect-[4/3]">
+                            <img src="assets/images/banners/Quymocachoatdongchinh/trainghiemcongnghe.png"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <h3
+                            class="text-center font-bold text-slate-800 uppercase tracking-wide text-sm md:text-base px-2 pb-3">
+                            Trải nghiệm<br>Công nghệ</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ĐỐI TƯỢNG THAM GIA SECTION -->
+        <section class="py-24 bg-white relative overflow-hidden">
+            <!-- Abstract background -->
+            <div class="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none z-0">
+                <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-blue-50 blur-[100px]">
+                </div>
+                <div
+                    class="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-purple-50 blur-[120px]">
+                </div>
+            </div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <div class="mb-20 text-center lg:text-left reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary-dark tracking-tight uppercase">Đối tượng tham
+                        gia</h2>
+                    <div class="w-24 h-1 bg-blue-500 rounded mt-4 mx-auto lg:mx-0"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+                    <!-- Left: Image Collage -->
+                    <div class="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 gap-4 reveal">
+                        <!-- Large Image -->
+                        <div class="col-span-1 md:col-span-2 rounded-3xl overflow-hidden shadow-2xl h-[250px] relative group">
+                            <img src="assets/images/banners/Doituongthamgia/doituongthamgia1.png"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <!-- Two smaller images -->
+                        <div class="col-span-1 rounded-3xl overflow-hidden shadow-lg h-[250px] md:h-[180px] relative group">
+                            <img src="assets/images/banners/Doituongthamgia/doituongthamgia2.png"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="col-span-1 rounded-3xl overflow-hidden shadow-lg h-[250px] md:h-[180px] relative group">
+                            <img src="assets/images/banners/Doituongthamgia/doituongthamgia3.png"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+
+                    <!-- Right: Infographic -->
+                    <div class="lg:col-span-8 reveal">
+                        <div
+                            class="relative w-full flex flex-col sm:flex-row justify-between items-center sm:items-stretch sm:py-20 gap-8 sm:gap-2">
+
+                            <!-- Horizontal Line (Desktop only) -->
+                            <div
+                                class="hidden sm:block absolute top-1/2 left-[5%] right-[5%] h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 -translate-y-1/2 opacity-20 rounded-full">
+                            </div>
+
+                            <!-- Vertical Line (Mobile only) -->
+                            <div
+                                class="block sm:hidden absolute left-1/2 top-[5%] bottom-[5%] w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-teal-500 -translate-x-1/2 opacity-20 rounded-full">
+                            </div>
+
+                            <!-- Item 1: 30% -->
+                            <div
+                                class="relative w-full sm:w-1/5 flex flex-row sm:flex-col items-center sm:transform sm:translate-y-16 group z-10">
+                                <div
+                                    class="w-1/2 sm:w-full text-right sm:text-center pr-6 sm:pr-0 sm:mt-6 sm:order-last">
+                                    <h4 class="font-extrabold text-3xl text-blue-600 mb-1">30%</h4>
+                                    <p class="text-sm font-semibold text-slate-700">C-Levels<br><span
+                                            class="text-slate-500 font-medium">Doanh nghiệp</span></p>
+                                </div>
+                                <div
+                                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 shadow-[0_10px_30px_rgba(59,130,246,0.4)] flex items-center justify-center text-white border-4 border-white group-hover:scale-110 transition-transform duration-500 flex-shrink-0 z-10 relative">
+                                    <div
+                                        class="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs font-bold border-2 border-white">
+                                        01</div>
+                                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="w-1/2 sm:hidden pl-6"></div> <!-- spacer for mobile -->
+                            </div>
+
+                            <!-- Item 2: 40% -->
+                            <div
+                                class="relative w-full sm:w-1/5 flex flex-row-reverse sm:flex-col items-center sm:transform sm:-translate-y-16 group z-10">
+                                <div class="w-1/2 sm:w-full text-left sm:text-center pl-6 sm:pl-0 sm:mb-6">
+                                    <h4 class="font-extrabold text-3xl text-orange-500 mb-1">40%</h4>
+                                    <p class="text-sm font-semibold text-slate-700">M-Levels<br><span
+                                            class="text-slate-500 font-medium">Doanh nghiệp</span></p>
+                                </div>
+                                <div
+                                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 shadow-[0_10px_30px_rgba(249,115,22,0.4)] flex items-center justify-center text-white border-4 border-white group-hover:scale-110 transition-transform duration-500 flex-shrink-0 z-10 relative">
+                                    <div
+                                        class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs font-bold border-2 border-white">
+                                        02</div>
+                                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="w-1/2 sm:hidden pr-6"></div> <!-- spacer for mobile -->
+                            </div>
+
+                            <!-- Item 3: 20% -->
+                            <div
+                                class="relative w-full sm:w-1/5 flex flex-row sm:flex-col items-center sm:transform sm:translate-y-16 group z-10">
+                                <div
+                                    class="w-1/2 sm:w-full text-right sm:text-center pr-6 sm:pr-0 sm:mt-6 sm:order-last">
+                                    <h4 class="font-extrabold text-3xl text-purple-600 mb-1">20%</h4>
+                                    <p class="text-sm font-semibold text-slate-700">Người dân,<br><span
+                                            class="text-slate-500 font-medium">sinh viên</span></p>
+                                </div>
+                                <div
+                                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 shadow-[0_10px_30px_rgba(168,85,247,0.4)] flex items-center justify-center text-white border-4 border-white group-hover:scale-110 transition-transform duration-500 flex-shrink-0 z-10 relative">
+                                    <div
+                                        class="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs font-bold border-2 border-white">
+                                        03</div>
+                                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="w-1/2 sm:hidden pl-6"></div> <!-- spacer for mobile -->
+                            </div>
+
+                            <!-- Item 4: 5% -->
+                            <div
+                                class="relative w-full sm:w-1/5 flex flex-row-reverse sm:flex-col items-center sm:transform sm:-translate-y-16 group z-10">
+                                <div class="w-1/2 sm:w-full text-left sm:text-center pl-6 sm:pl-0 sm:mb-6">
+                                    <h4 class="font-extrabold text-3xl text-red-500 mb-1">5%</h4>
+                                    <p class="text-sm font-semibold text-slate-700">Cơ quan, Tổ chức,<br><span
+                                            class="text-slate-500 font-medium">Hiệp hội</span></p>
+                                </div>
+                                <div
+                                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-red-500 to-rose-600 shadow-[0_10px_30px_rgba(239,68,68,0.4)] flex items-center justify-center text-white border-4 border-white group-hover:scale-110 transition-transform duration-500 flex-shrink-0 z-10 relative">
+                                    <div
+                                        class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs font-bold border-2 border-white">
+                                        04</div>
+                                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="w-1/2 sm:hidden pr-6"></div> <!-- spacer for mobile -->
+                            </div>
+
+                            <!-- Item 5: 5% -->
+                            <div
+                                class="relative w-full sm:w-1/5 flex flex-row sm:flex-col items-center sm:transform sm:translate-y-16 group z-10">
+                                <div
+                                    class="w-1/2 sm:w-full text-right sm:text-center pr-6 sm:pr-0 sm:mt-6 sm:order-last">
+                                    <h4 class="font-extrabold text-3xl text-teal-500 mb-1">5%</h4>
+                                    <p class="text-sm font-semibold text-slate-700">Báo chí,<br><span
+                                            class="text-slate-500 font-medium">Khác</span></p>
+                                </div>
+                                <div
+                                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-teal-400 to-emerald-500 shadow-[0_10px_30px_rgba(20,184,166,0.4)] flex items-center justify-center text-white border-4 border-white group-hover:scale-110 transition-transform duration-500 flex-shrink-0 z-10 relative">
+                                    <div
+                                        class="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs font-bold border-2 border-white">
+                                        05</div>
+                                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="w-1/2 sm:hidden pl-6"></div> <!-- spacer for mobile -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SƠ ĐỒ TRIỂN LÃM SECTION -->
+        <section class="py-24 bg-background-alt border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <div
+                        class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
+                        Bản đồ sự kiện</div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary-dark uppercase tracking-tight">SƠ ĐỒ TRIỂN
+                        LÃM</h2>
+                    <div class="w-24 h-1 bg-blue-500 rounded mt-4 mx-auto"></div>
+                </div>
+                <div class="max-w-4xl mx-auto bg-white border border-slate-200 p-4 md:p-6 rounded-3xl shadow-lg reveal">
+                    <div id="map-trigger"
+                        class="relative rounded-2xl overflow-hidden aspect-[16/9] bg-slate-50 flex items-center justify-center border border-slate-200 group cursor-zoom-in">
+                        <img src="assets/images/banners/Sodotrienlam/sodotrienlam.png"
+                            alt="Sơ đồ triển lãm Tech4life 2026"
+                            class="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-500">
+                        <!-- Glassmorphism Zoom Badge Overlay -->
+                        <div
+                            class="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300 flex items-center justify-center z-10 pointer-events-none">
+                            <span
+                                class="opacity-0 group-hover:opacity-100 bg-white/90 backdrop-blur-md text-primary-dark font-bold text-xs px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                                </svg>
+                                Bấm để phóng to sơ đồ
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Zoom Modal (Lightbox) -->
+        <div id="map-modal"
+            class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/95 backdrop-blur-md transition-opacity duration-300 opacity-0">
+            <!-- Close Button -->
+            <button id="close-map-modal"
+                class="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 z-[110]"
+                aria-label="Đóng">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <!-- Zoom Info Badge -->
+            <div
+                class="absolute top-6 left-6 text-white/60 text-xs bg-white/10 px-4 py-2 rounded-full pointer-events-none z-50 backdrop-blur-sm hidden md:block">
+                Cuộn chuột để phóng to/thu nhỏ | Kéo thả để di chuyển
+            </div>
+
+            <!-- Image Container (Scrollable/Zoomable) -->
+            <div id="modal-container"
+                class="w-full h-full flex items-center justify-center p-4 overflow-hidden cursor-grab active:cursor-grabbing">
+                <img id="modal-map-img" src="assets/images/banners/Sodotrienlam/sodotrienlam.png"
+                    alt="Sơ đồ triển lãm thu phóng"
+                    class="max-w-[95%] max-h-[90%] object-contain transition-transform duration-300 cursor-zoom-in origin-center select-none"
+                    style="transform: scale(1);">
             </div>
         </div>
+
+
+        <!-- SECTION 8: DANH MỤC TRIỂN LÃM -->
+        <section class="py-20 md:py-28 bg-white border-t border-b border-gray-100 overflow-hidden">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+
+                    <!-- Cột Trái (50%): Thông tin & Hình ảnh Minh họa -->
+                    <div class="flex flex-col justify-between h-full">
+                        <div>
+                            <!-- Title standard format -->
+                            <div class="text-left mb-6">
+                                <div
+                                    class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
+                                    Trưng bày</div>
+                                <h2 class="text-3xl md:text-5xl font-bold text-primary-dark tracking-tight uppercase">
+                                    DANH MỤC TRIỂN LÃM</h2>
+                                <div class="w-24 h-1 bg-blue-500 rounded mt-4"></div>
+                            </div>
+
+                            <!-- Description -->
+                            <p class="text-sm text-text-main leading-relaxed mt-6">
+                                Tech4life 2026 tự hào là điểm hẹn quy tụ các giải pháp công nghệ tiên tiến nhất từ các
+                                tập đoàn và doanh nghiệp công nghệ hàng đầu. Các danh mục sản phẩm trưng bày được thiết
+                                kế toàn diện, bao phủ mọi khía cạnh của cuộc sống hiện đại và chuyển đổi số thực tiễn.
+                            </p>
+                        </div>
+
+                        <!-- Illustration Image -->
+                        <div class="mt-8 overflow-hidden rounded-2xl border border-gray-100 shadow-md group">
+                            <img src="assets/images/banners/Danhmucsanphamtrungbay/minhhoa.png"
+                                alt="Không gian trưng bày Tech4life"
+                                class="w-full aspect-video object-cover group-hover:scale-[1.02] transition-transform duration-500">
+                        </div>
+                    </div>
+
+                    <!-- Cột Phải (50%): Lưới Danh mục (15 Thẻ Vuông Grouped with Infinite Loop Marquee) -->
+                    <div class="space-y-6 overflow-hidden w-full flex flex-col justify-center">
+                        <!-- Style marquee -->
+                        <style>
+                            @keyframes marquee-scroll {
+                                0% {
+                                    transform: translateX(0);
+                                }
+
+                                100% {
+                                    transform: translateX(-50%);
+                                }
+                            }
+
+                            .animate-marquee-slow {
+                                animation: marquee-scroll 24s linear infinite;
+                            }
+
+                            .animate-marquee-medium {
+                                animation: marquee-scroll 18s linear infinite;
+                            }
+
+                            .animate-marquee-fast {
+                                animation: marquee-scroll 14s linear infinite;
+                            }
+
+                            .mask-gradient {
+                                mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+                                -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+                            }
+                        </style>
+
+                        <!-- Nhóm 1: TECH4LIFE (Tím) -->
+                        <div class="w-full">
+                            <h3
+                                class="text-xs font-black text-purple-600 tracking-widest uppercase mb-3 flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-purple-600 animate-pulse"></span> TECH4LIFE
+                            </h3>
+                            <div class="overflow-hidden w-full relative py-1 mask-gradient">
+                                <div class="flex gap-4 w-max animate-marquee-slow hover:[animation-play-state:paused]">
+                                    <!-- Thẻ 1 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-purple-50/30 border border-purple-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-purple-300 hover:bg-purple-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-purple-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Thiết
+                                            bị Thông Minh</span>
+                                    </div>
+                                    <!-- Thẻ 2 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-purple-50/30 border border-purple-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-purple-300 hover:bg-purple-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-purple-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Công
+                                            nghệ Sức khỏe</span>
+                                    </div>
+                                    <!-- Thẻ 3 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-purple-50/30 border border-purple-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-purple-300 hover:bg-purple-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-purple-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Công
+                                            nghệ Giáo dục</span>
+                                    </div>
+                                    <!-- Thẻ 4 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-purple-50/30 border border-purple-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-purple-300 hover:bg-purple-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-purple-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Nhà
+                                            ở Thông Minh</span>
+                                    </div>
+
+                                    <!-- Duplicate for loop -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-purple-50/30 border border-purple-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-purple-300 hover:bg-purple-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-purple-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Thiết
+                                            bị Thông Minh</span>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-purple-50/30 border border-purple-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-purple-300 hover:bg-purple-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-purple-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Công
+                                            nghệ Sức khỏe</span>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-purple-50/30 border border-purple-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-purple-300 hover:bg-purple-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-purple-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Công
+                                            nghệ Giáo dục</span>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-purple-50/30 border border-purple-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-purple-300 hover:bg-purple-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-purple-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Nhà
+                                            ở Thông Minh</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nhóm 2: TECH4WORK (Xanh dương) -->
+                        <div class="w-full">
+                            <h3
+                                class="text-xs font-black text-blue-600 tracking-widest uppercase mb-3 flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span> TECH4WORK
+                            </h3>
+                            <div class="overflow-hidden w-full relative py-1 mask-gradient">
+                                <div
+                                    class="flex gap-4 w-max animate-marquee-medium hover:[animation-play-state:paused]">
+                                    <!-- Thẻ 5 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-blue-50/30 border border-blue-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-blue-300 hover:bg-blue-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-blue-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[9px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Giải
+                                            pháp Doanh nghiệp</span>
+                                    </div>
+                                    <!-- Thẻ 6 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-blue-50/30 border border-blue-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-blue-300 hover:bg-blue-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-blue-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="9" y1="9" x2="15" y2="9"></line>
+                                                <line x1="9" y1="13" x2="15" y2="13"></line>
+                                                <line x1="9" y1="17" x2="15" y2="17"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Trí
+                                            tuệ Nhân tạo</span>
+                                    </div>
+                                    <!-- Thẻ 7 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-blue-50/30 border border-blue-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-blue-300 hover:bg-blue-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-blue-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[9px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Dịch
+                                            vụ Công cộng</span>
+                                    </div>
+
+                                    <!-- Duplicate for loop -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-blue-50/30 border border-blue-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-blue-300 hover:bg-blue-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-blue-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[9px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Giải
+                                            pháp Doanh nghiệp</span>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-blue-50/30 border border-blue-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-blue-300 hover:bg-blue-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-blue-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="9" y1="9" x2="15" y2="9"></line>
+                                                <line x1="9" y1="13" x2="15" y2="13"></line>
+                                                <line x1="9" y1="17" x2="15" y2="17"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Trí
+                                            tuệ Nhân tạo</span>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-blue-50/30 border border-blue-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-blue-300 hover:bg-blue-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-blue-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[9px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Dịch
+                                            vụ Công cộng</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nhóm 3: SMARTMOBILITY (Xanh lá) -->
+                        <div class="w-full">
+                            <h3
+                                class="text-xs font-black text-emerald-600 tracking-widest uppercase mb-3 flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                                SMARTMOBILITY
+                            </h3>
+                            <div class="overflow-hidden w-full relative py-1 mask-gradient">
+                                <div class="flex gap-4 w-max animate-marquee-fast hover:[animation-play-state:paused]">
+                                    <!-- Thẻ 8 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-emerald-50/30 border border-emerald-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-emerald-300 hover:bg-emerald-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-emerald-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-1.1 0-2 .9-2 2v4c0 .6.4 1 1 1h2m10 0a3 3 0 1 1-6 0m6 0a3 3 0 1 0-6 0">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Xe
+                                            điện</span>
+                                    </div>
+                                    <!-- Thẻ 9 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-emerald-50/30 border border-emerald-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-emerald-300 hover:bg-emerald-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-emerald-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M5 12.55a11 11 0 0 1 14.08 0M1.38 8.82a16 16 0 0 1 21.24 0M8.5 16.55a6 6 0 0 1 7 0M12 20h.01">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">5G/6G</span>
+                                    </div>
+                                    <!-- Thẻ 10 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-emerald-50/30 border border-emerald-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-emerald-300 hover:bg-emerald-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-emerald-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                                                <line x1="9" y1="3" x2="9" y2="18"></line>
+                                                <line x1="15" y1="6" x2="15" y2="21"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Di
+                                            chuyển</span>
+                                    </div>
+                                    <!-- Thẻ 11 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-emerald-50/30 border border-emerald-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-emerald-300 hover:bg-emerald-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-emerald-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="12" y1="3" x2="12" y2="21"></line>
+                                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Hạ
+                                            tầng</span>
+                                    </div>
+
+                                    <!-- Duplicate for loop -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-emerald-50/30 border border-emerald-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-emerald-300 hover:bg-emerald-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-emerald-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-1.1 0-2 .9-2 2v4c0 .6.4 1 1 1h2m10 0a3 3 0 1 1-6 0m6 0a3 3 0 1 0-6 0">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Xe
+                                            điện</span>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-emerald-50/30 border border-emerald-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-emerald-300 hover:bg-emerald-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-emerald-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M5 12.55a11 11 0 0 1 14.08 0M1.38 8.82a16 16 0 0 1 21.24 0M8.5 16.55a6 6 0 0 1 7 0M12 20h.01">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">5G/6G</span>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-emerald-50/30 border border-emerald-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-emerald-300 hover:bg-emerald-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-emerald-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                                                <line x1="9" y1="3" x2="9" y2="18"></line>
+                                                <line x1="15" y1="6" x2="15" y2="21"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Di
+                                            chuyển</span>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-emerald-50/30 border border-emerald-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-emerald-300 hover:bg-emerald-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-emerald-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                <line x1="12" y1="3" x2="12" y2="21"></line>
+                                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Hạ
+                                            tầng</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nhóm 4: TECH4ENTERTAINMENT (Đỏ) -->
+                        <div class="w-full">
+                            <h3
+                                class="text-xs font-black text-red-500 tracking-widest uppercase mb-3 flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                                TECH4ENTERTAINMENT
+                            </h3>
+                            <div class="overflow-hidden w-full relative py-1 mask-gradient">
+                                <div
+                                    class="flex gap-4 w-max animate-marquee-medium hover:[animation-play-state:paused]">
+                                    <!-- Thẻ 12 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-red-50/30 border border-red-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-red-300 hover:bg-red-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-red-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                                </path>
+                                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">UAV</span>
+                                    </div>
+                                    <!-- Thẻ 13 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-red-50/30 border border-red-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-red-300 hover:bg-red-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-red-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                                                <circle cx="12" cy="5" r="2"></circle>
+                                                <path d="M12 7v4M8 15h.01M16 15h.01"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Robots</span>
+                                    </div>
+                                    <!-- Thẻ 14 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-red-50/30 border border-red-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-red-300 hover:bg-red-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-red-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect>
+                                                <line x1="6" y1="12" x2="10" y2="12"></line>
+                                                <line x1="8" y1="10" x2="8" y2="14"></line>
+                                                <circle cx="15" cy="12" r="1"></circle>
+                                                <circle cx="18" cy="12" r="1"></circle>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Games</span>
+                                    </div>
+                                    <!-- Thẻ 15 -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-red-50/30 border border-red-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-red-300 hover:bg-red-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-red-100 rounded-xl mb-2">
+                                            <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="18" cy="5" r="3"></circle>
+                                                <circle cx="6" cy="12" r="3"></circle>
+                                                <circle cx="18" cy="19" r="3"></circle>
+                                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Socials</span>
+                                    </div>
+
+                                    <!-- Duplicate for loop -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-red-50/30 border border-red-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-red-300 hover:bg-red-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-red-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                                </path>
+                                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">UAV</span>
+                                    </div>
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-red-50/30 border border-red-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-red-300 hover:bg-red-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-red-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                                                <circle cx="12" cy="5" r="2"></circle>
+                                                <path d="M12 7v4M8 15h.01M16 15h.01"></path>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Robots</span>
+                                    </div>
+                                    <!-- Thẻ 14 (Duplicate) -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-red-50/30 border border-red-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-red-300 hover:bg-red-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-red-100 rounded-xl mb-2">
+                                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect>
+                                                <line x1="6" y1="12" x2="10" y2="12"></line>
+                                                <line x1="8" y1="10" x2="8" y2="14"></line>
+                                                <circle cx="15" cy="12" r="1"></circle>
+                                                <circle cx="18" cy="12" r="1"></circle>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Games</span>
+                                    </div>
+                                    <!-- Thẻ 15 (Duplicate) -->
+                                    <div
+                                        class="flex flex-col items-center justify-center text-center p-3 w-[125px] h-[125px] bg-red-50/30 border border-red-100/50 rounded-2xl shadow-[0_2px_8px_-3px_rgba(0,0,0,0.02)] hover:border-red-300 hover:bg-red-50/60 hover:-translate-y-1 transition-all duration-300 flex-shrink-0 select-none">
+                                        <div class="p-1.5 bg-red-100 rounded-xl mb-2">
+                                            <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor"
+                                                stroke-width="2.2" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="18" cy="5" r="3"></circle>
+                                                <circle cx="6" cy="12" r="3"></circle>
+                                                <circle cx="18" cy="19" r="3"></circle>
+                                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="text-[10px] font-bold text-primary-dark tracking-wide uppercase leading-tight">Socials</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: CÁC HOẠT ĐỘNG CHÍNH -->
+        <section class="py-20 md:py-28 bg-background-alt border-t border-gray-100 overflow-hidden">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <!-- Section Title -->
+                <div class="text-left mb-8 no-reveal">
+                    <div
+                        class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
+                        Lịch trình</div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary-dark uppercase tracking-tight">CÁC HOẠT ĐỘNG
+                        CHÍNH</h2>
+                    <div class="w-24 h-1 bg-blue-500 mt-4 rounded"></div>
+                </div>
+
+                <!-- Desktop Grid Headers -->
+                <div class="hidden lg:grid lg:grid-cols-12 gap-6 mb-4 text-center">
+                    <div class="col-span-2 text-xs font-black tracking-widest text-gray-400 uppercase">Ngày diễn ra
+                    </div>
+                    <div class="col-span-3 text-xs font-black tracking-widest text-blue-600 uppercase">Khu vực Triển lãm
+                    </div>
+                    <div class="col-span-5 text-xs font-black tracking-widest text-emerald-600 uppercase">Khu vực Hội
+                        thảo & Hội nghị</div>
+                    <div class="col-span-2 text-xs font-black tracking-widest text-indigo-600 uppercase">Khu vực Sự kiện
+                        đồng hành</div>
+                </div>
+
+                <!-- Modern Schedule Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+
+                    <!-- CỘT 1: NGÀY DIỄN RA (col-span-2) -->
+                    <div class="lg:col-span-2 flex flex-col gap-6">
+                        <!-- Ngày 1 -->
+                        <div
+                            class="flex-1 flex flex-col justify-center items-center p-6 bg-gradient-to-br from-purple-50 to-indigo-50/30 border border-purple-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-purple-500">
+                            <span class="text-[10px] font-black text-purple-600 tracking-widest uppercase mb-1">NGÀY
+                                1</span>
+                            <h3 class="text-3xl font-extrabold text-primary-dark tracking-tight">17/09</h3>
+                            <span class="text-xs font-bold text-gray-400 mt-1 uppercase tracking-wide">Thứ Năm,
+                                2026</span>
+                        </div>
+                        <!-- Ngày 2 -->
+                        <div
+                            class="flex-1 flex flex-col justify-center items-center p-6 bg-gradient-to-br from-purple-50 to-indigo-50/30 border border-purple-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-purple-500">
+                            <span class="text-[10px] font-black text-purple-600 tracking-widest uppercase mb-1">NGÀY
+                                2</span>
+                            <h3 class="text-3xl font-extrabold text-primary-dark tracking-tight">18/09</h3>
+                            <span class="text-xs font-bold text-gray-400 mt-1 uppercase tracking-wide">Thứ Sáu,
+                                2026</span>
+                        </div>
+                    </div>
+
+                    <!-- CỘT 2: KHU VỰC TRIỂN LÃM (col-span-3) -->
+                    <div class="lg:col-span-3 flex flex-col h-full">
+                        <div
+                            class="h-full flex flex-col justify-between p-6 bg-white border border-blue-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-blue-500">
+                            <div>
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="p-2 bg-blue-50 rounded-xl">
+                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="text-[10px] font-black text-blue-600 tracking-widest uppercase">TRIỂN
+                                        LÃM</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-primary-dark mb-3 leading-snug uppercase">Triển lãm
+                                    Công nghệ</h3>
+                                <p class="text-xs text-text-muted leading-relaxed">
+                                    Quy tụ 150+ gian hàng trưng bày các thiết bị công nghệ gia đình thông minh, giải
+                                    pháp văn phòng và thành phố thông minh.
+                                </p>
+                                <ul class="mt-4 space-y-2 text-xs text-text-main">
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                        Thiết bị Smart Home & Smart Life
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                        Giải pháp số cho Doanh nghiệp
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                                        Smart Mobility & UAV/Robots
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-gray-50 flex items-center justify-between">
+                                <span class="text-[10px] font-semibold text-gray-400">Thời gian: 08:00 - 17:30</span>
+                                <a href="trien-lam.html"
+                                    class="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1">Chi
+                                    tiết &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CỘT 3: KHU VỰC HỘI THẢO & HỘI NGHỊ (col-span-5) -->
+                    <div class="lg:col-span-5 flex flex-col gap-6">
+                        <!-- 3. Lễ khai mạc & Hội nghị -->
+                        <div
+                            class="p-6 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="p-1.5 bg-emerald-50 rounded-lg">
+                                        <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-16.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-16.25v16.25">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="text-[10px] font-black text-emerald-600 tracking-widest uppercase">HỘI
+                                        NGHỊ TOÀN THỂ</span>
+                                </div>
+                                <span
+                                    class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full self-start md:self-auto">08:00
+                                    - 11:30 | 17/09</span>
+                            </div>
+                            <h3 class="text-base font-bold text-primary-dark mb-2 uppercase leading-snug">LỄ KHAI MẠC &
+                                HỘI NGHỊ TECH4LIFE</h3>
+                            <p class="text-xs text-text-muted leading-relaxed">
+                                Lễ Khai mạc chính thức sự kiện Tech4life 2026 và phiên toàn thể với các báo cáo xu hướng
+                                công nghệ nổi bật nhất của năm.
+                            </p>
+                        </div>
+
+                        <!-- 4. Hội thảo ACXOA & Smart Mobility -->
+                        <div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
+                                <!-- Card 4a -->
+                                <div
+                                    class="p-5 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex items-center justify-between gap-2 mb-2">
+                                            <span
+                                                class="text-[9px] font-black text-emerald-600 tracking-wider uppercase">HỘI
+                                                THẢO</span>
+                                            <span class="text-[9px] font-semibold text-gray-400">13:30 - 17:00</span>
+                                        </div>
+                                        <h4 class="text-xs font-bold text-primary-dark uppercase mb-2 leading-tight">
+                                            VIETNAM - ASEAN DIGITAL BUSINESS (ACXOA)</h4>
+                                        <p class="text-[11px] text-text-muted leading-relaxed">
+                                            Giao thương và kết nối chuỗi cung ứng khu vực ASEAN.
+                                        </p>
+                                    </div>
+                                    <div class="mt-4 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                        <span
+                                            class="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Phòng
+                                            Orchid</span>
+                                        <a href="chuong-trinh.html"
+                                            class="text-[11px] font-bold text-emerald-600 hover:text-emerald-800">Chi
+                                            tiết</a>
+                                    </div>
+                                </div>
+                                <!-- Card 4b -->
+                                <div
+                                    class="p-5 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex items-center justify-between gap-2 mb-2">
+                                            <span
+                                                class="text-[9px] font-black text-emerald-600 tracking-wider uppercase">HỘI
+                                                THẢO</span>
+                                            <span class="text-[9px] font-semibold text-gray-400">13:30 - 17:00</span>
+                                        </div>
+                                        <h4 class="text-xs font-bold text-primary-dark uppercase mb-2 leading-tight">
+                                            SMART MOBILITY</h4>
+                                        <p class="text-[11px] text-text-muted leading-relaxed">
+                                            Hạ tầng số và các giải pháp di chuyển thông minh.
+                                        </p>
+                                    </div>
+                                    <div class="mt-4 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                        <span
+                                            class="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Phòng
+                                            Tulip</span>
+                                        <a href="chuong-trinh.html"
+                                            class="text-[11px] font-bold text-emerald-600 hover:text-emerald-800">Chi
+                                            tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7. Hội thảo ACXOA & Smart Life -->
+                        <div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
+                                <!-- Card 7a -->
+                                <div
+                                    class="p-5 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex items-center justify-between gap-2 mb-2">
+                                            <span
+                                                class="text-[9px] font-black text-emerald-600 tracking-wider uppercase">HỘI
+                                                THẢO</span>
+                                            <span class="text-[9px] font-semibold text-gray-400">08:30 - 11:30</span>
+                                        </div>
+                                        <h4 class="text-xs font-bold text-primary-dark uppercase mb-2 leading-tight">
+                                            VIETNAM - ASEAN DIGITAL BUSINESS (ACXOA)</h4>
+                                        <p class="text-[11px] text-text-muted leading-relaxed">
+                                            Phát triển kinh tế số và ứng dụng AI thực tiễn.
+                                        </p>
+                                    </div>
+                                    <div class="mt-4 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                        <span
+                                            class="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Phòng
+                                            Orchid</span>
+                                        <a href="chuong-trinh.html"
+                                            class="text-[11px] font-bold text-emerald-600 hover:text-emerald-800">Chi
+                                            tiết</a>
+                                    </div>
+                                </div>
+                                <!-- Card 7b -->
+                                <div
+                                    class="p-5 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500 flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex items-center justify-between gap-2 mb-2">
+                                            <span
+                                                class="text-[9px] font-black text-emerald-600 tracking-wider uppercase">HỘI
+                                                THẢO</span>
+                                            <span class="text-[9px] font-semibold text-gray-400">08:30 - 11:30</span>
+                                        </div>
+                                        <h4 class="text-xs font-bold text-primary-dark uppercase mb-2 leading-tight">
+                                            SMART LIFE</h4>
+                                        <p class="text-[11px] text-text-muted leading-relaxed">
+                                            Thiết bị gia đình thông minh và công nghệ sức khỏe.
+                                        </p>
+                                    </div>
+                                    <div class="mt-4 pt-2 border-t border-gray-50 flex items-center justify-between">
+                                        <span
+                                            class="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded">Phòng
+                                            Tulip</span>
+                                        <a href="chuong-trinh.html"
+                                            class="text-[11px] font-bold text-emerald-600 hover:text-emerald-800">Chi
+                                            tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8. Lễ vinh danh Vietfuture -->
+                        <div
+                            class="p-6 bg-white border border-emerald-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-emerald-500">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="p-1.5 bg-emerald-50 rounded-lg">
+                                        <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9-3.75V3.75c0-1.036-.84-1.875-1.875-1.875h-5.25A1.875 1.875 0 005.25 3.75v11.25m10.5 0a2.25 2.25 0 002.25-2.25V5.25m-15 0V12.75a2.25 2.25 0 002.25 2.25M12 11.25l-2.25-2.25M12 11.25l2.25-2.25">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="text-[10px] font-black text-emerald-600 tracking-widest uppercase">LỄ
+                                        VINH DANH GIẢI THƯỞNG</span>
+                                </div>
+                                <span
+                                    class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full self-start md:self-auto">13:30
+                                    - 16:30 | 18/09</span>
+                            </div>
+                            <h3 class="text-base font-bold text-primary-dark mb-2 uppercase leading-snug">LỄ CÔNG BỐ VÀ
+                                VINH DANH VIETFUTURE 2026</h3>
+                            <p class="text-xs text-text-muted leading-relaxed">
+                                Lễ ký kết hợp tác đồng hành và trao giải thưởng danh giá VietFuture dành cho các
+                                startups công nghệ trẻ triển vọng.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CỘT 4: KHU VỰC SỰ KIỆN ĐỒNG HÀNH (col-span-2) -->
+                    <div class="lg:col-span-2 flex flex-col gap-6">
+                        <!-- 5. Business Matching -->
+                        <div
+                            class="flex-1 flex flex-col justify-between p-6 bg-white border border-indigo-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-indigo-600">
+                            <div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="p-1.5 bg-indigo-50 rounded-lg">
+                                        <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.656-5.64 9.093 9.093 0 00-7.859 0 3 3 0 00-4.656 5.64 9.094 9.094 0 003.741.479m13.74 0V21m-13.74 0V18.72m13.74 0a3 3 0 11-6 0m-7.74 0a3 3 0 11-6 0m15.48 0H6.75">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="text-[9px] font-black text-indigo-600 tracking-widest uppercase">KẾT
+                                        NỐI B2B</span>
+                                </div>
+                                <h3 class="text-sm font-bold text-primary-dark mb-2 uppercase leading-snug">BUSINESS
+                                    MATCHING</h3>
+                                <p class="text-xs text-text-muted leading-relaxed">
+                                    Cơ hội kết nối giao thương trực tiếp 1-1 giữa các đối tác và doanh nghiệp tham gia.
+                                </p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between">
+                                <span
+                                    class="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">Xuyên
+                                    suốt sự kiện</span>
+                                <a href="chuong-trinh.html"
+                                    class="text-xs font-bold text-indigo-600 hover:text-indigo-800">Chi tiết</a>
+                            </div>
+                        </div>
+
+                        <!-- 9. Tham quan sự kiện -->
+                        <div
+                            class="flex-1 flex flex-col justify-between p-6 bg-white border border-indigo-100/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-l-indigo-600">
+                            <div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="p-1.5 bg-indigo-50 rounded-lg">
+                                        <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9.813 15.904L9 21l8.973-8.973a1.5 1.5 0 00-2.122-2.122L9.813 15.904zM16.5 7.5l.75-2.25L19.5 4.5l-2.25-.75L16.5 1.5l-.75 2.25L13.5 4.5l2.25.75.75 2.25zM6 6.75l.5-1.5L8 4.75l-1.5-.5L6 2.75l-.5 1.5-1.5.5 1.5.5.5 1.5z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <span class="text-[9px] font-black text-indigo-600 tracking-widest uppercase">TRẢI
+                                        NGHIỆM</span>
+                                </div>
+                                <h3 class="text-sm font-bold text-primary-dark mb-2 uppercase leading-snug">THAM QUAN SỰ
+                                    KIỆN</h3>
+                                <p class="text-xs text-text-muted leading-relaxed">
+                                    Trải nghiệm khu trò chơi VR/AR, bốc thăm may mắn và nhận quà lưu niệm từ Ban tổ
+                                    chức.
+                                </p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between">
+                                <span
+                                    class="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">Mở
+                                    cửa tự do</span>
+                                <a href="tham-du.html"
+                                    class="text-xs font-bold text-indigo-600 hover:text-indigo-800">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 10: TRUYỀN THÔNG, QUẢNG BÁ -->
+        <section class="py-20 md:py-28 bg-white overflow-hidden relative border-t border-gray-100">
+            <div
+                class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000">
+            </div>
+
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <div class="text-left mb-12 reveal">
+                    <div
+                        class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
+                        Mức độ lan tỏa</div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary-dark uppercase tracking-tight">TRUYỀN THÔNG,
+                        QUẢNG BÁ</h2>
+                    <div class="w-24 h-1 bg-blue-500 rounded mt-4"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
+
+                    <!-- Left Column: Stats Card -->
+                    <div class="reveal relative h-full">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-50 to-teal-50/30 rounded-3xl transform -rotate-1 scale-105 opacity-50">
+                        </div>
+                        <div
+                            class="bg-white/60 backdrop-blur-xl border border-blue-100 shadow-xl rounded-3xl p-8 md:p-10 relative h-full flex flex-col justify-between hover:shadow-2xl hover:bg-white/80 transition-all duration-500 group">
+
+                            <!-- Top Icons -->
+                            <div
+                                class="flex justify-around items-center mb-10 pb-8 border-b border-gray-200/60 group-hover:border-blue-200 transition-colors duration-300">
+                                <!-- Icon 1: Users/Audience -->
+                                <div
+                                    class="w-16 h-16 rounded-2xl bg-blue-100/50 flex items-center justify-center text-blue-600 group-hover:scale-110 group-hover:bg-blue-100 transition-all duration-500">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                                    </svg>
+                                </div>
+                                <!-- Icon 2: Globe -->
+                                <div
+                                    class="w-16 h-16 rounded-2xl bg-emerald-100/50 flex items-center justify-center text-emerald-600 group-hover:scale-110 group-hover:bg-emerald-100 transition-all duration-500 delay-75">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                                    </svg>
+                                </div>
+                                <!-- Icon 3: Network -->
+                                <div
+                                    class="w-16 h-16 rounded-2xl bg-indigo-100/50 flex items-center justify-center text-indigo-600 group-hover:scale-110 group-hover:bg-indigo-100 transition-all duration-500 delay-150">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- List of Stats -->
+                            <div class="flex-1 flex flex-col justify-center space-y-6">
+                                <div class="flex items-baseline gap-3 group/item">
+                                    <span
+                                        class="text-xl md:text-2xl font-extrabold text-blue-600 group-hover/item:text-blue-700 transition-colors">03+
+                                        triệu</span>
+                                    <span class="text-sm md:text-base font-bold text-primary-dark">Lượt tiếp cận trên
+                                        các nền tảng</span>
+                                </div>
+                                <div class="w-full h-px bg-gray-200"></div>
+
+                                <div class="flex items-baseline gap-3 group/item">
+                                    <span
+                                        class="text-xl md:text-2xl font-extrabold text-blue-600 group-hover/item:text-blue-700 transition-colors">55.000+</span>
+                                    <span class="text-sm md:text-base font-bold text-primary-dark">Lượt truy cập
+                                        Website</span>
+                                </div>
+                                <div class="w-full h-px bg-gray-200"></div>
+
+                                <div class="flex items-baseline gap-3 group/item">
+                                    <span
+                                        class="text-xl md:text-2xl font-extrabold text-blue-600 group-hover/item:text-blue-700 transition-colors">50+</span>
+                                    <span class="text-sm md:text-base font-bold text-primary-dark">Báo chí đưa
+                                        tin</span>
+                                </div>
+                                <div class="w-full h-px bg-gray-200"></div>
+
+                                <div class="flex items-baseline gap-3 group/item">
+                                    <span
+                                        class="text-xl md:text-2xl font-extrabold text-blue-600 group-hover/item:text-blue-700 transition-colors">75.000+</span>
+                                    <span class="text-sm md:text-base font-bold text-primary-dark">Keyword Google
+                                        Search</span>
+                                </div>
+                                <div class="w-full h-px bg-gray-200"></div>
+
+                                <div class="flex items-baseline gap-3 group/item">
+                                    <span
+                                        class="text-xl md:text-2xl font-extrabold text-blue-600 group-hover/item:text-blue-700 transition-colors">100.000+</span>
+                                    <span class="text-sm md:text-base font-bold text-primary-dark">Lượt chia sẻ/ đề
+                                        cập</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Images Grid Collage -->
+                    <!-- Right Column: Images Grid Collage -->
+                    <div class="reveal h-full w-full relative flex flex-col md:block items-center min-h-[auto] md:min-h-[650px] mt-8 lg:mt-0 pb-8 md:pb-0">
+                        <!-- Image 1 (Top Left) -->
+                        <div
+                            class="relative md:absolute md:top-0 md:left-0 w-full md:w-[65%] overflow-hidden rounded-3xl shadow-lg border-4 border-white transform transition-transform duration-700 hover:scale-[1.02] hover:z-50 z-10 bg-slate-100">
+                            <img src="assets/images/banners/trienlam.jpg" alt="Quảng bá ngoài trời"
+                                class="w-full h-auto block">
+                        </div>
+                        
+                        <!-- Image 2 (Right Side) -->
+                        <div
+                            class="relative md:absolute md:top-[15%] md:right-0 w-[90%] md:w-[55%] self-end -mt-8 md:-mt-0 overflow-hidden rounded-3xl shadow-lg border-4 border-white transform transition-transform duration-700 hover:scale-[1.02] hover:z-50 z-20 bg-slate-100">
+                            <img src="assets/images/banners/hoithao.jpg" alt="Biển quảng cáo sự kiện"
+                                class="w-full h-auto block">
+                        </div>
+                        
+                        <!-- Image 3 (Bottom Left) -->
+                        <div
+                            class="relative md:absolute md:top-[45%] md:left-[5%] w-[90%] md:w-[60%] self-start -mt-8 md:-mt-0 overflow-hidden rounded-3xl shadow-lg border-4 border-white transform transition-transform duration-700 hover:scale-[1.02] hover:z-50 z-30 bg-slate-100">
+                            <img src="assets/images/banners/taitro.jpg" alt="Màn hình LED quảng cáo"
+                                class="w-full h-auto block">
+                        </div>
+                        
+                        <!-- Floating Element -->
+                        <div
+                            class="relative md:absolute md:bottom-[5%] md:right-[5%] w-[80%] md:w-[40%] self-center -mt-8 md:-mt-0 z-40 flex items-center justify-center">
+                            <div
+                                class="bg-blue-600 text-white p-4 md:p-6 rounded-2xl shadow-xl w-full text-center animate-bounce-slow">
+                                <svg class="w-8 h-8 mx-auto mb-2 opacity-90" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                                </svg>
+                                <span class="block text-sm md:text-base font-bold uppercase tracking-wider">Độ phủ<br />Rộng
+                                    khắp</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <style>
+                @keyframes blob {
+                    0% {
+                        transform: translate(0px, 0px) scale(1);
+                    }
+
+                    33% {
+                        transform: translate(30px, -50px) scale(1.1);
+                    }
+
+                    66% {
+                        transform: translate(-20px, 20px) scale(0.9);
+                    }
+
+                    100% {
+                        transform: translate(0px, 0px) scale(1);
+                    }
+                }
+
+                .animate-blob {
+                    animation: blob 7s infinite;
+                }
+
+                .animation-delay-2000 {
+                    animation-delay: 2s;
+                }
+
+                @keyframes bounce-slow {
+
+                    0%,
+                    100% {
+                        transform: translateY(-5%);
+                    }
+
+                    50% {
+                        transform: translateY(5%);
+                    }
+                }
+
+                .animate-bounce-slow {
+                    animation: bounce-slow 4s ease-in-out infinite;
+                }
+            </style>
+        </section>
+
+
+        <!-- SECTION 11: NHỮNG CON SỐ VÀ HÌNH ẢNH NỔI BẬT 2025 -->
+        <section class="py-20 md:py-28 bg-slate-50 border-t border-gray-100 overflow-hidden relative">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+                <!-- Title -->
+                <div class="text-center md:text-left mb-12 reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold text-primary-dark uppercase tracking-tight">NHỮNG CON SỐ
+                        VÀ HÌNH ẢNH NỔI BẬT 2025</h2>
+                    <div class="w-24 h-1 bg-blue-500 rounded mt-4 mx-auto md:mx-0"></div>
+                </div>
+
+                <div class="flex flex-col xl:flex-row gap-8 reveal">
+                    <!-- Left: Metrics (2 columns, 3 rows) -->
+                    <div class="w-full xl:w-5/12 grid grid-cols-2 gap-4">
+                        <!-- Card 1 -->
+                        <div
+                            class="bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-2xl p-4 md:p-6 text-white text-center shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center min-h-[160px] border border-indigo-300">
+                            <svg class="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3 opacity-90" fill="none"
+                                stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                            </svg>
+                            <h3 class="text-4xl md:text-5xl font-black mb-1">67</h3>
+                            <p
+                                class="text-[10px] md:text-xs font-bold uppercase tracking-wider opacity-90 leading-tight mt-1">
+                                Đơn vị tham gia<br />trưng bày triển lãm</p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div
+                            class="bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-2xl p-4 md:p-6 text-white text-center shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center min-h-[160px] border border-indigo-300">
+                            <svg class="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3 opacity-90" fill="none"
+                                stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" />
+                            </svg>
+                            <h3 class="text-4xl md:text-5xl font-black mb-1">100</h3>
+                            <p
+                                class="text-[10px] md:text-xs font-bold uppercase tracking-wider opacity-90 leading-tight mt-1">
+                                Gian hàng<br />triển lãm trực tiếp</p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div
+                            class="bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-2xl p-4 md:p-6 text-white text-center shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center min-h-[160px] border border-indigo-300">
+                            <svg class="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3 opacity-90" fill="none"
+                                stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+                            <h3 class="text-4xl md:text-5xl font-black mb-1">7</h3>
+                            <p
+                                class="text-[10px] md:text-xs font-bold uppercase tracking-wider opacity-90 leading-tight mt-1">
+                                Hội thảo</p>
+                        </div>
+                        <!-- Card 4 -->
+                        <div
+                            class="bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-2xl p-4 md:p-6 text-white text-center shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center min-h-[160px] border border-indigo-300">
+                            <svg class="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3 opacity-90" fill="none"
+                                stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                            </svg>
+                            <h3 class="text-4xl md:text-5xl font-black mb-1">150<span
+                                    class="text-2xl md:text-3xl font-bold">+</span></h3>
+                            <p
+                                class="text-[10px] md:text-xs font-bold uppercase tracking-wider opacity-90 leading-tight mt-1">
+                                Business Matching</p>
+                        </div>
+                        <!-- Card 5 -->
+                        <div
+                            class="bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-2xl p-4 md:p-6 text-white text-center shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center min-h-[160px] border border-indigo-300">
+                            <svg class="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3 opacity-90" fill="none"
+                                stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.656-5.64 9.093 9.093 0 00-7.859 0 3 3 0 00-4.656 5.64 9.094 9.094 0 003.741.479m13.74 0V21m-13.74 0V18.72m13.74 0a3 3 0 11-6 0m-7.74 0a3 3 0 11-6 0m15.48 0H6.75" />
+                            </svg>
+                            <h3 class="text-4xl md:text-5xl font-black mb-1">2.500<span
+                                    class="text-2xl md:text-3xl font-bold">+</span></h3>
+                            <p
+                                class="text-[10px] md:text-xs font-bold uppercase tracking-wider opacity-90 leading-tight mt-1">
+                                Lượt tham quan<br />triển lãm</p>
+                        </div>
+                        <!-- Card 6 -->
+                        <div
+                            class="bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-2xl p-4 md:p-6 text-white text-center shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center min-h-[160px] border border-indigo-300">
+                            <svg class="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3 opacity-90" fill="none"
+                                stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                            </svg>
+                            <h3 class="text-4xl md:text-5xl font-black mb-1">1.200<span
+                                    class="text-2xl md:text-3xl font-bold">+</span></h3>
+                            <p
+                                class="text-[10px] md:text-xs font-bold uppercase tracking-wider opacity-90 leading-tight mt-1">
+                                Lượt tham dự<br />hội thảo</p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Auto-scrolling Gallery (Full Images) -->
+                    <div
+                        class="w-full xl:w-7/12 flex flex-col justify-center overflow-hidden h-[500px] md:h-full min-h-[500px] relative">
+                        <!-- Fade masks for smooth edge transition -->
+                        <div
+                            class="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-slate-50 to-transparent z-10">
+                        </div>
+                        <div
+                            class="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-slate-50 to-transparent z-10">
+                        </div>
+
+                        <!-- Top Row Scrolling Left -->
+                        <div class="flex gap-4 mb-4 hover:pause-animation"
+                            style="width: max-content; animation: slideLeft 25s linear infinite;">
+                            <!-- Set 1 -->
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_1.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_2.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_3.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <!-- Set 2 (Duplicate) -->
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_1.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_2.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_3.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                        </div>
+
+                        <!-- Bottom Row Scrolling Right -->
+                        <div class="flex gap-4 hover:pause-animation"
+                            style="width: max-content; animation: slideRight 30s linear infinite;">
+                            <!-- Set 1 -->
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_4.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_5.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_6.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <!-- Set 2 (Duplicate) -->
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_4.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_5.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div
+                                class="h-48 md:h-64 w-72 md:w-96 rounded-2xl shadow-sm shrink-0 border border-slate-200 bg-white p-2 flex items-center justify-center group cursor-pointer">
+                                <img src="assets/images/banners/Hoatdongtrienlam/hoatdongtrienlam_6.png" alt="Triển lãm"
+                                    class="max-w-full max-h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                        </div>
+
+                        <style>
+                            @keyframes slideLeft {
+                                0% {
+                                    transform: translateX(0);
+                                }
+
+                                100% {
+                                    transform: translateX(calc(-50% - 8px));
+                                }
+                            }
+
+                            @keyframes slideRight {
+                                0% {
+                                    transform: translateX(calc(-50% - 8px));
+                                }
+
+                                100% {
+                                    transform: translateX(0);
+                                }
+                            }
+
+                            .hover\:pause-animation:hover {
+                                animation-play-state: paused !important;
+                            }
+                        </style>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 12: GIẢI THƯỞNG VIETFUTURE AWARDS 2026 -->
+        <section class="py-16 md:py-24 bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12">
+                <div class="text-left mb-8 reveal max-w-6xl mx-auto">
+                    <h2 class="text-2xl md:text-4xl font-bold text-teal-700 uppercase tracking-tight">GIẢI THƯỞNG
+                        VIETFUTURE AWARDS 2026</h2>
+                </div>
+
+                <div
+                    class="w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl reveal relative group border-4 border-slate-100">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10 opacity-90 group-hover:opacity-70 transition-opacity duration-500">
+                    </div>
+                    <!-- Large Image -->
+                    <img src="assets/images/banners/Vietfuture.jpg" alt="Vietfuture Awards 2026"
+                        class="w-full h-auto min-h-[400px] max-h-[700px] object-cover group-hover:scale-105 transition-transform duration-700">
+
+                    <div
+                        class="absolute bottom-0 left-0 right-0 p-6 md:p-10 z-20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3
+                            class="text-3xl md:text-5xl font-bold text-white mb-3 drop-shadow-lg shadow-black uppercase">
+                            Lễ Khai Mạc</h3>
+                        <p class="text-sm md:text-lg text-gray-100 max-w-3xl drop-shadow-md">Giải thưởng sáng tạo tương
+                            lai - Vietfuture Awards 2026. Tôn vinh những giải pháp công nghệ số xuất sắc nhất, mang lại
+                            giá trị thiết thực cho cộng đồng.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. THE AUTHORITY: The Gallery -->
+
+        <section class="py-24 bg-background-alt border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 text-center reveal">
+                <h2 class="text-xl md:text-2xl font-bold text-primary-dark tracking-wide uppercase mb-12">Bảo trợ & Tổ
+                    chức</h2>
+
+                <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 max-w-4xl mx-auto">
+                    <!-- VINASA Logo -->
+                    <div class="w-40 md:w-56 logo-filter cursor-pointer">
+                        <img src="assets/images/logos/logo-VINASA-1024x1005.png" alt="VINASA"
+                            class="w-full h-auto object-contain">
+                    </div>
+                    <!-- Tech4Life Logo -->
+                    <div class="w-40 md:w-56 logo-filter cursor-pointer">
+                        <img src="assets/images/logos/tech4life2.png" alt="Tech4Life"
+                            class="w-full h-auto object-contain">
+                    </div>
+                </div>
+
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-left">
+                    <div>
+                        <h4
+                            class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2">
+                            Bảo trợ</h4>
+                        <p class="text-sm font-medium text-text-main">UBND TP.HCM</p>
+                    </div>
+                    <div>
+                        <h4
+                            class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2">
+                            Tổ chức</h4>
+                        <p class="text-sm font-medium text-text-main">VINASA</p>
+                        <p class="text-sm font-medium text-text-main mt-2">Sở KH&CN TP.HCM</p>
+                    </div>
+                    <div class="col-span-2">
+                        <h4
+                            class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 pb-2">
+                            Đơn vị phối hợp</h4>
+                        <p class="text-sm font-medium text-text-main">ITPC, QTSC, HUBA, CIO Vietnam, JETRO, JISA, HKPC,
+                            OCTF, Informa, ATC...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer id="app-footer"></footer>
-    
+
     <script src="assets/js/main.js"></script>
+    <script>
+        // Simple Intersection Observer for reveal animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
 </body>
+
 </html>
