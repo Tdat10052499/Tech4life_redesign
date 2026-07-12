@@ -12,6 +12,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            safelist: [
+                'flex', 'flex-1', 'overflow-y-auto', 'flex-col', 'items-center',
+                'group-hover:bg-blue-100', 'group-hover:text-primary',
+                'overflow-hidden', 'bg-gray-100', 'bg-blue-50', 'text-primary',
+                'w-7', 'h-7', 'w-3.5', 'h-3.5', 'rounded-lg', 'flex-shrink-0',
+                'transition-colors', 'transition-transform', 'duration-200', 'duration-300',
+                'border-l-2', 'border-blue-100', 'px-3', 'py-3', 'gap-3', 'ml-10', 'mt-1', 'mb-2', 'gap-0.5', 'pl-4'
+            ],
             theme: {
                 extend: {
                     colors: {

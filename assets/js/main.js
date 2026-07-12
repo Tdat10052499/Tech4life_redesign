@@ -99,8 +99,8 @@ function initGlobalScrollReveal() {
             // Apply staggered animation per parent group
             parentGroups.forEach((children) => {
                 children.forEach((child, index) => {
-                    const delay = child.getAttribute('data-delay') 
-                        ? parseInt(child.getAttribute('data-delay'), 10) 
+                    const delay = child.getAttribute('data-delay')
+                        ? parseInt(child.getAttribute('data-delay'), 10)
                         : index * 60; // Default 60ms stagger delay for siblings
 
                     setTimeout(() => {
@@ -529,9 +529,9 @@ function initNavbarScrollEffect() {
     const nav = document.getElementById('main-nav');
     if (!nav) return;
 
-    window.handleNavbarScroll = function() {
+    window.handleNavbarScroll = function () {
         const isMobileOpen = nav.classList.contains('mobile-menu-open');
-        
+
         if (window.scrollY > 80 || isMobileOpen) {
             // Glassmorphic styling
             nav.classList.remove('bg-transparent', 'border-transparent', 'shadow-none');
@@ -545,16 +545,88 @@ function initNavbarScrollEffect() {
 
     // Run once on load
     window.handleNavbarScroll();
-    
+
     // Listen to scroll events
     window.addEventListener('scroll', window.handleNavbarScroll, { passive: true });
 }
+
+// Initialize Mobile Sidebar (slide-in from right)
+function initMobileMenu() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('sidebar-close-btn');
+    const sidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (!menuBtn || !sidebar || !overlay) return;
+
+    function openSidebar() {
+        sidebar.classList.remove('translate-x-full');
+        sidebar.classList.add('translate-x-0');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+        document.body.style.overflow = 'hidden';
+        menuBtn.setAttribute('aria-expanded', 'true');
+        // Keep navbar solid when sidebar is open
+        const mainNav = document.getElementById('main-nav');
+        if (mainNav) mainNav.classList.add('mobile-menu-open');
+        if (typeof window.handleNavbarScroll === 'function') {
+            window.handleNavbarScroll();
+        }
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('translate-x-0');
+        sidebar.classList.add('translate-x-full');
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+        menuBtn.setAttribute('aria-expanded', 'false');
+        const mainNav = document.getElementById('main-nav');
+        if (mainNav) mainNav.classList.remove('mobile-menu-open');
+        if (typeof window.handleNavbarScroll === 'function') {
+            window.handleNavbarScroll();
+        }
+    }
+
+    menuBtn.addEventListener('click', openSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    overlay.addEventListener('click', closeSidebar);
+
+    // Close on Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeSidebar();
+    });
+}
+
+// Global toggle for sidebar sub-dropdowns (called via onclick in navbar.html)
+window.toggleSidebarDropdown = function (id, btn) {
+    const dropdown = document.getElementById(id);
+    if (!dropdown) return;
+    const chevron = btn ? btn.querySelector('.chevron-icon') : null;
+    const isHidden = dropdown.classList.contains('hidden');
+    if (isHidden) {
+        dropdown.classList.remove('hidden');
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+    } else {
+        dropdown.classList.add('hidden');
+        if (chevron) chevron.style.transform = 'rotate(0deg)';
+    }
+};
+
+// Legacy support
+window.toggleMobileDropdown = function (id) {
+    const dropdown = document.getElementById(id);
+    if (dropdown) dropdown.classList.toggle('hidden');
+};
 
 // DomContentLoaded main initialization
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Load components (Header / Footer)
     await loadComponent('app-header', 'components/navbar.html');
     await loadComponent('app-footer', 'components/footer.html');
+
+    // Initialize Mobile Menu logic AFTER navbar is loaded
+    initMobileMenu();
 
     // 2. Initialize observer components
     initGlobalScrollReveal();
