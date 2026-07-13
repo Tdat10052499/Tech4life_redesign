@@ -1,6 +1,132 @@
 // Language management state
 let currentLang = localStorage.getItem('app_lang') || 'vi';
 
+// Comprehensive translation dictionary for entire website's core cards, headings, and descriptions
+const translationDictionary = {
+    // Buttons & Links
+    "Đăng ký Tham dự": "Register to Attend",
+    "Đăng ký Gian hàng": "Book a Booth",
+    "Xem trên Google Maps": "View on Google Maps",
+    "Xem sơ đồ chi tiết": "View detailed floor plan",
+    "Đăng ký ngay": "Register Now",
+    "Tìm hiểu thêm": "Learn More",
+    "Chi tiết": "Details",
+
+    // Section Titles & Badges
+    "Về sự kiện": "About Event",
+    "Cơ cấu tổ chức": "Organization Structure",
+    "Thời gian & Địa điểm": "Time & Venue",
+    "Thông số quy mô": "Scale & Stats",
+    "Nhóm đối tượng chính": "Target Audience Groups",
+    "Mặt bằng tổng thể": "Floor Plan Layout",
+    "Lĩnh vực trưng bày": "Exhibition Categories",
+    "Hoạt động sự kiện": "Main Event Activities",
+    "Tin tức & Sự kiện": "News & Events",
+    
+    // Core Headings
+    "GIỚI THIỆU TECH4LIFE": "ABOUT TECH4LIFE",
+    "BẢO TRỢ & TỔ CHỨC": "ORGANIZERS & SPONSORS",
+    "THỜI GIAN & ĐỊA ĐIỂM": "TIME & VENUE",
+    "QUY MÔ & HOẠT ĐỘNG CHÍNH": "SCALE & KEY HIGHLIGHTS",
+    "ĐỐI TƯỢNG THAM GIA": "TARGET AUDIENCE",
+    "SƠ ĐỒ TRIỂN LÃM": "EXHIBITION MAP",
+    "DANH MỤC TRIỂN LÃM": "EXHIBITION CATEGORIES",
+    "CÁC HOẠT ĐỘNG CHÍNH": "MAIN ACTIVITIES",
+    "TRUYỀN THÔNG, QUẢNG BÁ": "MEDIA & PROMOTION",
+    "NHỮNG CON SỐ VÀ HÌNH ẢNH NỔI BẬT 2025": "KEY FIGURES & IMAGES 2025",
+    "ĐƠN VỊ BẢO TRỢ, TỔ CHỨC & TRUYỀN THÔNG 2026": "ORGANIZERS & PARTNERS 2026",
+
+    // Hero Section
+    "Hiệp hội Phần mềm và Dịch vụ CNTT Việt Nam (VINASA)": "Vietnam Software and IT Services Association (VINASA)",
+    "Công nghệ cho cuộc sống thông minh": "Smart Tech for Smart Life",
+    "Thời gian": "Date",
+    "Ngày 17 - 18/09/2026": "17 - 18 Sept 2026",
+    "Địa điểm": "Venue",
+    "Q.1, TP. Hồ Chí Minh": "Dist. 1, Ho Chi Minh City",
+    "Sự kiện sẽ diễn ra sau": "Event starts in",
+    "Ngày": "Days",
+    "Giờ": "Hours",
+    "Phút": "Mins",
+    "Giây": "Secs",
+    
+    // Stats Grid
+    "Gian hàng Triển lãm": "Exhibition Booths",
+    "Khách tham quan": "Visitors",
+    "Chuyên đề Hội thảo": "Conference Sessions",
+    "Diễn giả hàng đầu": "Keynote Speakers",
+    "Doanh nghiệp Kết nối": "B2B Matchings",
+    "Đơn vị truyền thông": "Media Partners",
+
+    // Supported & Organized By
+    "CƠ QUAN BẢO TRỢ": "SUPPORTING ORGAN",
+    "ĐƠN VỊ TỔ CHỨC": "ORGANIZERS",
+    "Sở Khoa học & Công nghệ TP.HCM": "Department of Science and Technology of HCMC",
+    "ĐƠN VỊ PHỐI HỢP": "CO-ORGANIZERS",
+    "Hiệp hội Thiết kế kiểu dáng công nghiệp": "Industrial Design Association",
+    "ĐƠN VỊ THỰC HIỆN": "IMPLEMENTED BY",
+    "Công ty CP Phát triển Dịch vụ Công nghệ VINASA": "VINASA Tech Service Development JSC",
+
+    // Core Values (Giới thiệu)
+    "Trình diễn": "Showcase",
+    "Sản phẩm, thiết bị thông minh ứng dụng trực tiếp đời sống.": "Smart products and devices applied directly to daily life.",
+    "Nắm bắt": "Grasp",
+    "Đón đầu các giải pháp số, sản phẩm AI và IoT mới nhất.": "Grasp the latest digital solutions, AI & IoT products.",
+    "Kết nối": "Connect",
+    "Xúc tiến thương mại trực tiếp B2B và tiếp cận B2C hiệu quả.": "Direct B2B trade promotion and effective B2C engagement.",
+    "Quảng bá": "Promote",
+    "Đồng hành truyền thông giúp lan tỏa giá trị thương hiệu rộng rãi.": "Media partnership to spread brand value widely.",
+
+    // Target Audience (Đối tượng)
+    "Doanh nghiệp Công nghệ": "Technology Enterprises",
+    "Doanh nghiệp cung cấp giải pháp chuyển đổi số, sản phẩm công nghệ mới.": "Enterprises providing digital transformation solutions and new tech products.",
+    "Người tiêu dùng & Công chúng": "Consumers & Public",
+    "Người dân đam mê công nghệ, tìm kiếm trải nghiệm cuộc sống tiện nghi.": "Tech-savvy citizens looking for convenient life experiences.",
+    "Cơ quan Nhà nước & Hiệp hội": "Government & Associations",
+    "Lãnh đạo các Sở ban ngành, đại diện cơ quan hành chính công.": "Leaders of departments, representatives of public administration agencies.",
+    "Sinh viên & Giới trẻ": "Students & Youth",
+    "Thế hệ trẻ năng động mong muốn tiếp cận tri thức và cơ hội nghề nghiệp.": "Active youth aiming to access knowledge and career opportunities.",
+
+    // Exhibition Map
+    "Mặt bằng tổng thể": "Exhibition Floor Plan Layout",
+
+    // Main Activities
+    "Triển lãm Công nghệ": "Technology Exhibition",
+    "Quy tụ hàng trăm gian hàng trình diễn giải pháp số, Smarthome, IoT, AI, Fintech, Edtech.": "Gathering hundreds of booths demonstrating digital solutions, Smarthome, IoT, AI, Fintech, Edtech.",
+    "Hội thảo Chuyên đề": "Thematic Conferences",
+    "Chia sẻ xu hướng công nghệ từ các diễn giả, chuyên gia hàng đầu trong và ngoài nước.": "Sharing technology trends from leading domestic and foreign speakers and experts.",
+    "Biz Matching 1:1": "1:1 Biz Matching",
+    "Kết nối giao thương trực tiếp giữa các đơn vị cung cấp giải pháp và doanh nghiệp có nhu cầu.": "Direct B2B B2B matchmaking between providers and enterprises.",
+    "VietFuture Awards": "VietFuture Awards",
+    "Vinh danh các giải pháp công nghệ số xuất sắc, dự án khởi nghiệp tiềm năng của thế hệ trẻ.": "Honoring outstanding digital tech solutions and potential startup projects."
+};
+
+// Recursive text node translator
+function translateTextNodes(lang) {
+    const walk = (node) => {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const text = node.textContent.trim();
+            if (lang === 'en') {
+                if (translationDictionary[text]) {
+                    if (!node.parentElement.hasAttribute('data-original-node-text')) {
+                        node.parentElement.setAttribute('data-original-node-text', node.textContent);
+                    }
+                    node.textContent = translationDictionary[text];
+                }
+            } else if (lang === 'vi') {
+                if (node.parentElement.hasAttribute('data-original-node-text')) {
+                    node.textContent = node.parentElement.getAttribute('data-original-node-text');
+                }
+            }
+        } else {
+            // Skip script, style, iframe, and elements that already have data-vi
+            if (node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE' && node.tagName !== 'IFRAME' && !node.hasAttribute('data-vi')) {
+                node.childNodes.forEach(walk);
+            }
+        }
+    };
+    walk(document.body);
+}
+
 // Inject CSS to hide Google Translate bar and widgets
 function injectGoogleTranslateStyles() {
     const css = `
@@ -73,7 +199,7 @@ window.googleTranslateElementInit = function() {
 
 // Function to programmatically change Google Translate language using cookie + dropdown trigger
 function triggerGoogleTranslate(lang) {
-    const cookieValue = `/vi/${lang}`;
+    const cookieValue = `/auto/${lang}`;
     
     // Set googtrans cookie for instant load translation on all paths & subdomains
     document.cookie = `googtrans=${cookieValue}; path=/;`;
@@ -240,6 +366,9 @@ function translatePage(lang) {
     
     // Natively translate homepage elements
     translateHomepage(lang);
+
+    // Apply recursive text node translations across the entire page body
+    translateTextNodes(lang);
 }
 
 function updateLanguageButtons(lang) {
