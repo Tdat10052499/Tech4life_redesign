@@ -149,12 +149,12 @@ function translateHomepage(lang) {
             vi: 'TECH4LIFE <span class="text-primary">EXPO & SUMMIT 2026</span>'
         },
         {
-            selector: '.inline-flex.items-center.gap-2.px-4.py-1.5 span',
+            selector: 'div.inline-flex.items-center.gap-2 span',
             en: 'Vietnam Software and IT Services Association (VINASA)',
             vi: 'Hiệp hội Phần mềm và Dịch vụ CNTT Việt Nam (VINASA)'
         },
         {
-            selector: 'p.text-lg.md\\:text-2xl.text-text-main',
+            selector: 'p.text-lg.text-text-main',
             en: 'Technology for Smart Life <br class="hidden md:inline"><span class="text-text-muted font-normal text-base md:text-xl">(Smart Tech for Smart Life)</span>',
             vi: 'Công nghệ cho cuộc sống thông minh <br class="hidden md:inline"><span class="text-text-muted font-normal text-base md:text-xl">(Smart Tech for Smart Life)</span>'
         },
