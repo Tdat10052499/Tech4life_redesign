@@ -106,6 +106,126 @@ function triggerGoogleTranslate(lang) {
     }
 }
 
+function translateHomepage(lang) {
+    const isHomepage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
+    if (!isHomepage) return;
+
+    // Headings
+    const headings = {
+        "GIỚI THIỆU TECH4LIFE": "ABOUT TECH4LIFE",
+        "BẢO TRỢ & TỔ CHỨC": "ORGANIZERS & SPONSORS",
+        "THỜI GIAN & ĐỊA ĐIỂM": "TIME & VENUE",
+        "QUY MÔ & HOẠT ĐỘNG CHÍNH": "SCALE & KEY HIGHLIGHTS",
+        "ĐỐI TƯỢNG THAM GIA": "TARGET AUDIENCE",
+        "SƠ ĐỒ TRIỂN LÃM": "EXHIBITION MAP",
+        "DANH MỤC TRIỂN LÃM": "EXHIBITION CATEGORIES",
+        "CÁC HOẠT ĐỘNG CHÍNH": "MAIN ACTIVITIES",
+        "TRUYỀN THÔNG, QUẢNG BÁ": "MEDIA & PROMOTION",
+        "NHỮNG CON SỐ VÀ HÌNH ẢNH NỔI BẬT 2025": "KEY FIGURES & IMAGES 2025",
+        "ĐƠN VỊ BẢO TRỢ, TỔ CHỨC & TRUYỀN THÔNG 2026": "ORGANIZERS & PARTNERS 2026"
+    };
+
+    document.querySelectorAll('h2').forEach(el => {
+        const text = el.textContent.trim().toUpperCase();
+        if (lang === 'en') {
+            for (const [key, value] of Object.entries(headings)) {
+                if (text.includes(key)) {
+                    if (!el.getAttribute('data-original-text')) {
+                        el.setAttribute('data-original-text', el.innerHTML);
+                    }
+                    el.textContent = value;
+                }
+            }
+        } else if (lang === 'vi' && el.getAttribute('data-original-text')) {
+            el.innerHTML = el.getAttribute('data-original-text');
+        }
+    });
+
+    // Translate specific elements by selector or content mapping
+    const directMappings = [
+        {
+            selector: '.text-primary-dark.font-extrabold.tracking-tight',
+            en: 'TECH4LIFE EXPO & SUMMIT 2026',
+            vi: 'TECH4LIFE <span class="text-primary">EXPO & SUMMIT 2026</span>'
+        },
+        {
+            selector: '.inline-flex.items-center.gap-2.px-4.py-1.5 span',
+            en: 'Vietnam Software and IT Services Association (VINASA)',
+            vi: 'Hiệp hội Phần mềm và Dịch vụ CNTT Việt Nam (VINASA)'
+        },
+        {
+            selector: 'p.text-lg.md\\:text-2xl.text-text-main',
+            en: 'Technology for Smart Life <br class="hidden md:inline"><span class="text-text-muted font-normal text-base md:text-xl">(Smart Tech for Smart Life)</span>',
+            vi: 'Công nghệ cho cuộc sống thông minh <br class="hidden md:inline"><span class="text-text-muted font-normal text-base md:text-xl">(Smart Tech for Smart Life)</span>'
+        },
+        {
+            selector: 'a[href="tham-du.html"].bg-primary',
+            en: 'Register to Attend',
+            vi: 'Đăng ký Tham dự'
+        },
+        {
+            selector: 'a[href="tai-tro.html"].border-primary',
+            en: 'Book a Booth',
+            vi: 'Đăng ký Gian hàng'
+        },
+        {
+            selector: '.mt-12.max-w-lg p.text-xs',
+            en: 'EVENT STARTS IN',
+            vi: 'SỰ KIỆN SẼ DIỄN RA SAU'
+        }
+    ];
+
+    directMappings.forEach(map => {
+        document.querySelectorAll(map.selector).forEach(el => {
+            if (lang === 'en') {
+                if (!el.getAttribute('data-original-text')) {
+                    el.setAttribute('data-original-text', el.innerHTML);
+                }
+                el.innerHTML = map.en;
+            } else if (lang === 'vi' && el.getAttribute('data-original-text')) {
+                el.innerHTML = map.vi;
+            }
+        });
+    });
+
+    // Countdown Labels
+    const countdownLabels = {
+        "Ngày": "Days",
+        "Giờ": "Hours",
+        "Phút": "Mins",
+        "Giây": "Secs"
+    };
+    document.querySelectorAll('.grid.grid-cols-4 span.text-text-muted').forEach(el => {
+        const text = el.textContent.trim();
+        if (lang === 'en') {
+            if (countdownLabels[text]) {
+                if (!el.getAttribute('data-original-text')) {
+                    el.setAttribute('data-original-text', text);
+                }
+                el.textContent = countdownLabels[text];
+            }
+        } else if (lang === 'vi' && el.getAttribute('data-original-text')) {
+            el.textContent = el.getAttribute('data-original-text');
+        }
+    });
+
+    // About paragraphs
+    const paragraphs = document.querySelectorAll('.text-text-muted.leading-relaxed p');
+    if (paragraphs.length >= 2) {
+        if (lang === 'en') {
+            if (!paragraphs[0].getAttribute('data-original-text')) {
+                paragraphs[0].setAttribute('data-original-text', paragraphs[0].innerHTML);
+                paragraphs[1].setAttribute('data-original-text', paragraphs[1].innerHTML);
+            }
+            paragraphs[0].innerHTML = "<strong>Tech4life Expo & Summit 2026</strong> is a prestigious annual technology event aimed at introducing advanced tech solutions applied directly to daily life and business management. The event creates a vivid, hands-on experience environment, connecting tech supply and demand between solution providers and users (via B2B and B2C channels).";
+            paragraphs[1].innerHTML = "With the theme 'Smart Tech for Smart Life', <strong>Tech4Life 2026</strong> focuses on promoting individual digital transformation (<strong>Tech4life</strong>), enhancing daily life quality, optimizing office productivity (<strong>Tech4Work</strong>), building smart digital management environments for modern enterprises, and introducing advanced entertainment technology trends (<strong>Tech4Entertainment</strong>).";
+        } else if (lang === 'vi' && paragraphs[0].getAttribute('data-original-text')) {
+            paragraphs[0].innerHTML = paragraphs[0].getAttribute('data-original-text');
+            paragraphs[1].innerHTML = paragraphs[1].getAttribute('data-original-text');
+        }
+    }
+}
+
 function translatePage(lang) {
     document.querySelectorAll('[data-vi]').forEach(el => {
         const text = el.getAttribute(`data-${lang}`);
@@ -117,6 +237,9 @@ function translatePage(lang) {
             }
         }
     });
+    
+    // Natively translate homepage elements
+    translateHomepage(lang);
 }
 
 function updateLanguageButtons(lang) {
