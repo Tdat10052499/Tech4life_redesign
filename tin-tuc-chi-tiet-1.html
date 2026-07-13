@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Làn sóng dịch chuyển từ Billboard truyền thống sang LED - Tech4life</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2563EB',
+                            dark: '#1E3A8A',
+                        },
+                        secondary: {
+                            DEFAULT: '#60A5FA',
+                            gradientStart: '#E0E7FF',
+                            gradientEnd: '#DBEAFE',
+                        },
+                        text: {
+                            main: '#334155',
+                            muted: '#64748B',
+                            heading: '#0F172A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body {
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Editorial styling for the article content */
+        .article-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #334155;
+            font-size: 1.125rem;
+        }
+
+        .article-content h2, .article-content h3 {
+            color: #0F172A;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+            border-left: 4px solid #2563EB;
+            padding-left: 1rem;
+        }
+        
+        .article-content h3 {
+            font-size: 1.4rem;
+        }
+
+        .article-content img {
+            border-radius: 1rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            height: auto;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-content figcaption {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #64748B;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #2563EB;
+            background-color: #F8FAFC;
+            padding: 1.5rem 1.5rem 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 1rem 1rem 0;
+            font-style: italic;
+            color: #1E3A8A;
+            font-weight: 500;
+            font-size: 1.25rem;
+        }
+        
+        /* Progress bar */
+        .progress-container {
+            position: fixed;
+            top: 80px; /* Below standard header */
+            z-index: 40;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+        }
+        .progress-bar {
+            height: 4px;
+            background: #2563EB;
+            width: 0%;
+        }
+    </style>
+</head>
+
+<body class="bg-white flex flex-col font-sans text-text-main antialiased overflow-x-hidden">
+    <!-- HEADER CONTAINER (Loaded via JS) -->
+    <header id="app-header" class="relative z-50"></header>
+    
+    <!-- Reading Progress Bar -->
+    <div class="progress-container hidden md:block">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <main class="flex-grow">
+        <!-- HERO SECTION -->
+        <section class="relative pt-24 pb-12 md:pt-32 md:pb-16 bg-slate-50 overflow-hidden">
+            <!-- Background Decorations -->
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 transform translate-x-1/2 -translate-y-1/4" aria-hidden="true"></div>
+            <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 transform -translate-x-1/3 translate-y-1/3" aria-hidden="true"></div>
+            
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 relative z-10 max-w-5xl">
+                <!-- Breadcrumbs -->
+                <nav class="flex text-sm text-text-muted mb-6 font-medium reveal">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                        <li class="inline-flex items-center">
+                            <a href="index.html" class="hover:text-primary transition-colors">Trang chủ</a>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-gray-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                <a href="tin-tuc.html" class="hover:text-primary transition-colors">Truyền thông</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-gray-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                <a href="tin-tuc.html" class="hover:text-primary transition-colors">Tin tức</a>
+                            </div>
+                        </li>
+                    </ol>
+                </nav>
+
+                <!-- Category Badge -->
+                <div class="mb-5 reveal" style="transition-delay: 100ms;">
+                    <span class="inline-block bg-blue-100 text-primary-dark text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">Báo chí đưa tin</span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-[54px] font-extrabold text-text-heading leading-tight mb-6 reveal" style="transition-delay: 200ms;">
+                    Làn sóng dịch chuyển từ Billboard truyền thống sang LED: Xu hướng định hình tương lai quảng cáo ngoài trời
+                </h1>
+
+                <!-- Meta Info -->
+                <div class="flex flex-wrap items-center gap-4 text-sm md:text-base text-text-muted font-medium reveal" style="transition-delay: 300ms;">
+                    <div class="flex items-center gap-2">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-blue-300 flex items-center justify-center text-white font-bold shadow-md">
+                            A
+                        </div>
+                        <span class="text-text-main font-semibold">Admin</span>
+                    </div>
+                    <span class="hidden md:inline text-gray-300">|</span>
+                    <div class="flex items-center gap-1.5">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span>17 Tháng 12, 2025</span>
+                    </div>
+                    <span class="hidden md:inline text-gray-300">|</span>
+                    <div class="flex items-center gap-1.5">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span>4 phút đọc</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED IMAGE & ARTICLE CONTENT -->
+        <section class="py-8 md:py-12 bg-white">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 max-w-4xl">
+                <!-- Featured Image -->
+                <div class="mb-12 rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl reveal relative group">
+                    <img src="https://tech4life.vn/wp-content/uploads/2025/12/led10142-1.jpg" alt="Làn sóng dịch chuyển sang LED" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                    <!-- Overlay gradient for aesthetics -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+
+                <!-- Social Share Sidebar (Desktop) / Top (Mobile) -->
+                <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 relative">
+                    <!-- Sticky Share Actions -->
+                    <div class="lg:w-16 flex-shrink-0 order-2 lg:order-1">
+                        <div class="sticky top-32 flex lg:flex-col gap-4 justify-center items-center bg-slate-50 lg:bg-transparent p-4 lg:p-0 rounded-2xl border border-slate-100 lg:border-none shadow-sm lg:shadow-none">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest lg:-rotate-90 lg:mb-8 lg:w-24 text-center">Chia sẻ</span>
+                            
+                            <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-600 hover:border-blue-600 hover:shadow-md transition-all duration-300 group">
+                                <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-400 hover:border-blue-400 hover:shadow-md transition-all duration-300 group">
+                                <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-700 hover:border-blue-700 hover:shadow-md transition-all duration-300 group">
+                                <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-red-500 hover:border-red-500 hover:shadow-md transition-all duration-300 group">
+                                <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Main Article Content -->
+                    <div class="article-content flex-grow order-1 lg:order-2 reveal">
+                        <p class="font-bold text-xl md:text-2xl text-text-heading mb-8">
+                            Ngành quảng cáo ngoài trời (OOH) tại Việt Nam đang bước vào giai đoạn chuyển đổi mạnh mẽ, với sự dịch chuyển rõ rệt từ billboard tĩnh sang màn hình LED. Xu hướng này được thúc đẩy bởi nhu cầu nâng cao hiệu quả đầu tư, khả năng đo lường, sự linh hoạt trong vận hành và yêu cầu đổi mới sáng tạo từ các thương hiệu.
+                        </p>
+
+                        <h2>LED – “Điểm uốn” chiến lược của thị trường OOH</h2>
+                        
+                        <p>Trong nhiều năm qua, billboard truyền thống vẫn đóng vai trò quan trọng trong bộ nhận diện thương hiệu ngoài trời. Tuy nhiên, trước tốc độ phát triển nhanh của công nghệ hiển thị, các thương hiệu đang có xu hướng ưu tiên màn LED nhờ tính linh hoạt và khả năng kiểm soát nội dung theo thời gian thực.</p>
+                        
+                        <p>Theo báo cáo từ World Out of Home Organization, DOOH (Digital Out-of-Home) hiện chiếm gần 39% tổng doanh thu OOH toàn cầu năm 2024, đánh dấu tốc độ tăng trưởng vượt trội. DOOH được dự báo tiếp tục đạt mức tăng trưởng kép (CAGR) 11–13% giai đoạn 2020–2030, trong khi OOH truyền thống ghi nhận mức tăng chậm hơn.</p>
+                        
+                        <blockquote>
+                            "Tại Việt Nam, sự dịch chuyển này cũng diễn ra nhanh chóng khi doanh nghiệp ngày càng ưa chuộng LED nhờ khả năng thay đổi nội dung tức thì, loại bỏ chi phí in ấn và lắp đặt."
+                        </blockquote>
+
+                        <h2>Lợi thế kinh tế: Tối ưu ROI dài hạn</h2>
+                        
+                        <p>Từ góc nhìn doanh nghiệp, quảng cáo LED không chỉ là xu hướng mà là quyết định tối ưu hoá hiệu suất đầu tư. Dù chi phí ban đầu cao hơn so với billboard tĩnh, LED giúp loại bỏ hoàn toàn chi phí in ấn, vận chuyển và thi công định kỳ. Điều này đặc biệt phù hợp với các thương hiệu có nhu cầu thay đổi creative thường xuyên.</p>
+                        
+                        <h2>Hiệu quả Truyền thông và Tính Linh hoạt</h2>
+                        
+                        <p>Một khảo sát của PQ Media (2024) cho thấy 72% doanh nghiệp Việt Nam ưu tiên booking LED so với billboard truyền thống. Quảng cáo LED giúp tăng 36% tỷ lệ ghi nhớ thương hiệu (brand recall), đạt mức 40–45%, so với 23–28% của billboard tĩnh. Hình ảnh động và độ sáng cao của LED cũng tạo tác động mạnh về thị giác, phù hợp tâm lý người tiêu dùng trong môi trường đô thị.</p>
+
+                        <figure>
+                            <img src="https://vinasa.org.vn/SiteFolders/Root/ImageLibrary/Thu%20vien%20anh%2014/led10143.jpg" alt="Marquette 3D trên màn LED">
+                            <figcaption>Marquette 3D mừng Tết Trung Thu trên màn LED BRG Lê Văn Lương, TP. Hà Nội</figcaption>
+                        </figure>
+
+                        <p>LED cũng hỗ trợ phân phối nội dung theo khung giờ (time-slotting), dựa trên dữ liệu giao thông hoặc hành vi di chuyển. Tại nhiều thị trường, mạng lưới màn LED được đồng bộ hóa nội dung tại cùng một khu vực (network synchronization), tạo hiệu ứng truyền thông liền mạch và có tác động mạnh mẽ hơn – giải pháp đã bắt đầu được áp dụng tại Việt Nam.</p>
+                        
+                        <figure>
+                            <img src="https://vinasa.org.vn/SiteFolders/Root/ImageLibrary/Thu%20vien%20anh%2014/led10144.jpg" alt="Quảng cáo đồng bộ">
+                            <figcaption>Quảng cáo đồng bộ màn LED trên Phố đi bộ Nguyễn Huệ, TP. HCM</figcaption>
+                        </figure>
+                        
+                        <!-- Tags -->
+                        <div class="mt-12 pt-8 border-t border-slate-200">
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="font-semibold text-text-heading mr-2">Tags:</span>
+                                <a href="#" class="px-3 py-1 bg-slate-100 hover:bg-primary hover:text-white text-slate-600 rounded-full text-sm font-medium transition-colors">Quảng cáo LED</a>
+                                <a href="#" class="px-3 py-1 bg-slate-100 hover:bg-primary hover:text-white text-slate-600 rounded-full text-sm font-medium transition-colors">OOH</a>
+                                <a href="#" class="px-3 py-1 bg-slate-100 hover:bg-primary hover:text-white text-slate-600 rounded-full text-sm font-medium transition-colors">Truyền thông</a>
+                                <a href="#" class="px-3 py-1 bg-slate-100 hover:bg-primary hover:text-white text-slate-600 rounded-full text-sm font-medium transition-colors">DOOH</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RELATED ARTICLES -->
+        <section class="py-16 bg-slate-50 border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-8 lg:px-12 max-w-6xl reveal">
+                <div class="flex items-center justify-between mb-10">
+                    <h3 class="text-2xl md:text-3xl font-bold text-text-heading border-l-4 border-primary pl-4">Bài viết liên quan</h3>
+                    <a href="tin-tuc.html" class="hidden md:flex items-center gap-1 text-primary font-semibold hover:text-primary-dark transition-colors">
+                        Xem tất cả
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Related Card 1 -->
+                    <a href="tin-tuc-chi-tiet-2.html" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 border border-slate-100 flex flex-col h-full">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://tech4life.vn/wp-content/uploads/2025/11/z7223848646152_163f4ddf649436ca65c1f7e65442c0c6.jpg" alt="Related post" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <p class="text-xs font-bold text-primary mb-2 tracking-wider uppercase">Giáo dục / Tài chính</p>
+                            <h4 class="text-lg font-bold text-text-heading mb-3 line-clamp-2 group-hover:text-primary transition-colors">Học tài chính, săn quà khủng cùng “S Challenge” của Sacombank</h4>
+                            <p class="text-text-muted text-sm line-clamp-3 mb-4">Sacombank chính thức ra mắt game S Challenge, mang đến cách tiếp cận kiến thức tài chính mới cho giới trẻ.</p>
+                            <div class="mt-auto flex items-center text-sm font-medium text-slate-400">
+                                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                14 Tháng 11, 2025
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Related Card 2 -->
+                    <a href="tin-tuc-chi-tiet-3.html" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 border border-slate-100 flex flex-col h-full">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://tech4life.vn/wp-content/uploads/2025/10/sacom1451.jpg" alt="Related post" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <p class="text-xs font-bold text-primary mb-2 tracking-wider uppercase">Tài chính số</p>
+                            <h4 class="text-lg font-bold text-text-heading mb-3 line-clamp-2 group-hover:text-primary transition-colors">Sacombank mang "trường học tài chính số" đến sinh viên TP.HCM</h4>
+                            <p class="text-text-muted text-sm line-clamp-3 mb-4">Hàng ngàn sinh viên TP.HCM đã có cơ hội trải nghiệm thực tế các tiện ích tài chính số đa năng.</p>
+                            <div class="mt-auto flex items-center text-sm font-medium text-slate-400">
+                                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                30 Tháng 10, 2025
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Related Card 3 -->
+                    <a href="tin-tuc-chi-tiet-4.html" class="hidden md:flex lg:flex group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 border border-slate-100 flex-col h-full">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://tech4life.vn/wp-content/uploads/2025/09/sacombank-gioi-thieu-loat-giai-phap-quan-ly-tai-chinh-tai-tech4life-2025-1.jpg" alt="Related post" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <p class="text-xs font-bold text-primary mb-2 tracking-wider uppercase">Giải pháp / Dịch vụ</p>
+                            <h4 class="text-lg font-bold text-text-heading mb-3 line-clamp-2 group-hover:text-primary transition-colors">Sacombank giới thiệu loạt giải pháp quản lý tài chính doanh nghiệp</h4>
+                            <p class="text-text-muted text-sm line-clamp-3 mb-4">Loạt giải pháp quản lý chi phí, thu hộ tự động giúp doanh nghiệp tối ưu nguồn lực và thời gian.</p>
+                            <div class="mt-auto flex items-center text-sm font-medium text-slate-400">
+                                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                25 Tháng 10, 2025
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="mt-8 text-center md:hidden">
+                    <a href="tin-tuc.html" class="inline-flex items-center gap-2 text-primary font-semibold border border-primary px-6 py-3 rounded-full hover:bg-primary hover:text-white transition-colors">
+                        Xem tất cả tin tức
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER CONTAINER (Loaded via JS) -->
+    <footer id="app-footer"></footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Reading progress bar
+        window.onscroll = function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+        };
+
+        // Extra logic for reveal animations if not covered by main.js
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            reveals.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>
