@@ -15,6 +15,17 @@ function injectGoogleTranslateStyles() {
         body {
             top: 0px !important;
         }
+        /* Render container offscreen, not display: none, so select initializes */
+        #google_translate_element {
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            width: 0px !important;
+            height: 0px !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
         /* Prevent highlight background */
         .goog-text-highlight {
             background-color: transparent !important;
@@ -35,7 +46,6 @@ function loadGoogleTranslate() {
     if (!document.getElementById('google_translate_element')) {
         const div = document.createElement('div');
         div.id = 'google_translate_element';
-        div.style.display = 'none';
         document.body.appendChild(div);
     }
     
