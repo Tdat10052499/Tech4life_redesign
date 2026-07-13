@@ -68,24 +68,41 @@ window.googleTranslateElementInit = function() {
     // Once loaded, apply active language
     setTimeout(() => {
         triggerGoogleTranslate(currentLang);
-    }, 1000);
+    }, 500);
 };
 
-// Function to programmatically change Google Translate language
+// Function to programmatically change Google Translate language using cookie + dropdown trigger
 function triggerGoogleTranslate(lang) {
+    const cookieValue = `/vi/${lang}`;
+    
+    // Set googtrans cookie for instant load translation on all paths & subdomains
+    document.cookie = `googtrans=${cookieValue}; path=/;`;
+    document.cookie = `googtrans=${cookieValue}; path=/; domain=${window.location.hostname};`;
+    
+    // Fallback: also trigger select combo dropdown dynamically
     const selectEl = document.querySelector('.goog-te-combo');
     if (selectEl) {
-        selectEl.value = lang;
-        selectEl.dispatchEvent(new Event('change'));
+        if (selectEl.value !== lang) {
+            selectEl.value = lang;
+            selectEl.dispatchEvent(new Event('change'));
+        }
     } else {
-        // Retry if select elements are not ready yet
-        setTimeout(() => {
-            const retrySelect = document.querySelector('.goog-te-combo');
-            if (retrySelect) {
-                retrySelect.value = lang;
-                retrySelect.dispatchEvent(new Event('change'));
+        // Poll for dropdown up to 20 times (6 seconds) if not ready yet
+        let attempts = 0;
+        const interval = setInterval(() => {
+            const selectEl = document.querySelector('.goog-te-combo');
+            if (selectEl) {
+                clearInterval(interval);
+                if (selectEl.value !== lang) {
+                    selectEl.value = lang;
+                    selectEl.dispatchEvent(new Event('change'));
+                }
             }
-        }, 500);
+            attempts++;
+            if (attempts > 20) {
+                clearInterval(interval);
+            }
+        }, 300);
     }
 }
 
