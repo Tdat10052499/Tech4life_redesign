@@ -1,3 +1,54 @@
+// Language management state
+let currentLang = localStorage.getItem('app_lang') || 'vi';
+
+function translatePage(lang) {
+    document.querySelectorAll('[data-vi]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = text;
+            } else {
+                el.innerHTML = text;
+            }
+        }
+    });
+}
+
+function updateLanguageButtons(lang) {
+    const viBtn = document.getElementById('lang-vi-btn');
+    const enBtn = document.getElementById('lang-en-btn');
+    
+    if (viBtn && enBtn) {
+        if (lang === 'vi') {
+            viBtn.className = "px-3.5 h-full bg-red-600 text-white flex items-center justify-center transition-colors duration-300";
+            enBtn.className = "px-3.5 h-full bg-white text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors duration-300";
+        } else {
+            viBtn.className = "px-3.5 h-full bg-white text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors duration-300";
+            enBtn.className = "px-3.5 h-full bg-red-600 text-white flex items-center justify-center transition-colors duration-300";
+        }
+    }
+
+    const mobViBtn = document.getElementById('mob-lang-vi-btn');
+    const mobEnBtn = document.getElementById('mob-lang-en-btn');
+    
+    if (mobViBtn && mobEnBtn) {
+        if (lang === 'vi') {
+            mobViBtn.className = "px-4 h-full bg-red-600 text-white flex items-center justify-center transition-colors focus:outline-none";
+            mobEnBtn.className = "px-4 h-full bg-white text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors focus:outline-none";
+        } else {
+            mobViBtn.className = "px-4 h-full bg-white text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors focus:outline-none";
+            mobEnBtn.className = "px-4 h-full bg-red-600 text-white flex items-center justify-center transition-colors focus:outline-none";
+        }
+    }
+}
+
+window.setLanguage = function(lang) {
+    currentLang = lang;
+    localStorage.setItem('app_lang', lang);
+    translatePage(lang);
+    updateLanguageButtons(lang);
+};
+
 async function loadComponent(id, url) {
     try {
         const response = await fetch(url);
@@ -633,4 +684,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initMediaCarousel();
     initGallery();
     initNavbarScrollEffect();
+
+    // Apply active language to loaded components
+    window.setLanguage(currentLang);
 });
