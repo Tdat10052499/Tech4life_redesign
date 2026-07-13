@@ -1,14 +1,19 @@
 <!-- Mobile Sidebar Navigation Drawer Overlay -->
-<div id="mobile-sidebar-overlay" class="fixed inset-0 bg-slate-950/40 backdrop-blur-sm z-[90] transition-opacity duration-300 opacity-0 pointer-events-none"></div>
+<div id="mobile-sidebar-overlay"
+    class="fixed inset-0 bg-slate-950/40 backdrop-blur-sm z-[90] transition-opacity duration-300 opacity-0 pointer-events-none">
+</div>
 
 <!-- Mobile Sidebar Navigation Drawer Container -->
-<div id="mobile-sidebar" class="fixed inset-y-0 right-0 z-[100] w-[85%] max-w-sm bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col border-l border-white/20">
+<div id="mobile-sidebar"
+    class="fixed inset-y-0 right-0 z-[100] w-[85%] max-w-sm bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col border-l border-white/20">
     <!-- Drawer Header -->
     <div class="p-6 border-b border-gray-150/50 flex justify-between items-center bg-gray-50/50">
         <a href="index.html" class="flex items-center gap-2">
             <img src="assets/images/logo%20Tech4Life/tech4life-logo.png" alt="Tech4life Logo" class="h-9 w-auto">
         </a>
-        <button id="close-sidebar-btn" class="p-3 text-gray-500 hover:text-primary hover:bg-gray-100 rounded-full transition-all focus:outline-none" aria-label="Close menu">
+        <button id="close-sidebar-btn"
+            class="p-3 text-gray-500 hover:text-primary hover:bg-gray-100 rounded-full transition-all focus:outline-none"
+            aria-label="Close menu">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
@@ -19,131 +24,182 @@
     <div class="flex-grow flex flex-col justify-between overflow-y-auto py-6 px-6">
         <!-- Links -->
         <nav class="flex flex-col gap-1 text-sm font-semibold text-gray-700">
-            <a href="index.html" class="flex items-center justify-between py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all"
+            <a href="index.html"
+                class="flex items-center justify-between py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all"
                 data-vi="Trang chủ" data-en="Home">Trang chủ</a>
 
             <!-- Giới thiệu (Accordion) -->
             <div class="flex flex-col">
-                <button onclick="toggleMobileDropdown('mob-intro')" class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
+                <button onclick="toggleMobileDropdown('mob-intro')"
+                    class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
                     <span data-vi="Giới thiệu" data-en="About Us">Giới thiệu</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-intro" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-intro"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7">
+                        </path>
                     </svg>
                 </button>
-                <div id="mob-intro" class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
-                    <a href="gioi-thieu.html" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                <div id="mob-intro"
+                    class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
+                    <a href="gioi-thieu.html"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Giới thiệu hội nghị" data-en="About Conference">Giới thiệu hội nghị</a>
-                    <a href="dien-gia.html" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="dien-gia.html"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Diễn giả" data-en="Speakers">Diễn giả</a>
-                    <a href="https://forms.gle/RCdMJRtBgiFoczdx6" target="_blank" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="https://forms.gle/RCdMJRtBgiFoczdx6" target="_blank"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Đăng ký bài phát biểu" data-en="Register as Speaker">Đăng ký bài phát biểu</a>
                 </div>
             </div>
 
-            <a href="chuong-trinh.html" class="flex items-center justify-between py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all"
+            <a href="chuong-trinh.html"
+                class="flex items-center justify-between py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all"
                 data-vi="Chương trình" data-en="Program">Chương trình</a>
 
             <!-- Triển lãm (Accordion) -->
             <div class="flex flex-col">
-                <button onclick="toggleMobileDropdown('mob-expo')" class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
+                <button onclick="toggleMobileDropdown('mob-expo')"
+                    class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
                     <span data-vi="Triển lãm" data-en="Exhibition">Triển lãm</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-expo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-expo" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7">
+                        </path>
                     </svg>
                 </button>
-                <div id="mob-expo" class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
-                    <a href="trien-lam.html" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                <div id="mob-expo"
+                    class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
+                    <a href="trien-lam.html"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Thông tin Triển lãm" data-en="Exhibition Info">Thông tin Triển lãm</a>
-                    <a href="so-do-trien-lam.html" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="so-do-trien-lam.html"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Sơ đồ Triển lãm" data-en="Exhibition Map">Sơ đồ Triển lãm</a>
-                    <a href="gian-hang-online.html" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="gian-hang-online.html"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Gian hàng Online" data-en="Online Booth">Gian hàng Online</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcr3LRT7OQmBcldSla_ZbBegqUT99-vEuMxuaYlQsHGg6s1A/viewform" target="_blank" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcr3LRT7OQmBcldSla_ZbBegqUT99-vEuMxuaYlQsHGg6s1A/viewform"
+                        target="_blank"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Đăng ký Triển lãm" data-en="Register Booth">Đăng ký Triển lãm</a>
                 </div>
             </div>
 
             <!-- Tham dự (Accordion) -->
             <div class="flex flex-col">
-                <button onclick="toggleMobileDropdown('mob-attend')" class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
+                <button onclick="toggleMobileDropdown('mob-attend')"
+                    class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
                     <span data-vi="Tham dự" data-en="Attend">Tham dự</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-attend" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-attend"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7">
+                        </path>
                     </svg>
                 </button>
-                <div id="mob-attend" class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
-                    <a href="ly-do-tham-du.html" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                <div id="mob-attend"
+                    class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
+                    <a href="ly-do-tham-du.html"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Lý do tham dự" data-en="Why Attend">Lý do tham dự</a>
-                    <a href="thanh-phan-tham-du.html" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="thanh-phan-tham-du.html"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Thành phần tham dự" data-en="Attendee Mix">Thành phần tham dự</a>
-                    <a href="dang-ky-tham-du.html" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="dang-ky-tham-du.html"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Đăng ký tham dự" data-en="Register to Attend">Đăng ký tham dự</a>
                 </div>
             </div>
 
             <!-- Tài trợ (Accordion) -->
             <div class="flex flex-col">
-                <button onclick="toggleMobileDropdown('mob-sponsor')" class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
+                <button onclick="toggleMobileDropdown('mob-sponsor')"
+                    class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
                     <span data-vi="Tài trợ" data-en="Sponsorship">Tài trợ</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-sponsor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-sponsor"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7">
+                        </path>
                     </svg>
                 </button>
-                <div id="mob-sponsor" class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
-                    <a href="https://drive.google.com/drive/folders/1UEGi-sh24QCji62fJhDZwWQryBOHRumj" target="_blank" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                <div id="mob-sponsor"
+                    class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
+                    <a href="https://drive.google.com/drive/folders/1UEGi-sh24QCji62fJhDZwWQryBOHRumj" target="_blank"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Hồ sơ tài trợ" data-en="Sponsorship Proposal">Hồ sơ tài trợ</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcr3LRT7OQmBcldSla_ZbBegqUT99-vEuMxuaYlQsHGg6s1A/viewform" target="_blank" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcr3LRT7OQmBcldSla_ZbBegqUT99-vEuMxuaYlQsHGg6s1A/viewform"
+                        target="_blank"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Đăng ký tài trợ" data-en="Register Sponsorship">Đăng ký tài trợ</a>
                 </div>
             </div>
 
             <!-- Post show report (Accordion) -->
             <div class="flex flex-col">
-                <button onclick="toggleMobileDropdown('mob-report')" class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
+                <button onclick="toggleMobileDropdown('mob-report')"
+                    class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
                     <span data-vi="Post show report" data-en="Post Show Report">Post show report</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-report" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-report"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7">
+                        </path>
                     </svg>
                 </button>
-                <div id="mob-report" class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
-                    <a href="https://drive.google.com/drive/folders/1mRZMbe0iLA_R8-35Ud9QJuU6btVJge--" target="_blank" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                <div id="mob-report"
+                    class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
+                    <a href="https://drive.google.com/drive/folders/1mRZMbe0iLA_R8-35Ud9QJuU6btVJge--" target="_blank"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Báo cáo 2025" data-en="2025 Report">Báo cáo 2025</a>
-                    <a href="https://drive.google.com/drive/folders/1lL7kQYM7PD_pYVZmd53p6DP-yONruxbg" target="_blank" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="https://drive.google.com/drive/folders/1lL7kQYM7PD_pYVZmd53p6DP-yONruxbg" target="_blank"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Báo cáo 2024" data-en="2024 Report">Báo cáo 2024</a>
-                    <a href="https://drive.google.com/file/d/1mlcYGGX4ig7NsGUUZSQC6RmkXlHV3JD_/view" target="_blank" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="https://drive.google.com/file/d/1mlcYGGX4ig7NsGUUZSQC6RmkXlHV3JD_/view" target="_blank"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Báo cáo 2023" data-en="2023 Report">Báo cáo 2023</a>
                 </div>
             </div>
 
             <!-- Truyền thông (Accordion) -->
             <div class="flex flex-col">
-                <button onclick="toggleMobileDropdown('mob-media')" class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
+                <button onclick="toggleMobileDropdown('mob-media')"
+                    class="flex justify-between items-center w-full py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all text-left">
                     <span data-vi="Truyền thông" data-en="Media">Truyền thông</span>
-                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-media" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" id="arrow-mob-media"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7">
+                        </path>
                     </svg>
                 </button>
-                <div id="mob-media" class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
-                    <a href="truyen-thong.html#press" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                <div id="mob-media"
+                    class="hidden pl-6 pr-4 mt-1 flex flex-col gap-2 py-2 border-l border-gray-100/80 ml-4">
+                    <a href="truyen-thong.html#press"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Thông cáo báo chí" data-en="Press Release">Thông cáo báo chí</a>
-                    <a href="truyen-thong.html#gallery" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="https://drive.google.com/drive/folders/14mu6-iRJJitM-vmuHOCxBLwKY9JpQrJu"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Thư viện ảnh" data-en="Photo Gallery">Thư viện ảnh</a>
-                    <a href="tin-tuc.html" class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
+                    <a href="tin-tuc.html"
+                        class="block py-2 px-3 text-xs text-gray-500 hover:text-primary hover:bg-blue-50/30 rounded-lg transition-all"
                         data-vi="Tin tức" data-en="News">Tin tức</a>
                 </div>
             </div>
 
-            <a href="lien-he.html" class="flex items-center justify-between py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all"
+            <a href="lien-he.html"
+                class="flex items-center justify-between py-3 px-4 rounded-xl hover:bg-blue-50/50 hover:text-primary transition-all"
                 data-vi="Liên hệ" data-en="Contact">Liên hệ</a>
         </nav>
 
         <!-- Language Selection (placed cleanly at the bottom of the sidebar) -->
         <div class="pt-6 mt-6 border-t border-gray-100">
             <div class="flex items-center justify-between bg-gray-50 rounded-2xl p-4">
-                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider" data-vi="Ngôn ngữ" data-en="Language">Ngôn ngữ</span>
-                <div class="flex items-center rounded-full border border-gray-200 overflow-hidden text-[11px] font-extrabold h-8">
-                    <button id="mob-lang-vi-btn" onclick="setLanguage('vi')" class="px-4 h-full bg-red-600 text-white flex items-center justify-center transition-colors focus:outline-none">VIE</button>
-                    <button id="mob-lang-en-btn" onclick="setLanguage('en')" class="px-4 h-full bg-white text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors focus:outline-none">EN</button>
+                <span class="text-xs font-bold text-gray-500 uppercase tracking-wider" data-vi="Ngôn ngữ"
+                    data-en="Language">Ngôn ngữ</span>
+                <div
+                    class="flex items-center rounded-full border border-gray-200 overflow-hidden text-[11px] font-extrabold h-8">
+                    <button id="mob-lang-vi-btn" onclick="setLanguage('vi')"
+                        class="px-4 h-full bg-red-600 text-white flex items-center justify-center transition-colors focus:outline-none">VIE</button>
+                    <button id="mob-lang-en-btn" onclick="setLanguage('en')"
+                        class="px-4 h-full bg-white text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors focus:outline-none">EN</button>
                 </div>
             </div>
         </div>
