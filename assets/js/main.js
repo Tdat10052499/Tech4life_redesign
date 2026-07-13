@@ -609,9 +609,18 @@ function initMobileSidebar() {
 
 // DomContentLoaded main initialization
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Load components (Header / Footer)
+    // 1. Load components (Header / Footer / Sidebar Mobile)
     await loadComponent('app-header', 'components/navbar.html');
     await loadComponent('app-footer', 'components/footer.html');
+
+    // Dynamically inject mobile sidebar wrapper to body if not present
+    let sidebarContainer = document.getElementById('app-sidebar-mobile');
+    if (!sidebarContainer) {
+        sidebarContainer = document.createElement('div');
+        sidebarContainer.id = 'app-sidebar-mobile';
+        document.body.appendChild(sidebarContainer);
+    }
+    await loadComponent('app-sidebar-mobile', 'components/sidebar-mobile.html');
 
     // Initialize Mobile Sidebar right after header loading
     initMobileSidebar();
