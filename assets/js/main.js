@@ -1,6 +1,84 @@
 // Language management state
 let currentLang = localStorage.getItem('app_lang') || 'vi';
 
+// Inject CSS to hide Google Translate bar and widgets
+function injectGoogleTranslateStyles() {
+    const css = `
+        /* Hide Google Translate top bar */
+        iframe.skiptranslate, 
+        .goog-te-banner-frame,
+        .goog-te-banner-frame.skiptranslate,
+        #goog-gt-tt {
+            display: none !important;
+            visibility: hidden !important;
+        }
+        body {
+            top: 0px !important;
+        }
+        /* Prevent highlight background */
+        .goog-text-highlight {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+    `;
+    const style = document.createElement('style');
+    style.innerHTML = css;
+    document.head.appendChild(style);
+}
+
+// Load Google Translate script dynamically
+function loadGoogleTranslate() {
+    injectGoogleTranslateStyles();
+    
+    // Inject hidden container
+    if (!document.getElementById('google_translate_element')) {
+        const div = document.createElement('div');
+        div.id = 'google_translate_element';
+        div.style.display = 'none';
+        document.body.appendChild(div);
+    }
+    
+    // Inject Google Translate script
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.head.appendChild(script);
+}
+
+// Define the global callback function required by Google Translate
+window.googleTranslateElementInit = function() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'vi',
+        includedLanguages: 'vi,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element');
+    
+    // Once loaded, apply active language
+    setTimeout(() => {
+        triggerGoogleTranslate(currentLang);
+    }, 1000);
+};
+
+// Function to programmatically change Google Translate language
+function triggerGoogleTranslate(lang) {
+    const selectEl = document.querySelector('.goog-te-combo');
+    if (selectEl) {
+        selectEl.value = lang;
+        selectEl.dispatchEvent(new Event('change'));
+    } else {
+        // Retry if select elements are not ready yet
+        setTimeout(() => {
+            const retrySelect = document.querySelector('.goog-te-combo');
+            if (retrySelect) {
+                retrySelect.value = lang;
+                retrySelect.dispatchEvent(new Event('change'));
+            }
+        }, 500);
+    }
+}
+
 function translatePage(lang) {
     document.querySelectorAll('[data-vi]').forEach(el => {
         const text = el.getAttribute(`data-${lang}`);
@@ -47,7 +125,12 @@ window.setLanguage = function(lang) {
     localStorage.setItem('app_lang', lang);
     translatePage(lang);
     updateLanguageButtons(lang);
+    triggerGoogleTranslate(lang);
 };
+
+// Start loading google translate immediately
+loadGoogleTranslate();
+
 
 async function loadComponent(id, url) {
     try {
